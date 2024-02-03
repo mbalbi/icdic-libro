@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ciencia de Datos para Ingeniería Civil &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
+    <title>Inferencia y construcción de modelos &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
   
   
   
@@ -60,10 +60,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'front';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modelos';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Qué es la ciencia de datos?" href="intro.html" />
+    <link rel="next" title="Observaciones y variables" href="datos_y_variables.html" />
+    <link rel="prev" title="Qué es la ciencia de datos?" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -129,7 +130,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="front.html">
   
   
   
@@ -148,15 +149,15 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="front.html">
                     Ciencia de Datos para Ingeniería Civil
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Qué es la ciencia de datos?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modelos.html">Inferencia y construcción de modelos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Inferencia y construcción de modelos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datos_y_variables.html">Observaciones y variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
@@ -232,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ffront.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmodelos.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -262,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/front.md" target="_blank"
+      <li><a href="_sources/modelos.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +332,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -342,11 +345,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ciencia de Datos para Ingeniería Civil</h1>
+    <h1>Inferencia y construcción de modelos</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-define-un-modelo">Cómo se define un modelo?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-modelos">Tipos de modelos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres">Modelos como representaciones de conocimiento e incertidumbres</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -356,19 +369,70 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="ciencia-de-datos-para-ingenieria-civil">
-<h1>Ciencia de Datos para Ingeniería Civil<a class="headerlink" href="#ciencia-de-datos-para-ingenieria-civil" title="Permalink to this heading">#</a></h1>
-<p>Autor: Mariano Balbi</p>
-<p>Este documento es un apunte de cátedra de la materia XX.XX Introducción a la Ciencia de Datos para Ingeniería Civil, dictada por el Departamento de Estabilidad de la <a class="reference external" href="https://fi.uba.ar">FIUBA</a>.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Qué es la ciencia de datos?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modelos.html">Inferencia y construcción de modelos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datos_y_variables.html">Observaciones y variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
-</ul>
+  <div class="section" id="inferencia-y-construccion-de-modelos">
+<h1>Inferencia y construcción de modelos<a class="headerlink" href="#inferencia-y-construccion-de-modelos" title="Permalink to this heading">#</a></h1>
+<p>Hypotheses may come from some more general theory, or may be more ad hoc,
+based on intuition or guesswork about the way some phenomenon might work.
+Experiments or observations of the phenomenon can be made, and the results com-
+pared with the predictions of the hypothesis. This comparison allows one to test
+the model and/or estimate any unknown parameters. Any mismatch between data
+and model predictions, or other unpredicted ﬁndings in the data, may suggest ways
+to revise or change the model. This process of learning about hypotheses from data
+is scientiﬁc inference. Vaughan et al.</p>
+<p>We might say that deductive reasoning concerns statements that are either
+true or false, whereas inductive reasoning concerns statements whose truth value
+is unknown, about which we are better to speak in terms of ‘degree of belief’ or
+‘conﬁdence’. Vaughan et al.</p>
+<p>There is another kind of non-deductive inference, called abduction, or inference to
+the best explanation…
+Again the conclusion is not unavoidable, other conclusions are valid. Perhaps
+someone else ate the banana. But the original conclusion seems to be in some sense
+the simplest of those allowed. This kind of reasoning, from observed data to an
+explanation, is used all the time in science. Vaughan et al.</p>
+<p>Scientiﬁc work employs all the above forms of reasoning. We use deductive rea-
+soning to go from general theories to speciﬁc predictions about the data we could
+observe, and non-deductive reasoning to go from our limited data to general con-
+clusions about unobserved cases or theories. Vaughan et al.</p>
+<p>Experimental and observational science is all about inductive reasoning, going
+from a ﬁnite number of observations or results to a general conclusion about unobserved cases (induction), or a theory that explains them (abduction).</p>
+<hr class="docutils" />
+<p>from https://bjlkeng.io/posts/hypothesis-testing/#id11:</p>
+<p>The first big idea is that all data (or observations as statisticians like to say) have a “true” probability distribution 1. Of course, it is almost never possible to precisely define it because the real world rarely fits so nicely into the distributions we learn in stats class. However, the implications of this idea is that the “true” distribution and its parameters are fixed (i.e. not random) albeit unknown. The randomness comes in when you sample from this “true” distribution from which each datum is randomly drawn.</p>
+<p>The second big idea is that statistical inference 2 (or as computer scientists call it “learning” 3) basically boils down to estimating this distribution directly by computing the distribution or density function 4, or indirectly by estimating derived metrics such as the mean or median of the distribution.</p>
+<p>Give a sample X1,X2,…,Xn drawn from some (unknown) distribution F , how do we estimate F
+(or some properties of F
+)?</p>
+<hr class="docutils" />
+<p>En la introducción anterior mencionamos que el motivo principal por el que necesitamos de la ciencia de datos es porque nuestro conocimiento de los procesos que queremos modelar es incompleto, y requerimos de observaciones para poder caracterizar…</p>
+<p>Como nos interesa responder preguntas sobre la población general y no solo sobre los datos observados, la inferencia estadística requiere la postulación de una serie de hipótesis simplificativas sobre esa población, traducidas matemáticamente en un “modelo de generación de datos”. Toda inferencia que hagamos sobre la población general requiere que asumamos un determinado modelo, es decir, unas determinadas hipótesis, sobre cómo las observaciones podrían haber surgido. Si bien algunos modelos realizan más hipótesis que otros, todos los modelos tienen algún conjunto de especificaciones prescriptas por el modelador que estarán sujetas al escrutinio externo.</p>
+<p>En este sentido, el problema de inferencia es un problema de construcción de un modelo de generación de datos. El proceso de construcción de modelos tiene tres grandes etapas:</p>
+<ol class="arabic simple">
+<li><p>Postulación de modelo: En base al EDA, y al conocimiento específico sobre un determinado problema en cuestión (por ejemplo, conocer la física del problema), se debe postular un conjunto de hipótesis sobre el proceso que generó los datos. En la estadística clásica, esto se refería a postular una familia de distribuciones para la población general de la cual fueron obtenidos los datos. Estas hipótesis se traducen, matemáticamente, en una familia de modelos (probabilísticos) que, creemos, pueden representar el <strong>proceso de generación de datos</strong>.</p></li>
+<li><p>Inferencia del modelo: Una vez postuladas las hipótesis, podemos extraer de las observaciones toda la información necesaria para extraer los modelos más compatibles con los datos observados, dentro de todos los posibles por las hipótesis postuladas.</p></li>
+<li><p>Comparación y mejora del modelo: El modelo resultante puede utilizarse para realizar predicciones sobre nuevas potenciales observaciones. Comparar a estas con las observaciones que sí tenemos sirve como medida de lo útil que es el modelo como representación del mecanismo de generación de datos real. Esto se conoce como una medida de la <strong>bondad de ajuste</strong> del modelo propuesto, y sirve para poder comparar distintos modelos (hipótesis) entre sí.</p></li>
+</ol>
+<div class="figure align-default" id="fig-poblacion">
+<a class="reference internal image-reference" href="figuras/population_and_sample_and_model.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="figuras/population_and_sample_and_model.png" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">EL modelo de generación de datos son las hipótesis simplificativas de la población general que realizamos para poder hacer inferencias sobre la misma</span><a class="headerlink" href="#fig-poblacion" title="Permalink to this image">#</a></p>
+</div>
+<div class="section" id="como-se-define-un-modelo">
+<h2>Cómo se define un modelo?<a class="headerlink" href="#como-se-define-un-modelo" title="Permalink to this heading">#</a></h2>
+<p>The type of randomness described above is usually called random error (or measurement error) by physicists (the term error is used differently by statisticians6). Here, error does not mean a mistake as in the usual sense. To most scientists the ‘measurement error’ is an estimate of the repeatability of a measurement. If we take some data and use them to infer the speed of sound through air, what is the error on our measurement? If we repeat the entire experiment – under almost identical conditions – chances are the next measurements will be slightly different, by some unpredictable amount. As will further repeats. The ‘random error’ is a quantitative indication of how close repeated results will be. Data with small errors are said to have high precision – if we repeat the measurement the next value is likely to be very close to the previous value(s). Vaughan et al.</p>
+<p>modelos paramétricos vs no-paramétricos (ver https://bjlkeng.io/posts/hypothesis-testing/#id11 o wasserman)</p>
+<p>(The art of statistics - Spiegelhalter)
+-Simple mathematical representations for associations (statisticians)
+-Complex deterministic models based on scientific understanding of a physical process
+-Complex algorithms used to make decisiones or predictions from large numbers of data (machine learning)</p>
+</div>
+<div class="section" id="tipos-de-modelos">
+<h2>Tipos de modelos<a class="headerlink" href="#tipos-de-modelos" title="Permalink to this heading">#</a></h2>
+<p>Modelos físicos, matemáticos o computacionales</p>
+<p>Modelos determinísticos o probabilísticos</p>
+<p>Modelos fenomenológicos o teóricos</p>
+</div>
+<div class="section" id="modelos-como-representaciones-de-conocimiento-e-incertidumbres">
+<h2>Modelos como representaciones de conocimiento e incertidumbres<a class="headerlink" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres" title="Permalink to this heading">#</a></h2>
+<p>It is the so-called ‘normal’ distribution that is abnormal in the sense that it has many unique properties not possessed by any other. – E. T. Jaynes</p>
 </div>
 </div>
 
@@ -403,12 +467,21 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="right-next"
+    <a class="left-prev"
        href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Qué es la ciencia de datos?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="datos_y_variables.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Qué es la ciencia de datos?</p>
+        <p class="prev-next-title">Observaciones y variables</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -421,6 +494,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-define-un-modelo">Cómo se define un modelo?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-modelos">Tipos de modelos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres">Modelos como representaciones de conocimiento e incertidumbres</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

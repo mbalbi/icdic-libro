@@ -4,6 +4,9 @@
 format: jb-book
 root: front
 chapters:
+- file: intro
+- file: modelos
+- file: datos_y_variables
 - file: markdown
 - file: notebooks
 - file: markdown-notebooks
