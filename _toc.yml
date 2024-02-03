@@ -10,19 +10,19 @@ parts:
     numbered: True
     chapters:
     - file: chapter1_intro/intro
-    - file: modelos
-    - file: datos_y_variables
+    - file: chapter1_intro/modelos
+    - file: chapter1_intro/datos_y_variables
   - caption: Análisis exploratorio de datos
     numbered: True
     chapters:
-    - file: data_mining
-    - file: data_metrics
-    - file: data_visualization
+    - file: chapter2_aed/data_mining
+    - file: chapter2_aed/data_metrics
+    - file: chapter2_aed/data_visualization
   - caption: Inferencia
     numbered: True
     chapters:
-    - file: inferencia
+    - file: chapter3_inferencia/inferencia
   - caption: Modelos
     numbered: True
     chapters:
-    - file: regresion
+    - file: chapter4_modelos/regresion
