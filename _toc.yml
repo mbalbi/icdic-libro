@@ -3,7 +3,26 @@
 
 format: jb-book
 root: front
-chapters:
-- file: intro
-- file: modelos
-- file: datos_y_variables
+options:
+  numbered: true
+parts:
+  - caption: Introducción
+    numbered: True
+    chapters:
+    - file: intro
+    - file: modelos
+    - file: datos_y_variables
+  - caption: Análisis exploratorio de datos
+    numbered: True
+    chapters:
+    - file: data_mining
+    - file: data_metrics
+    - file: data_visualization
+  - caption: Inferencia
+    numbered: True
+    chapters:
+    - file: inferencia
+  - caption: Modelos
+    numbered: True
+    chapters:
+    - file: regresion

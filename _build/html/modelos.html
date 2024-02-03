@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inferencia y construcción de modelos &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
+    <title>2. Inferencia y construcción de modelos &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
   
   
   
@@ -63,8 +63,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'modelos';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Observaciones y variables" href="datos_y_variables.html" />
-    <link rel="prev" title="Qué es la ciencia de datos?" href="intro.html" />
+    <link rel="next" title="3. Observaciones y variables" href="datos_y_variables.html" />
+    <link rel="prev" title="1. Qué es la ciencia de datos?" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,10 +155,25 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Qué es la ciencia de datos?</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Inferencia y construcción de modelos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datos_y_variables.html">Observaciones y variables</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Qué es la ciencia de datos?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Inferencia y construcción de modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datos_y_variables.html">3. Observaciones y variables</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis exploratorio de datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data_mining.html">4. Minado de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_metrics.html">5. Minado de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_visualization.html">6. Minado de datos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferencia</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="inferencia.html">7. Introducción a la inferencia estadística</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="regresion.html">8. Minado de datos</a></li>
 </ul>
 
     </div>
@@ -352,9 +367,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-define-un-modelo">Cómo se define un modelo?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-modelos">Tipos de modelos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres">Modelos como representaciones de conocimiento e incertidumbres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-define-un-modelo">2.1. Cómo se define un modelo?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-modelos">2.2. Tipos de modelos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres">2.3. Modelos como representaciones de conocimiento e incertidumbres</a></li>
 </ul>
             </nav>
         </div>
@@ -367,7 +382,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="section" id="inferencia-y-construccion-de-modelos">
-<h1>Inferencia y construcción de modelos<a class="headerlink" href="#inferencia-y-construccion-de-modelos" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Inferencia y construcción de modelos<a class="headerlink" href="#inferencia-y-construccion-de-modelos" title="Permalink to this heading">#</a></h1>
 <p>Hypotheses may come from some more general theory, or may be more ad hoc,
 based on intuition or guesswork about the way some phenomenon might work.
 Experiments or observations of the phenomenon can be made, and the results com-
@@ -410,10 +425,10 @@ from a ﬁnite number of observations or results to a general conclusion about u
 </ol>
 <div class="figure align-default" id="fig-poblacion">
 <a class="reference internal image-reference" href="figuras/population_and_sample_and_model.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="figuras/population_and_sample_and_model.png" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">EL modelo de generación de datos son las hipótesis simplificativas de la población general que realizamos para poder hacer inferencias sobre la misma</span><a class="headerlink" href="#fig-poblacion" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">EL modelo de generación de datos son las hipótesis simplificativas de la población general que realizamos para poder hacer inferencias sobre la misma</span><a class="headerlink" href="#fig-poblacion" title="Permalink to this image">#</a></p>
 </div>
 <div class="section" id="como-se-define-un-modelo">
-<h2>Cómo se define un modelo?<a class="headerlink" href="#como-se-define-un-modelo" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span>Cómo se define un modelo?<a class="headerlink" href="#como-se-define-un-modelo" title="Permalink to this heading">#</a></h2>
 <p>The type of randomness described above is usually called random error (or measurement error) by physicists (the term error is used differently by statisticians6). Here, error does not mean a mistake as in the usual sense. To most scientists the ‘measurement error’ is an estimate of the repeatability of a measurement. If we take some data and use them to infer the speed of sound through air, what is the error on our measurement? If we repeat the entire experiment – under almost identical conditions – chances are the next measurements will be slightly different, by some unpredictable amount. As will further repeats. The ‘random error’ is a quantitative indication of how close repeated results will be. Data with small errors are said to have high precision – if we repeat the measurement the next value is likely to be very close to the previous value(s). Vaughan et al.</p>
 <p>modelos paramétricos vs no-paramétricos (ver https://bjlkeng.io/posts/hypothesis-testing/#id11 o wasserman)</p>
 <p>(The art of statistics - Spiegelhalter)
@@ -422,13 +437,13 @@ from a ﬁnite number of observations or results to a general conclusion about u
 -Complex algorithms used to make decisiones or predictions from large numbers of data (machine learning)</p>
 </div>
 <div class="section" id="tipos-de-modelos">
-<h2>Tipos de modelos<a class="headerlink" href="#tipos-de-modelos" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span>Tipos de modelos<a class="headerlink" href="#tipos-de-modelos" title="Permalink to this heading">#</a></h2>
 <p>Modelos físicos, matemáticos o computacionales</p>
 <p>Modelos determinísticos o probabilísticos</p>
 <p>Modelos fenomenológicos o teóricos</p>
 </div>
 <div class="section" id="modelos-como-representaciones-de-conocimiento-e-incertidumbres">
-<h2>Modelos como representaciones de conocimiento e incertidumbres<a class="headerlink" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Modelos como representaciones de conocimiento e incertidumbres<a class="headerlink" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres" title="Permalink to this heading">#</a></h2>
 <p>It is the so-called ‘normal’ distribution that is abnormal in the sense that it has many unique properties not possessed by any other. – E. T. Jaynes</p>
 </div>
 </div>
@@ -470,7 +485,7 @@ from a ﬁnite number of observations or results to a general conclusion about u
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Qué es la ciencia de datos?</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Qué es la ciencia de datos?</p>
       </div>
     </a>
     <a class="right-next"
@@ -478,7 +493,7 @@ from a ﬁnite number of observations or results to a general conclusion about u
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Observaciones y variables</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Observaciones y variables</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -500,9 +515,9 @@ from a ﬁnite number of observations or results to a general conclusion about u
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-define-un-modelo">Cómo se define un modelo?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-modelos">Tipos de modelos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres">Modelos como representaciones de conocimiento e incertidumbres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-define-un-modelo">2.1. Cómo se define un modelo?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-modelos">2.2. Tipos de modelos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres">2.3. Modelos como representaciones de conocimiento e incertidumbres</a></li>
 </ul>
   </nav></div>
 
