@@ -388,25 +388,25 @@ document.write(`
                   
   <div class="section" id="que-es-la-ciencia-de-datos">
 <h1><span class="section-number">1. </span>Qué es la ciencia de datos?<a class="headerlink" href="#que-es-la-ciencia-de-datos" title="Permalink to this heading">#</a></h1>
-<p>Muy sucintamente puede definirse <strong>Ciencia de Datos</strong> como la “ciencia de aprender de los datos” según el Profesor David Donoho de la Universidad de Stanford<span id="id1"><sup></sup></span>. Esta definición parece simple, pero refleja de manera fiel su naturaleza, <em>científica</em>, y su objetivo último, <em>aprender</em>. Existen incontables de otras definiciones más extensas e informativas del término como se resume a continuación:</p>
+<p>Muy sucintamente puede definirse <strong>Ciencia de Datos</strong> como la “ciencia de aprender de los datos” según el Profesor David Donoho de la Universidad de Stanford<span id="id1"><sup><a class="reference internal" href="#id10" title="David Donoho. 50 years of data science. Journal of Computational and Graphical Statistics, 26(4):745-766, 2017. URL: https://doi.org/10.1080/10618600.2017.1384734, doi:10.1080/10618600.2017.1384734.">1</a></sup></span>. Esta definición parece simple, pero refleja de manera fiel su naturaleza, <em>científica</em>, y su objetivo último, <em>aprender</em>. Existen incontables de otras definiciones más extensas e informativas del término como se resume a continuación:</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row docutils">
 <div class="sd-col sd-d-flex-column docutils">
 <blockquote>
 <div><p>Es el estudio de la extracción generalizable de conocimiento de los datos</p>
-<p>–<em>Vasant Dahr, New York University<span id="id2"><sup></sup></span></em></p>
+<p>–<em>Vasant Dahr, New York University<span id="id2"><sup><a class="reference internal" href="#id11" title="Vasant Dhar. Data science and prediction. Commun. ACM, 56(12):64–73, dec 2013. URL: https://doi.org/10.1145/2500499, doi:10.1145/2500499.">2</a></sup></span></em></p>
 </div></blockquote>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
 <blockquote>
 <div><p>Es el campo inter-disciplinario que usa sistemas computacionales para extraer conocimiento de datos estructurados y no estructurados</p>
-<p>–<em>Filippo Chiarello, University of Pisa<span id="id3"><sup></sup></span></em></p>
+<p>–<em>Filippo Chiarello, University of Pisa<span id="id3"><sup><a class="reference internal" href="#id12" title="Filippo Chiarello, Paola Belingheri, and Gualtiero Fantoni. Data science for engineering design: State of the art and future directions. Computers in Industry, 129:103447, August 2021. doi:10.1016/j.compind.2021.103447.">3</a></sup></span></em></p>
 </div></blockquote>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
 <blockquote>
 <div><p>…obtener datos, entenderlos, procesarlos, extraer valor, visualizarlos y comunicarlos…</p>
-<p>–<em>Hal Varian, Google &amp; UC Berkeley<span id="id4"><sup></sup></span></em></p>
+<p>–<em>Hal Varian, Google &amp; UC Berkeley<span id="id4"><sup><a class="reference internal" href="#id14" title="McKinsey &amp; Co. Hal Varian on how the Web challenges managers. January 2009.">4</a></sup></span></em></p>
 </div></blockquote>
 </div>
 </div>
@@ -463,12 +463,12 @@ Regresiones entre variables</div>
 </div>
 </div>
 </div>
-<p>De los ejemplos queda claro que la noción de <strong>población</strong> es un concepto amplio que involucra “todas las observaciones que podrían ocurrir” si repitiésemos el procedimiento de tomar muestras <span id="id5"><sup></sup></span> (ver <a class="reference internal" href="modelos.html#fig-poblacion"><span class="std std-numref">Fig. 2.1</span></a>). En el ejemplo de los bulones, la población tiene forma clara y tangible: son todos los bulones obtenidos en la tanda. En el ejemplo de los vientos, por otro lado, la muestra son los vientos de los últimos 40 años, y la población incluiría además todos los vientos anteriores (no observados) y los futuros. Por último, en el ejemplo de los volúmenes de tráfico en la avenida, la muestra está compuesta por todas las vías medidas (incluso podrían ser todas las calles de una ciudad), pero la población también incluye hipotéticas calles con anchos de calzada y densidades poblacionales que no existen pero podrían existir [^Spiegelhalter habla de 3 tipos de poblaciones literales, virtuales y metafóricas].</p>
+<p>De los ejemplos queda claro que la noción de <strong>población</strong> es un concepto amplio que involucra “todas las observaciones que podrían ocurrir” si repitiésemos el procedimiento de tomar muestras <span id="id5"><sup><a class="reference internal" href="#id15" title="Simon Vaughan. Scientific Inferece: Learning from Data. Cambridge University Press, 2013.">5</a></sup></span> (ver <a class="reference internal" href="modelos.html#fig-poblacion"><span class="std std-numref">Fig. 2.1</span></a>). En el ejemplo de los bulones, la población tiene forma clara y tangible: son todos los bulones obtenidos en la tanda. En el ejemplo de los vientos, por otro lado, la muestra son los vientos de los últimos 40 años, y la población incluiría además todos los vientos anteriores (no observados) y los futuros. Por último, en el ejemplo de los volúmenes de tráfico en la avenida, la muestra está compuesta por todas las vías medidas (incluso podrían ser todas las calles de una ciudad), pero la población también incluye hipotéticas calles con anchos de calzada y densidades poblacionales que no existen pero podrían existir [^Spiegelhalter habla de 3 tipos de poblaciones literales, virtuales y metafóricas].</p>
 <div class="figure align-default" id="fig-poblacion">
 <a class="reference internal image-reference" href="../_images/population_and_sample_2.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="../_images/population_and_sample_2.png" style="width: 585.5px; height: 433.5px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">El círculo rojo son las muestras que observamos, dentro de un universo posible de muestas (población general). Las conclusiones que más interesan son sobre la población general.</span><a class="headerlink" href="#fig-poblacion" title="Permalink to this image">#</a></p>
 </div>
-<p>El concepto de “aprender de los datos” central en la ciencia de datos no es, sin embargo, nuevo, y existe desde mucho antes de que nadie hablara de ciencia de datos. Usar las propiedades de una muestra para inferir (o predecir) las propiedades de una población que las contiene se conoce como <strong>inferencia estadística</strong> (o estadística inferencial) se remonta a varios siglos atrás[^Gauss desarrolló el método de cuadrados mínimos hace 3 siglos??]. Sin embargo, recién a finales del Siglo XIX y principios del Siglo XX[^https://en.wikipedia.org/wiki/History_of_statistics] es cuando se convirtió en una discplina madura y formal. En este sentido, para muchos expertos la ciencia de datos no es más que una extensión de la inferencia estadística; o que de hecho son lo mismo<span id="id6"><sup></sup></span>.</p>
+<p>El concepto de “aprender de los datos” central en la ciencia de datos no es, sin embargo, nuevo, y existe desde mucho antes de que nadie hablara de ciencia de datos. Usar las propiedades de una muestra para inferir (o predecir) las propiedades de una población que las contiene se conoce como <strong>inferencia estadística</strong> (o estadística inferencial) se remonta a varios siglos atrás[^Gauss desarrolló el método de cuadrados mínimos hace 3 siglos??]. Sin embargo, recién a finales del Siglo XIX y principios del Siglo XX[^https://en.wikipedia.org/wiki/History_of_statistics] es cuando se convirtió en una discplina madura y formal. En este sentido, para muchos expertos la ciencia de datos no es más que una extensión de la inferencia estadística; o que de hecho son lo mismo<span id="id6"><sup><a class="reference internal" href="#id10" title="David Donoho. 50 years of data science. Journal of Computational and Graphical Statistics, 26(4):745-766, 2017. URL: https://doi.org/10.1080/10618600.2017.1384734, doi:10.1080/10618600.2017.1384734.">1</a></sup></span>.</p>
 <p>Ya desde inicios de la segunda mitad del siglo XX, empezaron a surgir desarrollos y aplicaciones sobre datos que parecían incluir y exceder los enfoques de la estadística clásica. Estos desarrollos incluían el uso de sistemas informatizados para almacenar y procesar los datos, e incluso de analizarlos y encontrar modelos predictivos a partir de los mismos. En particular, el desarrollo de algoritmos automatizados para encontrar patrones y poder construir modelos predictivos incluso para grandes y complejos volúmenes de datos, hoy englobados dentro del término “aprendizaje de máquina”, impulsó a la estadística clásica a dar un salto hacia adelante. La inferencia estadística, focalizada en la validación de hipótesis simplificativas sobre la población, hacía lugar a nuevos modelos que requerían hacer pocas (o nulas) hipótesis sobre las características de esta población y se concentraban en poder predecir lo más acertadamante posible observaciones de esta población. La novedosa flexibilidad de estos nuevos modelos era solo posible gracias al incremento exponencial del poder de cálculo introducido por la computación moderna, y se abría un abanico inmenso de nuevas aplicaciones posibles en todas las disciplinas.</p>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
@@ -487,7 +487,7 @@ Clasficación de imagenes</div>
 </div>
 </div>
 </div>
-<p>El auge de estos nuevos algoritmos y aplicaciones requirió también el desarrollo de técnicas computacionales para el almacenamiento y procesamiento de grandes cantidades de datos de estructuras muy diferentes (una sola imagen satelital son miles de numeritos con un determinado orden). En este contexto, se acuña en la década del 70 el término “ciencia de datos”<span id="id7"><sup></sup></span> como una disciplina más amplia que contiene a la inferencia estadística clásica y que incluye conocimientos de informática y cálculo computacional. Estas herramientas son combinadas, hoy en día, con conociemintos técnicos de los distintos ámbitos de aplicación. La ciencia de datos moderna es, entonces, una disciplina transversal y que ha permeado en los desarrollos de la mayor parte de las ingenierías y, en particular, de la ingeniería civil (ver <a class="reference internal" href="#ciencia-datos"><span class="std std-numref">Fig. 1.2</span></a>).</p>
+<p>El auge de estos nuevos algoritmos y aplicaciones requirió también el desarrollo de técnicas computacionales para el almacenamiento y procesamiento de grandes cantidades de datos de estructuras muy diferentes (una sola imagen satelital son miles de numeritos con un determinado orden). En este contexto, se acuña en la década del 70 el término “ciencia de datos”<span id="id7"><sup><a class="reference internal" href="#id13" title="Longbing Cao. Data Science: A Comprehensive Overview. ACM Computing Surveys, 50(3):43:1–43:42, June 2017. doi:10.1145/3076253.">6</a></sup></span> como una disciplina más amplia que contiene a la inferencia estadística clásica y que incluye conocimientos de informática y cálculo computacional. Estas herramientas son combinadas, hoy en día, con conociemintos técnicos de los distintos ámbitos de aplicación. La ciencia de datos moderna es, entonces, una disciplina transversal y que ha permeado en los desarrollos de la mayor parte de las ingenierías y, en particular, de la ingeniería civil (ver <a class="reference internal" href="#ciencia-datos"><span class="std std-numref">Fig. 1.2</span></a>).</p>
 <div class="figure align-default" id="ciencia-datos">
 <a class="reference internal image-reference" href="../_images/burbujas_ciencia_de_datos.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="../_images/burbujas_ciencia_de_datos.png" style="width: 578.0px; height: 516.75px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.2 </span><span class="caption-text">La ciencia de datos como encuentro de distintas especialidades</span><a class="headerlink" href="#ciencia-datos" title="Permalink to this image">#</a></p>
@@ -940,7 +940,29 @@ La construcción del modelo implica la postulación de un conjunto de hipótesis
 <hr class="docutils" />
 <div class="section" id="referencias">
 <h2><span class="section-number">1.5. </span>Referencias<a class="headerlink" href="#referencias" title="Permalink to this heading">#</a></h2>
-<span class="target" id="id9"></span></div>
+<div class="docutils container" id="id9">
+<dl class="citation">
+<dt class="label" id="id10"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id6">2</a>)</span></dt>
+<dd><p>David Donoho. 50 years of data science. <em>Journal of Computational and Graphical Statistics</em>, 26(4):745–766, 2017. URL: <a class="reference external" href="https://doi.org/10.1080/10618600.2017.1384734">https://doi.org/10.1080/10618600.2017.1384734</a>, <a class="reference external" href="https://doi.org/10.1080/10618600.2017.1384734">doi:10.1080/10618600.2017.1384734</a>.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Vasant Dhar. Data science and prediction. <em>Commun. ACM</em>, 56(12):64–73, dec 2013. URL: <a class="reference external" href="https://doi.org/10.1145/2500499">https://doi.org/10.1145/2500499</a>, <a class="reference external" href="https://doi.org/10.1145/2500499">doi:10.1145/2500499</a>.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Filippo Chiarello, Paola Belingheri, and Gualtiero Fantoni. Data science for engineering design: State of the art and future directions. <em>Computers in Industry</em>, 129:103447, August 2021. <a class="reference external" href="https://doi.org/10.1016/j.compind.2021.103447">doi:10.1016/j.compind.2021.103447</a>.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>McKinsey &amp; Co. Hal Varian on how the Web challenges managers. January 2009.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>Simon Vaughan. <em>Scientific Inferece: Learning from Data</em>. Cambridge University Press, 2013.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id7">6</a></span></dt>
+<dd><p>Longbing Cao. Data Science: A Comprehensive Overview. <em>ACM Computing Surveys</em>, 50(3):43:1–43:42, June 2017. <a class="reference external" href="https://doi.org/10.1145/3076253">doi:10.1145/3076253</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
