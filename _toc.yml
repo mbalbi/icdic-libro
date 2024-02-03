@@ -9,7 +9,7 @@ parts:
   - caption: Introducción
     numbered: True
     chapters:
-    - file: intro
+    - file: chapter1_intro/intro
     - file: modelos
     - file: datos_y_variables
   - caption: Análisis exploratorio de datos
