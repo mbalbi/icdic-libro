@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
+title: Introducción a la Ciencia de Datos para Ingeniería Civil
+author: Mariano Balbi
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
@@ -19,6 +19,11 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
+# Reference format
+sphinx:
+  config:
+    bibtex_reference_style: super
+
 # Information about where the book exists on the web
 repository:
   url: https://github.com/executablebooks/jupyter-book  # Online location of your book
@@ -28,5 +33,11 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  use_issues_button: true
-  use_repository_button: true
+  use_issues_button: True
+  use_repository_button: True
+
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - deflist
