@@ -12,9 +12,11 @@ kernelspec:
   name: python3
 ---
 
-# Qué es la ciencia de datos?
+# Introducción
 
-Muy sucintamente puede definirse **Ciencia de Datos** como la "ciencia de aprender de los datos" según el Profesor David Donoho de la Universidad de Stanford{cite}`donoho2017`. Esta definición parece simple, pero refleja de manera fiel su naturaleza, _científica_, y su objetivo último, _aprender_. Existen incontables de otras definiciones más extensas e informativas del término como se resume a continuación:
+## Qué es la ciencia de datos?
+
+Muy sucintamente puede definirse **Ciencia de Datos** como la "ciencia de aprender de los datos" según el Profesor David Donoho de la Universidad de Stanford{cite}`donoho2017`. Esta definición parece simple, pero refleja de manera fiel su naturaleza _científica_ y su objetivo último, _aprender_. Existen incontables definiciones más extensas y específicas del término como por ejemplo:
 
 ````{grid}
 
@@ -37,8 +39,7 @@ Muy sucintamente puede definirse **Ciencia de Datos** como la "ciencia de aprend
 ```
 ````
 
-En todas las definiciones, el aspecto fundamental es el de "extraer conocimiento" (o "aprender" o "extraer valor"). En un sentido amplio, "extraer conocimiento" implica obtener conclusiones que puedan ser generalizadas más allá de las observaciones. De esto se desprende que el objeto de estudio último de la ciencia de datos no es el conjunto específico de observaciones en sí, también llamado **muestra**, si no el conjunto de todas las observaciones posibles que representan un determinado proceso físico real, también llamado **población**.
-
+Hay dos conceptos clave en estas definiciones: **datos** y **extraer conocimiento**. En primer lugar, los **datos** son observaciones de algún aspecto de la realidad. Es decir, no son _LA REALIDAD_, si no mediciones (ruidosas) de la realidad. Los términos _datos_, _observaciones_ y _mediciones_ serán utilizados de manera intercambiable. Por otro lado, la expresión de "extraer conocimiento" (o "aprender" o "extraer valor") implica, de manera general, obtener conclusiones que puedan ser generalizadas más allá de las observaciones. 
 
 ``````{card} Control de calidad en un proceso
 
@@ -89,16 +90,30 @@ _Cómo predecimos el volumen para la nueva avenida a partir de los volúmenes de
 ````
 ``````
 
-De los ejemplos queda claro que la noción de **población** es un concepto amplio que involucra "todas las observaciones que podrían ocurrir" si repitiésemos el procedimiento de tomar muestras {cite}`vaughan2013` (ver {numref}`fig-poblacion`). En el ejemplo de los bulones, la población tiene forma clara y tangible: son todos los bulones obtenidos en la tanda. En el ejemplo de los vientos, por otro lado, la muestra son los vientos de los últimos 40 años, y la población incluiría además todos los vientos anteriores (no observados) y los futuros. Por último, en el ejemplo de los volúmenes de tráfico en la avenida, la muestra está compuesta por todas las vías medidas (incluso podrían ser todas las calles de una ciudad), pero la población también incluye hipotéticas calles con anchos de calzada y densidades poblacionales que no existen pero podrían existir [^Spiegelhalter habla de 3 tipos de poblaciones literales, virtuales y metafóricas].
+### Objetivo y filosofía
+
+De las definiciones y ejemplos vistos se desprende que el objetivo principal de la ciencia de datos es,
+
+> Responder preguntas sobre el mundo real a partir de un conjunto limitado de observaciones
+
+De los ejemplos queda claro, además, que el objeto último de la ciencia de datos no es el estudio de un conjunto específico de observaciones en sí, también llamado **muestra**, si no el conjunto de observaciones potencialmente realizables dentro de un determinado proceso físico real, también llamado **población**. La noción de **población** es un concepto amplio que involucra "todas las observaciones que podrían ocurrir" si repitiésemos el procedimiento de tomar muestras {cite}`vaughan2013` (ver {numref}`fig-poblacion`). En el ejemplo de los bulones, la población tiene forma clara y tangible: son todos los bulones obtenidos en la tanda. En el ejemplo de los vientos, por otro lado, la muestra son los vientos de los últimos 40 años, y la población incluiría además todos los vientos anteriores (no observados) y los futuros. Por último, en el ejemplo de los volúmenes de tráfico en la avenida, la muestra está compuesta por todas las vías medidas (incluso podrían ser todas las calles de una ciudad), pero la población también incluye hipotéticas calles con anchos de calzada y densidades poblacionales que no existen pero podrían existir [^Spiegelhalter].
+
+[^Spiegelhalter]: Spiegelhalter habla de 3 tipos de poblaciones literales, virtuales y metafóricas.
 
 ```{figure} figuras/population_and_sample_2.png
 :scale: 25 %
 :alt: Información sobre el objetivo de la ciencia de datos
 :name: fig-poblacion
 
-El círculo rojo son las muestras que observamos, dentro de un universo posible de muestas (población general). Las conclusiones que más interesan son sobre la población general.
+El círculo rojo son las muestras que observamos, dentro de un universo posible de muestras (población general). Las conclusiones que más interesan son sobre la población general.
 
 ```
+
+
+
+Y se desprende, además, que su principal herramienta es la _inferencia estadística_ que es la conceptualización matemática del razonamiento inductivo.
+
+### Como disciplina
 
 El concepto de "aprender de los datos" central en la ciencia de datos no es, sin embargo, nuevo, y existe desde mucho antes de que nadie hablara de ciencia de datos. Usar las propiedades de una muestra para inferir (o predecir) las propiedades de una población que las contiene se conoce como **inferencia estadística** (o estadística inferencial) se remonta a varios siglos atrás[^Gauss desarrolló el método de cuadrados mínimos hace 3 siglos??]. Sin embargo, recién a finales del Siglo XIX y principios del Siglo XX[^https://en.wikipedia.org/wiki/History_of_statistics] es cuando se convirtió en una discplina madura y formal. En este sentido, para muchos expertos la ciencia de datos no es más que una extensión de la inferencia estadística; o que de hecho son lo mismo{cite}`donoho2017`. 
 
@@ -111,7 +126,7 @@ Ya desde inicios de la segunda mitad del siglo XX, empezaron a surgir desarrollo
 ```{grid-item}
 En un contexto de planificación urbano-ambiental, una agencia gubernamental necesita hacer una evaluación del balance hídrico de una cuenca. Para esto, es útil conocer la geografía de la región, incluyendo los tipos de suelo y cursos de agua existentes. Esto puede ser una tarea gigante de realizar mediante inspecciones oculares. Por suerte, hoy en día, las imágenes satelitales permiten obtener información periódica sobre el estado del terreno, y son de acceso relativamente barato.
 
-_Cómo usamos imagenes satelitales viejas para automatizar la clasificación de tipos de suelo en imágenes satelitales nuevas?_
+_Cómo usamos imágenes satelitales viejas para automatizar la clasificación de tipos de suelo en imágenes satelitales nuevas?_
 
 ```{grid-item}
 ![asfalto](figuras/imagen_satelital_LU.jpg)
@@ -132,13 +147,9 @@ La ciencia de datos como encuentro de distintas especialidades
 
 ```
 
-## Para qué hacemos ciencia de datos?
+## Por qué hacemos ciencia de datos?
 
-De la definición de **ciencia de datos** recién discutida, se desprende la razón principal de su uso: 
-
-> Responder preguntas sobre el mundo real
-
-Esta razón es algo vaga ya que hay muchísimas otras disciplinas que tienen esta misma razón de ser (todas tal vez?). Pero la ciencia de datos tiene la particularidad de intentar **responder preguntas a partir de observaciones** en casos donde difícilmente podrían responderse de otra manera.
+La ciencia de datos tiene la particularidad de intentar **responder preguntas sobre la realidad a partir de mediciones de la realidad**, que no podríamos responder de otra manera.
 
 ```{admonition} Teoría desconocida
 :class: tip
@@ -158,11 +169,16 @@ Es este valor deducido confiable? Puede haber habido bulones defectuosas o una f
 
 ```
 
-En ingeniería civil, como en la gran mayoría de las ciencias, necesitamos de datos cuando no podemos describir o predecir de manera exacta el comportamiento de los sistemas que estudiamos solo a partir de principios teóricos o deductivos. Esto puede deberse a que no existe una teoría consolidada (una serie de postulados dados por ciertos) sobre el tema en cuestión, como en el caso de la agencia de tránsito; o incluso habiendo una teoría consolidada, como la _resistencia de materiales_ en el caso de la fábrica de bulones, que estos postulados no apliquen de manera perfecta (o sea muy difícil aplicarla) a la situación de análisis. Pero además, muchas de las teorías consolidadas que pueden servir de postulados para un razonamiento deductivo fueron eventualmente inducidas y validadas a partir de datos; al menos las consideradas "teorías científicas" (insertar ref).
+En este sentido, existen tres tipos de procesos racionales para obtener conocimiento nuevo a partir de conocimiento pre-existente:
+1. Inferencia deductiva: 
+2. Inferencia inductiva:
+3. Inferencia abductiva:
 
-### Qué tipos de preguntas buscamos responder?
+En ingeniería civil, como en la gran mayoría de las ciencias, necesitamos de datos cuando no podemos describir o predecir de manera exacta el comportamiento de los sistemas que estudiamos solo a partir de principios teóricos o deductivos. Esto puede deberse a que no existe una teoría consolidada (una serie de postulados dados por ciertos) sobre el tema en cuestión, como en el caso de la agencia de tránsito; o incluso habiendo una teoría consolidada, como la _resistencia de materiales_ en el caso de la fábrica de bulones, que estos postulados no apliquen de manera perfecta (o sea muy difícil aplicarla) a la situación de análisis.
 
-Existen una infinidad de preguntas que podemos responder con datos, en distintas disciplinas y distintas aplicaciones, como se evidenció en los ejemplos anteriores. Sin embargo, es útil hacer algunas clasificaciones gruesas para pensar mejor el tipo de procedimientos más eficientes para su respuesta.
+La ciencia de datos utiliza la _inferencia inductiva_ como herramienta fundamental para la generalización del conocimiento obtenido a partir de mediciones parciales de algún aspecto de la realidad.
+
+### Qué tipos de preguntas?
 
 Por un lado, las preguntas que definen el objetivo de un problema específico pueden hacer referencia a una característica descriptiva de la población que puede calcularse a partir de sus elementos pero que no puede ser observada de manera directa. Este es el caso de la fábrica de los bulones: lo que interesa conocer es el valor medio de las resistencias de la población de bulones (no observable) y no la resistencia de algún bulón en específico (observable). En el ejemplo de la agencia de tránsito, en cambio, interesa inferir el valor del tránsito en una avenida en particular (observable). El hecho de que la avenida exista o no aún, es irrelevante en el concepto de "observable" o "no-observable".
 
@@ -178,7 +194,11 @@ Son los elementos individuales de la población. Se los denomina también **real
 
 ``````
 
-La clasificación más relevante y comúnmente descripta en los libros de estadística, sin embargo, tiene que ver con las razones por las cuales postulamos las preguntas de interés. Por un lado tenemos la **inferencia predictiva** cuyo objetivo es predecir el valor de futuras realizaciones de la población (futuras muestras), mientras que la estructura del modelo que representa a la población en sí, no es de mayor relevancia. El auge de las últimas décadas en modelos de "aprendizaje estadístico" (machine learning) se centra en este tipo de modelos que maximizan la capacidad predictiva a costas de reducir la interpretabilidad del modelo. En el ejemplo de la agencia de tránsito, la pregunta sobre el volumen esperado para una nueva avenida entra adentro de la categoría de inferencia predictiva.
+La clasificación más relevante y comúnmente descripta en los libros de estadística, sin embargo, tiene que ver con las razones por las cuales postulamos las preguntas de interés. 
+
+EJEMPLO
+
+En muchos casos, lo que motiva las preguntas de interés es poder predecir de la manera "más precisa posible" un valor futuro, o no observado aún, de elementos de la población. Esto coincide con el tipo de preguntas "sobre observables" recién descripto. En este tipo de problemas, que se engloba dentro de la categoría de **inferencia predictiva**, no es relevante la estructura, es decir los parámetros, de la población; solo la capacidad de predicción del modelo. El auge de las últimas décadas en modelos de "aprendizaje estadístico" (machine learning) se centra en este tipo de modelos que maximizan la capacidad predictiva a costas de reducir la interpretabilidad del modelo. En el ejemplo de la agencia de tránsito, la pregunta sobre el volumen esperado para una nueva avenida entra adentro de la categoría de inferencia predictiva.
 
 Dentro del mismo ejemplo, a la agencia de tránsito también le interesa conocer cómo puede variar el volumen de tráfico con la densidad poblacional para poder realizar proyecciones teniendo en cuenta el crecimiento demográfico de la ciudad. En este caso, interesa conocer el grado y tipo de asociación entre "volumen de tráfico" y "densidad poblacional" más que hacer predicciones de volumen específicas. Este tipo de preguntas entra dentro de la categoría de **inferencia asociativa**, donde el interés radica en entender la relación funcional entre dos o más variables por lo que la interpretabilidad del modelo juega un rol relevante.
 
@@ -224,9 +244,42 @@ Interesa principalmente entender la estructura de la población para inferir rel
 La línea entre las distintas categorías de preguntas no siempre es tan clara y en muchas ocasiones puede utilizarse el mismo tipo de modelo para distintas inferencias. Creemos que es útil, de todas maneras, tener en clara la distinción a la hora de plantear las preguntas.
 
 
+## Cómo hacemos ciencia de datos?
+
+xxx
+
+```{figure} figuras/datascience_somerville.jpeg
+:scale: 25 %
+:alt: El proceso de la ciencia de datos
+:name: fig-somerville
+
+Caricatura del proceso de extraer conocimiento de un conjunto de observaciones realizada por David Somerville basado en el original de Hugh McLeod (https://random-blather.com/2014/04/28/information-isnt-power/).
+
+```
+
+El proceso de _construcción de conocimiento a partir de datos_ solo es posible mediante una adecuada definición del problema a resolver (las preguntas a contestar) y una adecuada planificación en la recolección, procesamiento y visualización de los datos disponibles. En este contexto, la ciencia de datos abarca una serie de etapas, retroalimentadas entre sí, donde cada una requiere de cuidadoso estudio y de técnica específicas:
+
+1. Definición del problema: Planteo de preguntas que nos interesara contestar. Para que un problema esté _bien definido_ tiene que poder responderse a través de datos que podemos razonablemente obtener.
+
+2. Recolección y preparación de los datos: Los datos pueden obtenerse a través de observaciones o experimentos. Hoy en día, las observaciones del mundo real vienen en una variedad inmensa de formato y modos de extracción, al punto de que la recolección de datos se ha transformado en una disciplina en su propio derecho. La recolección de datos involucra todas las técnicas necesarias para catalogar y guardar las observaciones para su posterior procesamiento. Esto puede hacerse de manera manual (como se hacía antes), o a través de técnicas de automatización que permiten la catalogación de grandes volúmenes de información (en formato digital principalmente). Esto se suele conocer en la actualidad como **data mining**.
+
+3. Exploración de los datos: El Análisis Exploratorio de Datos (EDA) se centra en la caracterización de los datos obtenidos a través de resúmenes poblacionales y visualizaciones, con el objetivo de detectar patrones interesantes que permitan el desarrollo de modelos adecuados para los datos.
+
+4. Construcción del modelo (de generación de datos):
+La construcción del modelo implica la postulación de un conjunto de hipótesis sobre el proceso que generó los datos, su inferencia y validación en base a las observaciones disponibles. Distintos modelos pueden proponerse, compararse y mejorarse a la luz de los datos y el conocimiento disponible sobre el tema. Este paso es lo que se conoce tradicionalmente como **inferencia estadística**.
+
+5. Aplicación / Toma de decisiones: Una vez que tenemos un modelo con el que estamos satisfechos, podemos utilizarlo para responder las preguntas de interés.
 
 
+### Qué tipos de respuestas encontramos en la ciencia de datos?
 
+Las preguntamos que planteamos en ciencia de datos no tienen respuestas exactas.
+
+Respuestas sobre incertidumbres
+
+> Data are noisy and inferences are probabilistic
+>
+> Doing Bayesian Data Analysis, Kruschke (2015)
 
 
 ---
@@ -622,20 +675,6 @@ Por ejemplo, el ejemplo del nuevo esquema tarifario de peajes puede pensarse com
 
 `````
 
-## El proceso de la ciencia de datos
-
-El proceso de _construcción de conocimiento a partir de datos_ solo es posible mediante una adecuada definición del problema a resolver (las preguntas a contestar) y una adecuada planificación en la recolección, procesamiento y visualización de los datos disponibles. En este contexto, la ciencia de datos abarca una serie de etapas, retroalimentadas entre sí, donde cada una requiere de cuidadoso estudio y de técnica específicas:
-
-1. Definición del problema: Planteo de preguntas que nos interesara contestar. Para que un problema esté _bien definido_ tiene que poder responderse a través de datos que podemos razonablemente obtener.
-
-2. Recolección y preparación de los datos: Los datos pueden obtenerse a través de observaciones o experimentos. Hoy en día, las observaciones del mundo real vienen en una variedad inmensa de formato y modos de extracción, al punto de que la recolección de datos se ha transformado en una disciplina en su propio derecho. La recolección de datos involucra todas las técnicas necesarias para catalogar y guardar las observaciones para su posterior procesamiento. Esto puede hacerse de manera manual (como se hacía antes), o a través de técnicas de automatización que permiten la catalogación de grandes volúmenes de información (en formato digital principalmente). Esto se suele conocer en la actualidad como **data mining**.
-
-3. Exploración de los datos: El Análisis Exploratorio de Datos (EDA) se centra en la caracterización de los datos obtenidos a través de resúmenes poblacionales y visualizaciones, con el objetivo de detectar patrones interesantes que permitan el desarrollo de modelos adecuados para los datos.
-
-4. Construcción del modelo (de generación de datos):
-La construcción del modelo implica la postulación de un conjunto de hipótesis sobre el proceso que generó los datos, su inferencia y validación en base a las observaciones disponibles. Distintos modelos pueden proponerse, compararse y mejorarse a la luz de los datos y el conocimiento disponible sobre el tema. Este paso es lo que se conoce tradicionalmente como **inferencia estadística**.
-
-5. Aplicación / Toma de decisiones: Una vez que tenemos un modelo con el que estamos satisfechos, podemos utilizarlo para responder las preguntas de interés.
 
 
 ---

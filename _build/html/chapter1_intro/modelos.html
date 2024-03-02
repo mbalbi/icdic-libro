@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Inferencia y construcción de modelos &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
+    <title>2. Modelos, variables y parámetros &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
   
   
   
@@ -63,8 +63,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter1_intro/modelos';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Observaciones y variables" href="datos_y_variables.html" />
-    <link rel="prev" title="1. Qué es la ciencia de datos?" href="intro.html" />
+    <link rel="next" title="3. Variables, poblaciones y datos" href="../chapter2_aed/datos_y_variables.html" />
+    <link rel="prev" title="1. Introducción" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,23 +157,22 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Qué es la ciencia de datos?</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Inferencia y construcción de modelos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datos_y_variables.html">3. Observaciones y variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introducción</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Modelos, variables y parámetros</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis exploratorio de datos</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Recolección y descripción de datos</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/datos_y_variables.html">3. Variables, poblaciones y datos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/data_mining.html">4. Minado de datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/data_metrics.html">5. Minado de datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/data_visualization.html">6. Minado de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/aed.html">5. Análisis exploratorio de datos</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferencia</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos de inferencia estadística</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter3_inferencia/inferencia.html">7. Introducción a la inferencia estadística</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3_inferencia/inferencia.html">6. Introducción a la inferencia estadística</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelos</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelos de probabilidad condicional</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter4_modelos/regresion.html">8. Minado de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4_modelos/regresion.html">7. Minado de datos</a></li>
 </ul>
 
     </div>
@@ -357,7 +356,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Inferencia y construcción de modelos</h1>
+    <h1>Modelos, variables y parámetros</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -370,6 +369,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-define-un-modelo">2.1. Cómo se define un modelo?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-modelos">2.2. Tipos de modelos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres">2.3. Modelos como representaciones de conocimiento e incertidumbres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-datos-y-parametros">2.4. Variables, datos y parámetros</a></li>
 </ul>
             </nav>
         </div>
@@ -381,8 +381,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="inferencia-y-construccion-de-modelos">
-<h1><span class="section-number">2. </span>Inferencia y construcción de modelos<a class="headerlink" href="#inferencia-y-construccion-de-modelos" title="Permalink to this heading">#</a></h1>
+  <div class="section" id="modelos-variables-y-parametros">
+<h1><span class="section-number">2. </span>Modelos, variables y parámetros<a class="headerlink" href="#modelos-variables-y-parametros" title="Permalink to this heading">#</a></h1>
 <p>ESTO ES UNA PRUEBA!</p>
 <p>Hypotheses may come from some more general theory, or may be more ad hoc,
 based on intuition or guesswork about the way some phenomenon might work.
@@ -424,9 +424,9 @@ from a ﬁnite number of observations or results to a general conclusion about u
 <li><p>Inferencia del modelo: Una vez postuladas las hipótesis, podemos extraer de las observaciones toda la información necesaria para extraer los modelos más compatibles con los datos observados, dentro de todos los posibles por las hipótesis postuladas.</p></li>
 <li><p>Comparación y mejora del modelo: El modelo resultante puede utilizarse para realizar predicciones sobre nuevas potenciales observaciones. Comparar a estas con las observaciones que sí tenemos sirve como medida de lo útil que es el modelo como representación del mecanismo de generación de datos real. Esto se conoce como una medida de la <strong>bondad de ajuste</strong> del modelo propuesto, y sirve para poder comparar distintos modelos (hipótesis) entre sí.</p></li>
 </ol>
-<div class="figure align-default" id="fig-poblacion">
+<div class="figure align-default" id="fig-poblacion-2">
 <a class="reference internal image-reference" href="../_images/population_and_sample_and_model.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="../_images/population_and_sample_and_model.png" style="width: 624.25px; height: 499.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">EL modelo de generación de datos son las hipótesis simplificativas de la población general que realizamos para poder hacer inferencias sobre la misma</span><a class="headerlink" href="#fig-poblacion" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">EL modelo de generación de datos son las hipótesis simplificativas de la población general que realizamos para poder hacer inferencias sobre la misma</span><a class="headerlink" href="#fig-poblacion-2" title="Permalink to this image">#</a></p>
 </div>
 <div class="section" id="como-se-define-un-modelo">
 <h2><span class="section-number">2.1. </span>Cómo se define un modelo?<a class="headerlink" href="#como-se-define-un-modelo" title="Permalink to this heading">#</a></h2>
@@ -446,6 +446,20 @@ from a ﬁnite number of observations or results to a general conclusion about u
 <div class="section" id="modelos-como-representaciones-de-conocimiento-e-incertidumbres">
 <h2><span class="section-number">2.3. </span>Modelos como representaciones de conocimiento e incertidumbres<a class="headerlink" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres" title="Permalink to this heading">#</a></h2>
 <p>It is the so-called ‘normal’ distribution that is abnormal in the sense that it has many unique properties not possessed by any other. – E. T. Jaynes</p>
+</div>
+<div class="section" id="variables-datos-y-parametros">
+<h2><span class="section-number">2.4. </span>Variables, datos y parámetros<a class="headerlink" href="#variables-datos-y-parametros" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Variables</strong>: características (atributos) físicas medibles de los objetos de una población, y que presentan una variabilidad dentro de esa población. <em>Caracterizados con letras latinas mayúsculas ($X$,$Y$,…)</em></p></li>
+<li><p><strong>Datos</strong>: Mediciones (observaciones) de variables. Un conjunto de datos es una “muestra”. <em>Caracterizados con letras latinas minúsculas ($y_1$,$y_2$,…)</em>.</p></li>
+<li><p><strong>Parámetros</strong>: propiedades de una variable o un conjunto de datos.</p>
+<ol class="arabic simple">
+<li><p>poblacionales: Propiedad de la distribución de probabilidad (o población) de una variable. Por ejemplo, la esperanza, el desvío estándar, el percentil. <em>Caracterizados con letras griegas ($\alpha$,$\theta$,…)</em>.</p></li>
+<li><p>muestrales: Propiedad de un conjunto de datos (de la muestra). Por ejemplo, el promedio, la dispersión, la proporción, etc. <em>Caracterizados con letras latinas minúsculas ($\alpha$,$\theta$,…)</em>.</p></li>
+</ol>
+</li>
+</ol>
+<p>GRAFICO DE MUESTRA Y POBLACIÓN con nomenclatura</p>
 </div>
 </div>
 
@@ -486,15 +500,15 @@ from a ﬁnite number of observations or results to a general conclusion about u
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Qué es la ciencia de datos?</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Introducción</p>
       </div>
     </a>
     <a class="right-next"
-       href="datos_y_variables.html"
+       href="../chapter2_aed/datos_y_variables.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Observaciones y variables</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Variables, poblaciones y datos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -519,6 +533,7 @@ from a ﬁnite number of observations or results to a general conclusion about u
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-define-un-modelo">2.1. Cómo se define un modelo?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-modelos">2.2. Tipos de modelos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-como-representaciones-de-conocimiento-e-incertidumbres">2.3. Modelos como representaciones de conocimiento e incertidumbres</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-datos-y-parametros">2.4. Variables, datos y parámetros</a></li>
 </ul>
   </nav></div>
 

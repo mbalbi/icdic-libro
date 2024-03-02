@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-# Inferencia y construcción de modelos
+# Modelos, variables y parámetros
 
 ESTO ES UNA PRUEBA!
 
@@ -74,7 +74,7 @@ En este sentido, el problema de inferencia es un problema de construcción de un
 ```{figure} figuras/population_and_sample_and_model.png
 :scale: 25 %
 :alt: Información sobre el objetivo de la ciencia de datos
-:name: fig-poblacion
+:name: fig-poblacion-2
 
 EL modelo de generación de datos son las hipótesis simplificativas de la población general que realizamos para poder hacer inferencias sobre la misma
 
@@ -107,5 +107,12 @@ Modelos fenomenológicos o teóricos
 
 It is the so-called 'normal' distribution that is abnormal in the sense that it has many unique properties not possessed by any other. -- E. T. Jaynes
 
+## Variables, datos y parámetros
 
+1. **Variables**: características (atributos) físicas medibles de los objetos de una población, y que presentan una variabilidad dentro de esa población. *Caracterizados con letras latinas mayúsculas ($X$,$Y$,...)*
+2. **Datos**: Mediciones (observaciones) de variables. Un conjunto de datos es una "muestra". *Caracterizados con letras latinas minúsculas ($y_1$,$y_2$,...)*.
+3. **Parámetros**: propiedades de una variable o un conjunto de datos.
+    1. poblacionales: Propiedad de la distribución de probabilidad (o población) de una variable. Por ejemplo, la esperanza, el desvío estándar, el percentil. *Caracterizados con letras griegas ($\alpha$,$\theta$,...)*.
+    2. muestrales: Propiedad de un conjunto de datos (de la muestra). Por ejemplo, el promedio, la dispersión, la proporción, etc. *Caracterizados con letras latinas minúsculas ($\alpha$,$\theta$,...)*.
 
+GRAFICO DE MUESTRA Y POBLACIÓN con nomenclatura

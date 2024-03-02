@@ -11,18 +11,17 @@ parts:
     chapters:
     - file: chapter1_intro/intro
     - file: chapter1_intro/modelos
-    - file: chapter1_intro/datos_y_variables
-  - caption: Análisis exploratorio de datos
+  - caption: Recolección y descripción de datos
     numbered: True
     chapters:
+    - file: chapter2_aed/datos_y_variables
     - file: chapter2_aed/data_mining
-    - file: chapter2_aed/data_metrics
-    - file: chapter2_aed/data_visualization
-  - caption: Inferencia
+    - file: chapter2_aed/aed
+  - caption: Conceptos de inferencia estadística
     numbered: True
     chapters:
     - file: chapter3_inferencia/inferencia
-  - caption: Modelos
+  - caption: Modelos de probabilidad condicional
     numbered: True
     chapters:
     - file: chapter4_modelos/regresion

@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Introducción a la inferencia estadística &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
+    <title>6. Introducción a la inferencia estadística &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
   
   
   
@@ -63,8 +63,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter3_inferencia/inferencia';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Minado de datos" href="../chapter4_modelos/regresion.html" />
-    <link rel="prev" title="6. Minado de datos" href="../chapter2_aed/data_visualization.html" />
+    <link rel="next" title="7. Minado de datos" href="../chapter4_modelos/regresion.html" />
+    <link rel="prev" title="5. Análisis exploratorio de datos" href="../chapter2_aed/aed.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,23 +157,22 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter1_intro/intro.html">1. Qué es la ciencia de datos?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter1_intro/modelos.html">2. Inferencia y construcción de modelos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter1_intro/datos_y_variables.html">3. Observaciones y variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1_intro/intro.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1_intro/modelos.html">2. Modelos, variables y parámetros</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis exploratorio de datos</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Recolección y descripción de datos</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/datos_y_variables.html">3. Variables, poblaciones y datos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/data_mining.html">4. Minado de datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/data_metrics.html">5. Minado de datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/data_visualization.html">6. Minado de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/aed.html">5. Análisis exploratorio de datos</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferencia</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos de inferencia estadística</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Introducción a la inferencia estadística</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Introducción a la inferencia estadística</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelos</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelos de probabilidad condicional</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter4_modelos/regresion.html">8. Minado de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4_modelos/regresion.html">7. Minado de datos</a></li>
 </ul>
 
     </div>
@@ -370,7 +369,15 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="section" id="introduccion-a-la-inferencia-estadistica">
-<h1><span class="section-number">7. </span>Introducción a la inferencia estadística<a class="headerlink" href="#introduccion-a-la-inferencia-estadistica" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Introducción a la inferencia estadística<a class="headerlink" href="#introduccion-a-la-inferencia-estadistica" title="Permalink to this heading">#</a></h1>
+<p>Inferential questions from https://www.maths.ed.ac.uk/~swood34/core-statistics.pdf</p>
+<ol class="arabic simple">
+<li><p>What values of $\theta$ are most consistent with $y$? point estimation</p></li>
+<li><p>Is some prespecified restriction on $\theta$ consistent with $y$? hypothesis testing</p></li>
+<li><p>What ranges of $\theta$ values are consistent with y? Confidence interval</p></li>
+<li><p>Is the model consistent with the data for any values of $\theta$ at all? Model checking</p></li>
+<li><p>How might the data-gathering process be organized to produce data that enables answers to the preceding questions to be as accurate and precise as possible? Experimental design</p></li>
+</ol>
 <p>El problema fundamental de un problema de inferencia estadística es que nunca podemos observar directamente todos los elementos de una población porque esto tendría un costo impractiable (inifito en muchos casos).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -431,7 +438,7 @@ The animation.avconv_path rcparam was deprecated in Matplotlib 3.3 and will be r
 The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.pyplot._IonContext at 0x1cf7e8fdfc8&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.pyplot._IonContext at 0x177d0804708&gt;
 </pre></div>
 </div>
 </div>
@@ -503,12 +510,12 @@ with your book. For more information about this, see <a class="reference externa
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../chapter2_aed/data_visualization.html"
+       href="../chapter2_aed/aed.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Minado de datos</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Análisis exploratorio de datos</p>
       </div>
     </a>
     <a class="right-next"
@@ -516,7 +523,7 @@ with your book. For more information about this, see <a class="reference externa
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Minado de datos</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Minado de datos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
