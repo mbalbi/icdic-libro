@@ -3,7 +3,7 @@ name: Build and Deploy Jupyter Book
 on:
   push:
     branches:
-      - main  # Your main branch
+      - master  # Your main branch
 
 jobs:
   build-deploy:
