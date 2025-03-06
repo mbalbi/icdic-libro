@@ -108,9 +108,6 @@ De los ejemplos queda claro, además, que el objeto último de la ciencia de dat
 El círculo rojo son las muestras que observamos, dentro de un universo posible de muestras (población general). Las conclusiones que más interesan son sobre la población general.
 
 ```
-
-
-
 Y se desprende, además, que su principal herramienta es la _inferencia estadística_ que es la conceptualización matemática del razonamiento inductivo.
 
 ### Como disciplina
