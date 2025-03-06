@@ -3,7 +3,7 @@ name: Build and Deploy Jupyter Book
 on:
   push:
     branches:
-      - master  # Change to your default branch if different
+      - main  # Your main branch
 
 jobs:
   build-deploy:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'  # or your preferred Python version
+        python-version: '3.10'  # Your preferred Python version
 
     - name: Install dependencies
       run: |
@@ -27,5 +27,7 @@ jobs:
       run: jupyter-book build .
 
     - name: Deploy to GitHub Pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         ghp-import -n -p -f _build/html
