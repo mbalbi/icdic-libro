@@ -1,65 +1,62 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>3. Variables, poblaciones y datos &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter2_aed/datos_y_variables';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -74,19 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -108,12 +109,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -128,9 +137,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../front.html">
+  
   
   
   
@@ -140,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Introducción a la Ciencia de Datos para Ingeniería Civil - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Introducción a la Ciencia de Datos para Ingeniería Civil - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -188,7 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -197,14 +221,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -326,26 +350,28 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -387,38 +413,41 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <div class="section" id="variables-poblaciones-y-datos">
-<h1><span class="section-number">3. </span>Variables, poblaciones y datos<a class="headerlink" href="#variables-poblaciones-y-datos" title="Permalink to this heading">#</a></h1>
+  <section id="variables-poblaciones-y-datos">
+<h1><span class="section-number">3. </span>Variables, poblaciones y datos<a class="headerlink" href="#variables-poblaciones-y-datos" title="Link to this heading">#</a></h1>
 <p>Los datos son mediciones (observaciones) de las variables. No son exactamente realizaciones de las variables ya que en la gran mayoría de los casos existe cierto error en la medición (por ejemplo, en la medición de la resistencia de los bulones).</p>
-<div class="section" id="tipos-de-variables">
-<h2><span class="section-number">3.1. </span>Tipos de variables<a class="headerlink" href="#tipos-de-variables" title="Permalink to this heading">#</a></h2>
+<section id="tipos-de-variables">
+<h2><span class="section-number">3.1. </span>Tipos de variables<a class="headerlink" href="#tipos-de-variables" title="Link to this heading">#</a></h2>
 <p>Las variables pueden ser clasificadas en <em>numéricas</em> o <em>categóricas</em>. Dentro de las numéricas se encuentran las <em>continuas</em>, como la resistencia de los bulones o la velocidad del viento, y las <em>discretas</em> como la cantidad de coches en la avenida. Por su parte las <em>categóricas</em> son aquellas variables no-cuantificables que toman valores dentro de un conjunto fijo y finito de grupos (categorías o labels) posibles. Dentro de esta categoría se dividen en <em>nominales</em>, donde las categorías no tienen un orden ni una distancia entre ellas, como los colores o los nombres de las avenidas; y <em>ordinales</em>, donde las categorías tienen un orden jerárquico entre sí, como los grados de daño de las estructuras estimado de campañas en terreno.</p>
-<div class="figure align-default" id="fig-tipos-variables">
-<a class="reference internal image-reference" href="../_images/tipos_de_variables_tree.png"><img alt="Taxonomía de variables" src="../_images/tipos_de_variables_tree.png" style="width: 148.0px; height: 84.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Taxonomía más utilizada para clasificar los tipos de variables según su dominio de definición.</span><a class="headerlink" href="#fig-tipos-variables" title="Permalink to this image">#</a></p>
-</div>
+<figure class="align-default" id="fig-tipos-variables">
+<a class="reference internal image-reference" href="../_images/tipos_de_variables_tree.png"><img alt="Taxonomía de variables" src="../_images/tipos_de_variables_tree.png" style="width: 148.0px; height: 84.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Taxonomía más utilizada para clasificar los tipos de variables según su dominio de definición.</span><a class="headerlink" href="#fig-tipos-variables" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Esta clasificación suele ser la más relevante ya que nos permite definir el tipo de modelo de inferencia estadística a utilizar.</p>
 <p>Desde el punto de vista de la modelación probabilística, sin embargo, hay solo dos tipos de variables: continuas y discretas. Es decir, las variables categóricas, que no responden a valores numéricos son caracterizadas como una variable aleatoria discreta simplemente asignando valores numéricos a cada una de las categorías. Para los <em>ordinales</em> en particular, el código numérico debe respetar el orden jerárquico y las distancias previstas entre las categorías.</p>
 <p>Otra clasificación común para las variables desde el punto de vista de la estadística es entre <em>variables de respuesta</em> y <em>variables explicativas</em>. Esta clasificación es completamente independiente de la naturaleza matemática de la variable, y hace solo referencia al lugar que ocupa dentro del problema específico en cuestión. Se denomina “variable de respuesta” a aquella que se tiene como objetivo inferir para poder dar respuesta a la pregunta en cuestión. Por ejemplo, en el ejemplo de la agencia de tránsito, el volumen de autos es la variable de respuesta del problema ya que es la que nos interesa inferir para poder responder la pregunta. Por otro lado, las <em>variables predictoras</em> son aquellas que se asumen como “dadas” (es decir, medidas) al responder la pregunta en cuestión. En ese mismo ejemplo, el ancho de calzada y la densidad poblacional aparecen como <em>variables predictoras</em> ya que queremos saber el volumen de tráfico para unos valores dados de ancho y densidad. En este sentido, no nos interesa conocer la distribución de probabilidad poblacional de las <em>variables predictoras</em> (más allá de que tengan una) porque, para nuestro problema específico van a ser “medidas” o “dadas”.</p>
 <p>Esta clasificación es central en los problemas de regresión y clasificación de variables (también denominado problemas de “aprendizaje supervisado”), donde nos interesa conocer la distribución de probabilidad de la (o las) <em>variable de respuesta</em> para distintos valores fijos (“dados”) de las <em>variables predictoras</em>.</p>
-</div>
-<div class="section" id="tipos-de-datos">
-<h2><span class="section-number">3.2. </span>Tipos de datos<a class="headerlink" href="#tipos-de-datos" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="tipos-de-datos">
+<h2><span class="section-number">3.2. </span>Tipos de datos<a class="headerlink" href="#tipos-de-datos" title="Link to this heading">#</a></h2>
 <p>Tipos de mediciones: ratio, limite, discreta, etc.</p>
 <p>Una muestra puede estar compuesta por mediciones correspondientes a una sola variable (univariada), o a muchas variables (multivariada). Por su parte, a las observaciones de una variable que varía en el tiempo se las denomina <em>serie de tiempo</em>, mientras que a observaciones de una variable que varía en el espacio se las suele denominar <em>mapas</em>.</p>
 <p>En general, una muestra <em>estática</em> aparece como un conjunto de valores (numéricos o no numéricos) sin un orden en particular, ya que se considera que el valor de cada observación es independiente del valor de las otras.</p>
 <p>Datos estructurados versus no-estructurados.</p>
-<div class="section" id="tablas">
-<h3><span class="section-number">3.2.1. </span>Tablas<a class="headerlink" href="#tablas" title="Permalink to this heading">#</a></h3>
-</div>
-<div class="section" id="series-temporales">
-<h3><span class="section-number">3.2.2. </span>Series temporales<a class="headerlink" href="#series-temporales" title="Permalink to this heading">#</a></h3>
+<section id="tablas">
+<h3><span class="section-number">3.2.1. </span>Tablas<a class="headerlink" href="#tablas" title="Link to this heading">#</a></h3>
+</section>
+<section id="series-temporales">
+<h3><span class="section-number">3.2.2. </span>Series temporales<a class="headerlink" href="#series-temporales" title="Link to this heading">#</a></h3>
 <p>En una serie temporal o espacial (o tempo-espacial), sin embargo, los datos tienen un orden, una posición, dada por un índice asociado a la dimensión <em>tiempo</em> o <em>espacio</em>. Los datos deben, si o si, interpretarse respetando este ordenamiento dado por el proceso de recolección.</p>
-</div>
-<div class="section" id="datos-espaciales">
-<h3><span class="section-number">3.2.3. </span>Datos espaciales<a class="headerlink" href="#datos-espaciales" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="datos-espaciales">
+<h3><span class="section-number">3.2.3. </span>Datos espaciales<a class="headerlink" href="#datos-espaciales" title="Link to this heading">#</a></h3>
 <p>Los datos espaciales tienen distintas maneras de estar estructurados ya que no hay un orden lineal natural como en el caso del tiempo (siempre fluye de pasado a futuro en esa única dirección). Esto hace que la estructura de los datos espaciales pueda tomar distintas formas que podemos encasillar en dos tipos:</p>
 <ol class="arabic simple">
 <li><p>Grillas uniformes (mapas de bits): El orden viene dado por la contiguidad espacial de las celdas que se distribuyen de manera uniforme en todas las direcciones.</p></li>
@@ -426,29 +455,29 @@ document.write(`
 <li><p>Redes (mapas de vectores): cada dato tiene una ubicación espacial aunque ahora el orden y “cecanía” entre los datos está definido a través de conectores que definen la red.</p></li>
 </ol>
 <p>Los datos espaciales puede, además, tener una ubicación geográfica (geolocalizada).</p>
-</div>
-</div>
-<div class="section" id="recolectando-datos">
-<h2><span class="section-number">3.3. </span>Recolectando datos<a class="headerlink" href="#recolectando-datos" title="Permalink to this heading">#</a></h2>
+</section>
+</section>
+<section id="recolectando-datos">
+<h2><span class="section-number">3.3. </span>Recolectando datos<a class="headerlink" href="#recolectando-datos" title="Link to this heading">#</a></h2>
 <p>Los datos pueden venir de diferentes fuentes: mediciones de sensores, eventos, textos, imágenes y videos. Esta información la podemos encontrar de manera estructurada y lista para el análisis, o puede aparecer de manera no-estructurada como en el caso de la recolección de imágenes.</p>
 <p>Existen básicamente dos maneras de obtener datos:</p>
 <ol class="arabic simple">
 <li><p><strong>Ensayos experimentales</strong>: consiste en desarrollar un entorno controlado (en laboratorio o in-situ) en el cual se supone que se controlan ciertas variables (tratamientos) para ver su impacto en otras de interés (variables de respuesta). Es el caso del ensayo de los bulones, donde tenemos que agarrar cada bulón y someterlo a distintas fuerzas controladas hasta llevarlo a la falla.</p></li>
 <li><p><strong>Ensayos observacionales</strong>: consiste en medir las variables de interés pero sin intentar modificar (hasta donde sea posible) los procesos en estudio. Por ejemplo, en el caso de las observaciones de las velocidades de viento, o en el caso de la cantidad de autos que circulan por una avenida. Es la manera más sencilla de obtener mediciones, y con la que se obtienen la inmensa mayoría de datos de los que disponemos en ingeniería civil.</p></li>
 </ol>
-</div>
-<div class="section" id="almacenando-y-leyendo-los-datos">
-<h2><span class="section-number">3.4. </span>Almacenando y leyendo los datos<a class="headerlink" href="#almacenando-y-leyendo-los-datos" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="almacenando-y-leyendo-los-datos">
+<h2><span class="section-number">3.4. </span>Almacenando y leyendo los datos<a class="headerlink" href="#almacenando-y-leyendo-los-datos" title="Link to this heading">#</a></h2>
 <p>Archivos de texto</p>
 <p>Mapas de bits</p>
 <p>Archivos de vectores</p>
-<div class="section" id="como-los-almacenamos-y-procesamos">
-<h3><span class="section-number">3.4.1. </span>Cómo los almacenamos y procesamos?<a class="headerlink" href="#como-los-almacenamos-y-procesamos" title="Permalink to this heading">#</a></h3>
+<section id="como-los-almacenamos-y-procesamos">
+<h3><span class="section-number">3.4.1. </span>Cómo los almacenamos y procesamos?<a class="headerlink" href="#como-los-almacenamos-y-procesamos" title="Link to this heading">#</a></h3>
 <p>bases de datos</p>
 <p>Lenguajes de programación</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -475,11 +504,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../chapter1_intro/modelos.html"
@@ -499,10 +527,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -510,6 +535,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -550,9 +576,10 @@ By Mariano Balbi
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -576,8 +603,8 @@ By Mariano Balbi
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
