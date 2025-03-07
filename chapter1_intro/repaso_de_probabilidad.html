@@ -1,0 +1,1015 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Teoría de conjuntos &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter1_intro/repaso_de_probabilidad';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2. Modelos, variables y parámetros" href="modelos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../front.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Introducción a la Ciencia de Datos para Ingeniería Civil - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Introducción a la Ciencia de Datos para Ingeniería Civil - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../front.html">
+                    Ciencia de Datos para Ingeniería Civil
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelos.html">2. Modelos, variables y parámetros</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Teoría de conjuntos</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/mbalbi/ciencia_de_datos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mbalbi/ciencia_de_datos/issues/new?title=Issue%20on%20page%20%2Fchapter1_intro/repaso_de_probabilidad.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter1_intro/repaso_de_probabilidad.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Teoría de conjuntos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3. Teoría de conjuntos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reglas-operacionales">3.1. Reglas operacionales</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#teoria-matematica-de-la-probabilidad">4. Teoría matemática de la probabilidad</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-de-la-union-de-eventos">4.1. Probabilidad de la unión de eventos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicional">4.2. Probabilidad condicional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-estadistica">4.3. Independencia estadística</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-la-probabilidad-total">4.4. Teorema de la probabilidad total</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-bayes">4.5. Teorema de Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-1">4.6. EJEMPLO 1.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-2">4.7. EJEMPLO 1.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-3">4.8. EJEMPLO 1.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-4">4.9. EJEMPLO 1.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-5">4.10. EJEMPLO 1.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-6">4.11. EJEMPLO 1.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-7">4.12. EJEMPLO 1.7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-8">4.13. EJEMPLO 1.8</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="teoria-de-conjuntos">
+<h1><span class="section-number">3. </span>Teoría de conjuntos<a class="headerlink" href="#teoria-de-conjuntos" title="Link to this heading">#</a></h1>
+<p>Se define como “espacio muestral” al conjunto de todos los resultados posibles en un problema probabilístico. Un “evento” es definido como un subconjunto cualquiera del espacio muestral.</p>
+<p>La siguiente nomenclatura es utilizada a lo largo de este libro:</p>
+<ul class="simple">
+<li><p>$\emptyset \rightarrow$ Conjunto vacío o evento imposible</p></li>
+<li><p>$S \rightarrow$ Espacio muestral o evento cierto</p></li>
+<li><p>$E \rightarrow$ Evento cualquiera</p></li>
+<li><p>$\bar{E} \rightarrow$ Evento complementario (contiene todos los elementos de $S$ que no forman parte de $E$)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here is a note</p>
+</div>
+<p>Un espacio muestral y sus subconjuntos (o eventos) se puede representar gráficamente por medio de un “Diagrama de Venn” como se muestra en la Figura 1-1.</p>
+<p><img alt="Figura 1-1. Diagrama de Venn" src="../_images/Diagrama_de_Venn.png" /></p>
+<p>En muchos problemas prácticos el evento de interés puede ser la combinación de varios eventos. Solamente hay dos maneras de combinar eventos: la intersección ($\cap$) y la unión ($\cup$).</p>
+<p>La unión de dos eventos, $E_1 \cup E_2$, es la ocurrencia de $E_1$, $E_2$ o ambos. La intersección de dos eventos $E_1 \cap E_2$, o simplemente $E_1 E_2$, es la ocurrencia de $E_1$ y $E_2$. En la Figura 1-2, las superficies sombreadas representan las definiciones anteriores en la forma de Diagramas de Venn.</p>
+<p><img alt="Figura 1-2. (a) Unión de eventos $E_1 up E_2$; (b) Intersección de eventos $E_1 ap E_2$" src="chapter1_intro/figuras/placeholder_figura_1-2.png" /></p>
+<p>Dos eventos son mutuamente excluyentes cuando la intersección de ambos da como resultado el conjunto vacío ($E_1 E_2 = \emptyset$). Por otra parte, dos eventos son colectivamente exhaustivos cuando su unión es el espacio muestral ($E_1 \cup E_2 = S$) (ver Figura 1-3).</p>
+<p>Si los eventos son mutuamente excluyentes y colectivamente exhaustivos, entonces cubren todo el espacio muestral sin solaparse, como se ve en la Figura 1-3 (b). En otras palabras, un resultado aleatorio cualquiera del espacio muestral pertenecerá a alguno de los dos eventos, pero nunca a ambos simultáneamente. Este conjunto de eventos mutuamente excluyentes y colectivamente exhaustivos es importante como se verá más adelante.</p>
+<p><img alt="Figura 1-3. (a) Eventos mutuamente excluyentes; (b) Eventos colectivamente exhaustivos (y excluyentes)" src="chapter1_intro/figuras/placeholder_figura_1-3.png" /></p>
+<section id="reglas-operacionales">
+<h2><span class="section-number">3.1. </span>Reglas operacionales<a class="headerlink" href="#reglas-operacionales" title="Link to this heading">#</a></h2>
+<p><strong>Axiomas de igualdad</strong><br />
+Dos conjuntos son iguales si y solo si ambos conjuntos contienen exactamente los mismos elementos. Del axioma de igualdad se derivan los siguientes resultados de algunas operaciones entre un conjunto cualquiera $A$ y otros conjuntos característicos del espacio muestral:</p>
+<p>La unión o intersección de un conjunto cualquiera $A$ y el conjunto vacío $\emptyset$, tiene como resultado el conjunto vacío:</p>
+<p>$$
+A \cup \emptyset = A \quad A \emptyset = \emptyset
+$$</p>
+<p>La unión de $A$ con el espacio muestral $S$ tiene como resultado el espacio muestral, y la intersección de ambos tiene como resultado el conjunto $A$:</p>
+<p>$$
+A \cup S = S \quad A S = A
+$$</p>
+<p>La unión o intersección de un conjunto $A$ consigo mismo, tiene como resultado el mismo conjunto $A$:</p>
+<p>$$
+A \cup A = A \quad A A = A
+$$</p>
+<p>La unión de un conjunto $A$ con su complemento tiene como resultado el espacio muestral, mientras que la intersección de ambos tiene como resultado el conjunto vacío:</p>
+<p>$$
+A \cup \bar{A} = S \quad A \bar{A} = \emptyset
+$$</p>
+<p>El conjunto complementario del complemento de $A$ es el mismo conjunto $A$:</p>
+<p>$$
+\overline{(\bar{A})} = A
+$$</p>
+<p>A continuación, se describen algunas propiedades útiles en las operaciones de conjuntos:</p>
+<p><strong>Propiedad conmutativa</strong><br />
+El orden en que se realiza la operación no altera el resultado final:</p>
+<p>$$
+A \cup B = B \cup A
+$$</p>
+<p>$$
+A B = B A
+$$</p>
+<p><strong>Propiedad asociativa</strong></p>
+<p>$$
+(A \cup B) \cup C = A \cup (B \cup C)
+$$</p>
+<p>$$
+(A B) C = A (B C)
+$$</p>
+<p><strong>Propiedad distributiva</strong></p>
+<p>$$
+(A \cup B) C = (A C) \cup (B C)
+$$</p>
+<p>$$
+(A B) \cup C = (A \cup C)(B \cup C)
+$$</p>
+<p><strong>Leyes de De Morgan</strong><br />
+La Ley de De Morgan dice que el complemento de la unión, es la intersección de los complementos, y que inversamente, el complemento de la intersección es la unión de los complementos.</p>
+<p>$$
+\overline{E_1 \cup E_2 \cup \ldots \cup E_n} = \overline{E_1} \cap \overline{E_2} \cap \ldots \cap \overline{E_n}
+$$</p>
+<p>$$
+\overline{E_1 E_2 \ldots E_n} = \overline{E_1} \cup \overline{E_2} \cup \ldots \cup \overline{E_n}
+$$</p>
+<p>En la siguiente figura se ve la demostración básica de las Leyes utilizando los diagramas de Venn.</p>
+<p><img alt="Figura 1-4. Reglas de De Morgan" src="chapter1_intro/figuras/placeholder_figura_1-4.png" /></p>
+</section>
+</section>
+<section id="teoria-matematica-de-la-probabilidad">
+<h1><span class="section-number">4. </span>Teoría matemática de la probabilidad<a class="headerlink" href="#teoria-matematica-de-la-probabilidad" title="Link to this heading">#</a></h1>
+<p>La teoría matemática de la probabilidad está basada sobre los siguientes tres axiomas:</p>
+<ol class="arabic simple">
+<li><p>$P(E) \geq 0$ donde $E$ es un subconjunto del espacio muestral $S$.</p></li>
+<li><p>$P(S) = 1$</p></li>
+<li><p>Si dos eventos son mutuamente excluyentes $E_1 E_2 = \emptyset$, entonces $P(E_1 \cup E_2) = P(E_1) + P(E_2)$</p></li>
+</ol>
+<p>En relación con el tercer axioma, desde un punto de vista frecuencial, si un evento $E_1$ ocurre $n_1$ veces en $n$ repeticiones de un experimento y otro evento $E_2$ ocurre $n_2$ veces en las mismas $n$ repeticiones, en las cuales $E_1$ y $E_2$ no pueden ocurrir simultáneamente (es decir que son mutuamente excluyentes), luego $E_1$ o $E_2$ ocurrirán $(n_1 + n_2)$ veces en las $n$ repeticiones. Entonces, la definición de probabilidad basada en la frecuencia relativa indica que:</p>
+<p>$$
+E_1 \cup E_2 \rightarrow n_1 + n_2 \text{ eventos}
+$$</p>
+<p>$$
+P(E_1 \cup E_2) = \frac{n_1 + n_2}{n} = P(E_1) + P(E_2)
+$$</p>
+<p>A partir de los axiomas de la teoría de la probabilidad se puede deducir de manera inmediata el siguiente teorema para la probabilidad del complemento de un evento $E$:</p>
+<p>$$
+P(E \cup \bar{E}) = P(E) + P(\bar{E}) = P(S) = 1
+$$</p>
+<p>$$
+P(\bar{E}) = 1 - P(E)
+$$</p>
+<section id="probabilidad-de-la-union-de-eventos">
+<h2><span class="section-number">4.1. </span>Probabilidad de la unión de eventos<a class="headerlink" href="#probabilidad-de-la-union-de-eventos" title="Link to this heading">#</a></h2>
+<p>Para dos conjuntos cualesquiera,</p>
+<p>$$
+P(E_1 \cup E_2) = P(E_1 \cup \bar{E}_1 E_2) = P(E_1) + P(\bar{E}_1 E_2)
+$$</p>
+<p>Ahora analizamos el conjunto del último término,</p>
+<p>$$
+E_1 (\bar{E}_1 E_2) = \emptyset
+$$</p>
+<p>$$
+(\bar{E}_1 E_2) \cup (E_1 E_2) = (\bar{E}_1 \cup E_1) E_2 = E_2
+$$</p>
+<p>$$
+\to P(\bar{E}_1 E_2) + P(E_1 E_2) = P(E_2)
+$$</p>
+<p>$$
+\to P(\bar{E}_1 E_2) = P(E_2) - P(E_1 E_2)
+$$</p>
+<p>Y reemplazando en la primera ecuación se deduce que,</p>
+<p>$$
+P(E_1 \cup E_2) = P(E_1) + P(E_2) - P(E_1 E_2)
+$$</p>
+<p>Ahora, si se tienen 3 conjuntos,</p>
+<p>$$
+P(E_1 \cup E_2 \cup E_3) = P[(E_1 \cup E_2) \cup E_3] = P(E_1 \cup E_2) + P(E_3) - P[(E_1 \cup E_2) E_3]
+$$</p>
+<p>$$
+= P(E_1) + P(E_2) - P(E_1 E_2) + P(E_3) - P(E_1 E_3 \cup E_2 E_3)
+$$</p>
+<p>$$
+= P(E_1) + P(E_2) - P(E_1 E_2) + P(E_3) - P(E_1 E_3) - P(E_2 E_3) + P(E_1 E_2 E_3)
+$$</p>
+<p>Consideramos ahora un conjunto de $n$ eventos,</p>
+<p>$$
+P(E_1 \cup E_2 \cup \ldots \cup E_n) = 1 - P(\overline{E_1 \cup E_2 \cup \ldots \cup E_n}) = 1 - P(\overline{E_1} \cap \overline{E_2} \cap \ldots \cap \overline{E_n})
+$$</p>
+<p>Que no es otra cosa que la aplicación de la Regla de De Morgan vista en el punto anterior. Ahora bien, si suponemos que los conjuntos son mutuamente excluyentes, es decir, que su intersección es nula, se puede calcular,</p>
+<p>$$
+P(E_1 \cup E_2 \cup \ldots \cup E_n) = \sum_{i=1}^n P(E_i)
+$$</p>
+</section>
+<section id="probabilidad-condicional">
+<h2><span class="section-number">4.2. </span>Probabilidad condicional<a class="headerlink" href="#probabilidad-condicional" title="Link to this heading">#</a></h2>
+<p>Se denomina probabilidad condicional a la probabilidad de ocurrencia de un determinado evento, sabiendo que ocurrió otro evento. Es decir, la probabilidad de ocurrencia de un evento condicionada a la ocurrencia de otro.</p>
+<p>El resultado de condicionar la probabilidad de que suceda un evento a la ocurrencia cierta de otro es que se modifica el espacio muestral de referencia para determinar probabilidades. El espacio muestral (que abarca todos los posibles eventos) es ahora el evento cierto.</p>
+<p><img alt="Figura 1-5. Probabilidad condicional y transformación del espacio muestral de referencia" src="chapter1_intro/figuras/placeholder_figura_1-5.png" /></p>
+<p>Se deduce entonces,</p>
+<p>$$
+P(E_1 / E_2) = \frac{P(E_1 E_2)}{P(E_2)}
+$$</p>
+<p>Además se puede deducir la relación entre probabilidades condicionales complementarias según,</p>
+<p>$$
+P(E / E_2) + P(\bar{E} / E_2) = \frac{P(E E_2)}{P(E_2)} + \frac{P(\bar{E} E_2)}{P(E_2)}
+$$</p>
+<p>$$
+= \frac{P[(E \cup \bar{E}) E_2]}{P(E_2)} = 1
+$$</p>
+<p>Por lo que,</p>
+<p>$$
+P(\bar{E} / E_2) = 1 - P(E / E_2)
+$$</p>
+<p>Por último, se puede demostrar que las probabilidades condicionales pueden calcularse mediante las reglas básicas ya vistas para operaciones de conjuntos, siempre que se considere el espacio muestral reducido. Por ejemplo, en la unión de dos eventos,</p>
+<p>$$
+P(E_1 \cup E_2 / A) = P(E_1 / A) + P(E_2 / A) - P(E_1 E_2 / A)
+$$</p>
+</section>
+<section id="independencia-estadistica">
+<h2><span class="section-number">4.3. </span>Independencia estadística<a class="headerlink" href="#independencia-estadistica" title="Link to this heading">#</a></h2>
+<p>A partir de la definición de probabilidad condicional de un evento respecto de otro, se puede deducir de manera inmediata lo que se conoce como “independencia estadística” entre dos eventos.</p>
+<p>Esto es, dos eventos son estadísticamente independientes si la ocurrencia cierta de uno no afecta la probabilidad de ocurrencia del otro. En notación matemática,</p>
+<p>$$
+\left.\begin{array}{l} P(E_1 / E_2) = P(E_1) \ P(E_2 / E_1) = P(E_2) \end{array}\right} \therefore \text{ son estadísticamente independientes}
+$$</p>
+<p>A partir de la ecuación (1.6), se puede deducir la siguiente relación entre las probabilidades condicionales de dos eventos,</p>
+<p>$$
+P(E_1 E_2) = P(E_1 / E_2) P(E_2) = P(E_1 / E_1)
+$$</p>
+<p>Además, se ve que si dos eventos son estadísticamente independientes, la probabilidad de su intersección está dada por,</p>
+<p>$$
+P(E_1 E_2) = P(E_1) P(E_2)
+$$</p>
+<p>De igual manera, puede probarse que si dos eventos son estadísticamente independientes, también lo serán sus complementarios.</p>
+<p>$$
+P(\bar{E}_1 \bar{E}_2) = 1 - P(E_1 \cup E_2)
+$$</p>
+<p>$$
+= 1 - [P(E_1) + P(E_2) - P(E_1 E_2)]
+$$</p>
+<p>$$
+= 1 - [P(E_1) + P(E_2) - P(E_1) P(E_2)]
+$$</p>
+<p>$$
+P(\bar{E}_1 \bar{E}_2) = P(\bar{E}_1) P(\bar{E}_2)
+$$</p>
+</section>
+<section id="teorema-de-la-probabilidad-total">
+<h2><span class="section-number">4.4. </span>Teorema de la probabilidad total<a class="headerlink" href="#teorema-de-la-probabilidad-total" title="Link to this heading">#</a></h2>
+<p>En ciertas ocasiones, la ocurrencia de un evento determinado está sujeta a la ocurrencia o no de otros eventos. De esta manera, puede desagregarse dicha probabilidad de ocurrencia en la ocurrencia de determinados eventos que abarquen todo el espacio muestral $S$.</p>
+<p>El Teorema de la probabilidad total establece que, dados $n$ eventos $E_i$ mutuamente exclusivos y colectivamente exhaustivos, la probabilidad del evento $A$ puede calcularse según,</p>
+<p>$$
+A = A S = A (E_1 \cup E_2 \cup \ldots \cup E_n) = A E_1 \cup A E_2 \cup \ldots \cup A E_n
+$$</p>
+<p>Como los eventos $E_i$ son mutuamente excluyentes,</p>
+<p>$$
+P(A) = P(A E_1) + P(A E_2) + \ldots + P(A E_n)
+$$</p>
+<p>Y a partir de la definición de probabilidad condicional, se puede escribir según,</p>
+<p>$$
+P(A) = P(A / E_1) P(E_1) + P(A / E_2) P(E_2) + \ldots + P(A / E_n) P(E_n)
+$$</p>
+</section>
+<section id="teorema-de-bayes">
+<h2><span class="section-number">4.5. </span>Teorema de Bayes<a class="headerlink" href="#teorema-de-bayes" title="Link to this heading">#</a></h2>
+<p>El teorema de Bayes es un corolario del Teorema de la probabilidad total visto en el punto anterior. Este establece que, dada la siguiente relación entre eventos</p>
+<p>$$
+P(A / E_1) P(E_1) = P(E_1 / A) P(A)
+$$</p>
+<p>$$
+P(E_1 / A) = \frac{P(A / E_1) P(E_1)}{P(A)}
+$$</p>
+<p>Se puede establecer la siguiente definición a partir del Teorema de probabilidad total,</p>
+<p>$$
+P(E_1 / A) = \frac{P(A / E_1) P(E_1)}{\sum_{j=1}^n P(A / E_j) P(E_j)}
+$$</p>
+</section>
+<section id="ejemplo-1-1">
+<h2><span class="section-number">4.6. </span>EJEMPLO 1.1<a class="headerlink" href="#ejemplo-1-1" title="Link to this heading">#</a></h2>
+<p>La ciudad $C$ está alimentada de agua por dos ciudades $A$ y $B$, según la disposición de ramas que se ve en la figura. Se asume que una sola de las dos ciudades $A$, $B$ alcanza para satisfacer de agua a la ciudad $C$.</p>
+<p>Determinar el evento “La ciudad tendrá agua”, a partir de los eventos de falla de cada una de las ramas.</p>
+<p><strong>Definición de eventos:</strong></p>
+<ul class="simple">
+<li><p>$E_i$: falla la rama $i$</p></li>
+<li><p>$F$: Falla de agua en la ciudad $C$</p></li>
+</ul>
+<p>El evento $F$ se puede expresar como, $F \equiv (E_1 E_2) \cup E_3$</p>
+<p>Y se define al evento “la ciudad $C$ tiene agua”, como el complementario de $F$: $\bar{F} = \overline{(E_1 E_2) \cup E_3}$</p>
+<p>Por la Ley de De Morgan,</p>
+<p>$$
+\bar{F} = \overline{E_1 E_2} \cdot \overline{E_3} = (\overline{E_1} \cup \overline{E_2}) \overline{E_3}
+$$</p>
+</section>
+<section id="ejemplo-1-2">
+<h2><span class="section-number">4.7. </span>EJEMPLO 1.2<a class="headerlink" href="#ejemplo-1-2" title="Link to this heading">#</a></h2>
+<p>Determinar la probabilidad de falla del siguiente reticulado, si suponemos que falla cuando al menos una de las barras falla.</p>
+<p>Probabilidad de que falle cada barra:</p>
+<p>$$
+P(A) = 0.05
+$$</p>
+<p>$$
+P(B) = 0.04
+$$</p>
+<p>$$
+P(C) = 0.03
+$$</p>
+<p>Las fallas en las barras son estadísticamente independientes.</p>
+<p>Definimos el evento “falla”: $F \equiv A \cup B \cup C$</p>
+<p>Por lo que la probabilidad de falla está dada por: $P(F) = P(A \cup B \cup C)$</p>
+<p>$$
+P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A B) - P(B C) - P(A C) + P(A B C)
+$$</p>
+<p>Calculamos cada uno de los términos:</p>
+<p>$$
+P(A B) = P(A) P(B) = 0.002
+$$</p>
+<p>$$
+P(B C) = P(B) P(C) = 0.0012
+$$</p>
+<p>$$
+P(A C) = P(A) P(C) = 0.0015
+$$</p>
+<p>$$
+P(A B C) = P(A) P(B) P(C) = 0.00006
+$$</p>
+<p>La probabilidad de falla es entonces: $P(F) = 0.11536$</p>
+<p>El problema puede resolverse también utilizando las Leyes de De Morgan. De esta manera, la probabilidad de falla puede calcularse según,</p>
+<p>$$
+P(A \cup B \cup C) = 1 - P(\overline{A \cup B \cup C}) = 1 - P(\overline{A} \overline{B} \overline{C})
+$$</p>
+<p>$$
+= 1 - P(\bar{A}) P(\bar{B}) P(\bar{C}) = 0.11536
+$$</p>
+</section>
+<section id="ejemplo-1-3">
+<h2><span class="section-number">4.8. </span>EJEMPLO 1.3<a class="headerlink" href="#ejemplo-1-3" title="Link to this heading">#</a></h2>
+<p>Se tiene un pavimento que es revisado de a tramos de $100 , \text{m}$ por ultrasonido, para detectar fallas durante el proceso constructivo. El pavimento será aceptado si su espesor medido es mayor o igual a $19 , \text{cm}$.</p>
+<p>Se definen los siguientes eventos:</p>
+<ul class="simple">
+<li><p>$A$: espesor medido $\geq 19 , \text{cm}$</p></li>
+<li><p>$G$: espesor real $\geq 19 , \text{cm}$</p></li>
+</ul>
+<p>Se sabe, de datos del fabricante, que la confiabilidad del método de ultrasonido es del $80%$; es decir, la probabilidad de que lo medido se condiga con la realidad es $0.80$. Además, el $90%$ de los pavimentos debe ser aceptado.</p>
+<p>De los datos del problema se tiene:</p>
+<p>$$
+P(G / A) = 0.80
+$$</p>
+<p>$$
+P(\bar{G} / \bar{A}) = 0.80
+$$</p>
+<p>$$
+P(A) = 0.90
+$$</p>
+<p>¿Cuál es la probabilidad de que una sección no sea aceptada dado que está bien construida?</p>
+<p>$$
+P(\bar{A} / G) = 1 - P(A / G) = 0.20
+$$</p>
+<p>¿Cuál es la probabilidad de que una sección esté bien construida y sea aceptada?</p>
+<p>$$
+P(G A) = P(G / A) P(A) = 0.80 \times 0.90 = 0.72
+$$</p>
+<p>¿Cuál es la probabilidad de que una sección esté mal construida y sea aceptada?</p>
+<p>$$
+P(\bar{G} A) = P(\bar{G} / A) P(A) = 0.20 \times 0.90 = 0.18
+$$</p>
+</section>
+<section id="ejemplo-1-4">
+<h2><span class="section-number">4.9. </span>EJEMPLO 1.4<a class="headerlink" href="#ejemplo-1-4" title="Link to this heading">#</a></h2>
+<p>Partiendo del problema anterior, lo que interesa para el control de calidad del pavimento es conocer la probabilidad de que sea aceptada una sección, dado que está bien construida.</p>
+<p>Utilizando el Teorema de Bayes,</p>
+<p>$$
+P(A / G) = \frac{P(G / A) P(A)}{P(G)}
+$$</p>
+<p>La probabilidad $P(G)$ se obtiene con el Teorema de la probabilidad total,</p>
+<p>$$
+P(G) = P(G / A) P(A) + P(G / \bar{A}) P(\bar{A})
+$$</p>
+<p>$$
+P(G) = 0.8 \times 0.9 + 0.2 \times 0.1 = 0.74
+$$</p>
+<p>Por lo que,</p>
+<p>$$
+P(A / G) = \frac{0.80 \times 0.90}{0.74} = 0.973
+$$</p>
+<p>Se define entonces al “Riesgo del productor” a la probabilidad de que no sea aceptada una sección, dado que está bien construida.</p>
+<p>$$
+P(\bar{A} / G) = 1 - P(A / G) = 0.027
+$$</p>
+<p>Se define entonces al “Riesgo del consumidor” a la probabilidad de que sea aceptada una sección, dado que NO fue bien construida.</p>
+<p>$$
+P(A / \bar{G}) = \frac{P(A \bar{G})}{P(\bar{G})} = \frac{P(A \bar{G})}{1 - P(G)} = \frac{0.18}{0.26} = 0.69
+$$</p>
+<p>A partir de los resultados obtenidos, se puede ver que el método de ensayo utilizado está muy sesgado en favor del productor.</p>
+</section>
+<section id="ejemplo-1-5">
+<h2><span class="section-number">4.10. </span>EJEMPLO 1.5<a class="headerlink" href="#ejemplo-1-5" title="Link to this heading">#</a></h2>
+<p>Se tiene un sistema de dos elementos en serie traccionado en sus extremos por una determinada carga. Bajo esa carga, la probabilidad de falla de cada elemento individualmente es del $5%$.</p>
+<p>Determinar la falla del sistema, considerando que las fallas de los elementos son estadísticamente independientes (proveedores diferentes).</p>
+<p>De los datos del problema se define,</p>
+<p>$$
+\left.\begin{array}{l} E_1: \text{ falla de elemento 1} \ E_2: \text{ falla de elemento 2} \end{array}\right} P(E_1) = P(E_2) = 0.05
+$$</p>
+<p>Se define el evento de falla del sistema: $P(F) = P(E_1 \cup E_2)$</p>
+<p>$$
+P(E_1 \cup E_2) = P(E_1) + P(E_2) - P(E_1 E_2)
+$$</p>
+<p>Debemos determinar la probabilidad conjunta,</p>
+<p>$$
+P(E_1 E_2) = P(E_1) P(E_2) = 0.0025
+$$</p>
+<p>Por lo que la probabilidad de falla es,</p>
+<p>$$
+P(F) = 0.05 + 0.05 - 0.0025 = 0.098
+$$</p>
+<p>Ahora supongamos el caso en que el proveedor es el mismo y los eslabones son idénticos, por lo que podemos asumir que $P(E_2 / E_1) = 1$.</p>
+<p>La probabilidad de falla es entonces,</p>
+<p>$$
+P(F) = P(E_1) + P(E_2) - P(E_1 E_2) = P(E_1) + P(E_2) - P(E_2 / E_1) P(E_1)
+$$</p>
+<p>$$
+P(F) = 0.05 + 0.05 - 0.05 = 0.05
+$$</p>
+<p>Se ve que, dependiendo del grado de dependencia estadística entre la falla de ambos componentes de la cadena, la probabilidad de falla del sistema variará entre $0.05 - 0.098$ (desde dependencia total hasta independencia estadística respectivamente). Esto es una diferencia del doble.</p>
+</section>
+<section id="ejemplo-1-6">
+<h2><span class="section-number">4.11. </span>EJEMPLO 1.6<a class="headerlink" href="#ejemplo-1-6" title="Link to this heading">#</a></h2>
+<p>En el pórtico de la figura las bases pueden asentarse debido a las propiedades del suelo. Se sabe que la probabilidad de asentamiento de cada base individualmente es del $10%$ y que la probabilidad de que se asiente una base, dado que se asentó la otra, es del $80%$.</p>
+<p>Determinar la probabilidad de que el pórtico sufra un asentamiento.</p>
+<p>Definimos los eventos:</p>
+<ul class="simple">
+<li><p>$A$: Asentamiento de base $A$</p></li>
+<li><p>$B$: Asentamiento de base $B$</p></li>
+</ul>
+<p>Entonces la probabilidad buscada es,</p>
+<p>$$
+P(A \cup B) = P(A) + P(B) - P(A B)
+$$</p>
+<p>$$
+= P(A) + P(B) - P(B / A) P(A)
+$$</p>
+<p>$$
+P(A \cup B) = 0.1 + 0.1 - 0.8 \times 0.1 = 0.12
+$$</p>
+<p>Determinar la probabilidad de que el pórtico sufra un asentamiento diferencial (una base se asiente, pero la otra no).</p>
+<p>Se define la probabilidad buscada como,</p>
+<p>$$
+P(A \bar{B} \cup \bar{A} B) = P(A \bar{B}) + P(\bar{A} B)
+$$</p>
+<p>$$
+= P(\bar{B} / A) P(A) + P(\bar{A} / B) P(B)
+$$</p>
+<p>$$
+= [1 - P(B / A)] P(A) + [1 - P(A / B)] P(B)
+$$</p>
+<p>$$
+P(A \cup B) = (1 - 0.8) 0.1 + (1 - 0.8) 0.1 = 0.04
+$$</p>
+</section>
+<section id="ejemplo-1-7">
+<h2><span class="section-number">4.12. </span>EJEMPLO 1.7<a class="headerlink" href="#ejemplo-1-7" title="Link to this heading">#</a></h2>
+<p>La construcción de una autopista en la ciudad depende fuertemente del resultado de las elecciones políticas. Si ganan los radicales, la probabilidad de que se construya la autopista es del $20%$, mientras que, si ganan los justicialistas, es del $70%$.</p>
+<p>Determinar la probabilidad de que se construya la autopista si la probabilidad de que gane uno de los dos partidos es 50-50.</p>
+<p>De los datos del problema se definen eventos y probabilidad,</p>
+<ul class="simple">
+<li><p>$A$: Se construye la autopista</p></li>
+<li><p>$R$: Ganan los radicales</p></li>
+<li><p>$J$: Ganan los justicialistas</p></li>
+</ul>
+<p>$$
+P(A / R) = 0.2; , P(A / J) = 0.7; , P(R) = P(J) = 0.5
+$$</p>
+<p>La probabilidad de $A$ se calcula utilizando el Teorema de la probabilidad total,</p>
+<p>$$
+P(A) = P(A / R) P(R) + P(A / J) P(J)
+$$</p>
+<p>$$
+P(A) = 0.2 \times 0.5 + 0.7 \times 0.5 = 0.45
+$$</p>
+<p>Determinar la probabilidad de $A$ si $P(J) = 0.60$</p>
+<p>$$
+P(A) = P(A / R) P(R) + P(A / J) P(J)
+$$</p>
+<p>$$
+P(A) = 0.2 \times 0.4 + 0.7 \times 0.6 = 0.50
+$$</p>
+<p>Determinar la probabilidad de $A$ si $P(R) = 0.60$</p>
+<p>$$
+P(A) = P(A / R) P(R) + P(A / J) P(J)
+$$</p>
+<p>$$
+P(A) = 0.2 \times 0.6 + 0.7 \times 0.4 = 0.40
+$$</p>
+</section>
+<section id="ejemplo-1-8">
+<h2><span class="section-number">4.13. </span>EJEMPLO 1.8<a class="headerlink" href="#ejemplo-1-8" title="Link to this heading">#</a></h2>
+<p>Se tiene un grupo de pilotes diseñado para soportar una carga última de $200 , \text{t}$. Por un caso extraordinario, debe pasar por encima de ellos una carga de $300 , \text{t}$. De ensayos de carga realizados se sabe que la probabilidad de que el grupo de pilotes aguante las $300 , \text{t}$ (evento $A$) es del $70%$.</p>
+<p>Se propone realizar una prueba de carga sobre los pilotes, sometiéndolos a una carga de $280 , \text{t}$. Si el grupo de pilotes es capaz de soportar $300 , \text{t}$, entonces el resultado de la prueba será exitoso (evento $T$) con seguridad. Si el grupo de pilotes no es capaz de soportar las $300 , \text{t}$, entonces la probabilidad de que el ensayo sea exitoso es del $50%$.</p>
+<p>Determinar si se justifica realizar el ensayo sobre los pilotes.</p>
+<p>De los datos del problema tenemos que,</p>
+<p>$$
+P(A) = 0.70
+$$</p>
+<p>$$
+P(T / \bar{A}) = 0.50
+$$</p>
+<p>$$
+P(T / A) = 1
+$$</p>
+<p>Queremos determinar la probabilidad de que el grupo de pilotes soporte las $300 , \text{t}$, si es que el ensayo es exitoso. Entonces,</p>
+<p>$$
+P(A / T) = \frac{P(T / A) P(A)}{P(T)} = \frac{P(T / A) P(A)}{P(T / A) P(A) + P(T / \bar{A}) P(\bar{A})}
+$$</p>
+<p>$$
+P(A / T) = \frac{1 \times 0.70}{1 \times 0.70 + (1 - 0.50) 0.30} = 0.824
+$$</p>
+<p>Como se ve del resultado, si el ensayo resulta exitoso, la probabilidad de que el grupo de pilotes soporte la carga extraordinaria aumenta. El ensayo está justificado.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter1_intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modelos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Modelos, variables y parámetros</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3. Teoría de conjuntos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reglas-operacionales">3.1. Reglas operacionales</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#teoria-matematica-de-la-probabilidad">4. Teoría matemática de la probabilidad</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-de-la-union-de-eventos">4.1. Probabilidad de la unión de eventos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicional">4.2. Probabilidad condicional</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-estadistica">4.3. Independencia estadística</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-la-probabilidad-total">4.4. Teorema de la probabilidad total</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-bayes">4.5. Teorema de Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-1">4.6. EJEMPLO 1.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-2">4.7. EJEMPLO 1.2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-3">4.8. EJEMPLO 1.3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-4">4.9. EJEMPLO 1.4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-5">4.10. EJEMPLO 1.5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-6">4.11. EJEMPLO 1.6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-7">4.12. EJEMPLO 1.7</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-8">4.13. EJEMPLO 1.8</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mariano Balbi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
