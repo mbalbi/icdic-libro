@@ -10,7 +10,7 @@ parts:
     numbered: True
     chapters:
     - file: chapter1_intro/intro
-    - file: chapter1_intro/modelo
+    - file: chapter1_intro/modelos
     - file: chapter1_intro/repaso_de_probabilidad
   # - caption: Recolección y descripción de datos
   #   numbered: True

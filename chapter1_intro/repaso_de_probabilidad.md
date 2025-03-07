@@ -1,4 +1,6 @@
 ---
+jupytext:
+  formats: md:myst
 title: Repaso de probabilidad
 thumbnail: xref:guide/thumbnails/nice-image.png
 date: 2022-05-11
