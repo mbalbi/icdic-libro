@@ -1,5 +1,5 @@
 ---
-title: My First Article
+title: Repaso de probabilidad
 thumbnail: xref:guide/thumbnails/nice-image.png
 date: 2022-05-11
 authors:
@@ -8,9 +8,7 @@ authors:
       - University of Europe
 ---
 
-# 1 Repaso de probabilidad
-
-## 1.1 Teoría de conjuntos
+## Teoría de conjuntos
 
 Se define como "espacio muestral" al conjunto de todos los resultados posibles en un problema probabilístico. Un "evento" es definido como un subconjunto cualquiera del espacio muestral.
 
@@ -21,16 +19,13 @@ La siguiente nomenclatura es utilizada a lo largo de este libro:
 - $E \rightarrow$ Evento cualquiera
 - $\bar{E} \rightarrow$ Evento complementario (contiene todos los elementos de $S$ que no forman parte de $E$)
 
+```{note}
+Here is a note
+```
+
 Un espacio muestral y sus subconjuntos (o eventos) se puede representar gráficamente por medio de un "Diagrama de Venn" como se muestra en la Figura 1-1.
 
 ![Figura 1-1. Diagrama de Venn](figuras/Diagrama_de_Venn.png)
-
-:::{figure} figuras/Diagrama_de_Venn.png
-:align: center
-:width: 40%
-
-The picture would look better if it is `:align: center`-ed!
-:::
 
 En muchos problemas prácticos el evento de interés puede ser la combinación de varios eventos. Solamente hay dos maneras de combinar eventos: la intersección ($\cap$) y la unión ($\cup$).
 
@@ -44,7 +39,7 @@ Si los eventos son mutuamente excluyentes y colectivamente exhaustivos, entonces
 
 ![Figura 1-3. (a) Eventos mutuamente excluyentes; (b) Eventos colectivamente exhaustivos (y excluyentes)](figuras/placeholder_figura_1-3.png)
 
-### 1.1.1 Reglas operacionales
+### Reglas operacionales
 
 **Axiomas de igualdad**  
 Dos conjuntos son iguales si y solo si ambos conjuntos contienen exactamente los mismos elementos. Del axioma de igualdad se derivan los siguientes resultados de algunas operaciones entre un conjunto cualquiera $A$ y otros conjuntos característicos del espacio muestral:
@@ -127,7 +122,7 @@ En la siguiente figura se ve la demostración básica de las Leyes utilizando lo
 
 ![Figura 1-4. Reglas de De Morgan](figuras/placeholder_figura_1-4.png)
 
-## 1.2 Teoría matemática de la probabilidad
+## Teoría matemática de la probabilidad
 
 La teoría matemática de la probabilidad está basada sobre los siguientes tres axiomas:
 
@@ -155,7 +150,7 @@ $$
 P(\bar{E}) = 1 - P(E)
 $$
 
-### 1.2.1 Probabilidad de la unión de eventos
+### Probabilidad de la unión de eventos
 
 Para dos conjuntos cualesquiera,
 
@@ -213,7 +208,7 @@ $$
 P(E_1 \cup E_2 \cup \ldots \cup E_n) = \sum_{i=1}^n P(E_i)
 $$
 
-### 1.2.2 Probabilidad condicional
+### Probabilidad condicional
 
 Se denomina probabilidad condicional a la probabilidad de ocurrencia de un determinado evento, sabiendo que ocurrió otro evento. Es decir, la probabilidad de ocurrencia de un evento condicionada a la ocurrencia de otro.
 
@@ -249,7 +244,7 @@ $$
 P(E_1 \cup E_2 / A) = P(E_1 / A) + P(E_2 / A) - P(E_1 E_2 / A)
 $$
 
-### 1.2.3 Independencia estadística
+### Independencia estadística
 
 A partir de la definición de probabilidad condicional de un evento respecto de otro, se puede deducir de manera inmediata lo que se conoce como "independencia estadística" entre dos eventos.
 
@@ -289,7 +284,7 @@ $$
 P(\bar{E}_1 \bar{E}_2) = P(\bar{E}_1) P(\bar{E}_2)
 $$
 
-### 1.2.4 Teorema de la probabilidad total
+### Teorema de la probabilidad total
 
 En ciertas ocasiones, la ocurrencia de un evento determinado está sujeta a la ocurrencia o no de otros eventos. De esta manera, puede desagregarse dicha probabilidad de ocurrencia en la ocurrencia de determinados eventos que abarquen todo el espacio muestral $S$.
 
@@ -311,7 +306,7 @@ $$
 P(A) = P(A / E_1) P(E_1) + P(A / E_2) P(E_2) + \ldots + P(A / E_n) P(E_n)
 $$
 
-### 1.2.5 Teorema de Bayes
+### Teorema de Bayes
 
 El teorema de Bayes es un corolario del Teorema de la probabilidad total visto en el punto anterior. Este establece que, dada la siguiente relación entre eventos
 
