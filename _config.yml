@@ -23,6 +23,9 @@ bibtex_bibfiles:
 sphinx:
   config:
     bibtex_reference_style: super
+  extra_extensions:
+    - sphinx_inline_tabs
+    - sphinx_proof
 
 # Information about where the book exists on the web
 repository:
@@ -38,9 +41,12 @@ html:
 
 parse:
   myst_enable_extensions:
-    # don't forget to list any other extensions you want enabled,
-    # including those that are enabled by default!
     - deflist
     - amsmath
+    - dollarmath
+    - substitution
+    - tasklist
+    - linkify
+    - colon_fence
 
 only_build_toc_files: true

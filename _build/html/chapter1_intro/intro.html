@@ -28,12 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -47,6 +49,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -57,6 +60,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter1_intro/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -183,20 +188,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modelos.html">2. Modelos, variables y parámetros</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Recolección y descripción de datos</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/datos_y_variables.html">3. Variables, poblaciones y datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/data_mining.html">4. Minado de datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/aed.html">5. Análisis exploratorio de datos</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos de inferencia estadística</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter3_inferencia/inferencia.html">6. Introducción a la inferencia estadística</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelos de probabilidad condicional</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter4_modelos/regresion.html">7. Minado de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repaso_de_probabilidad.html">3. Repaso de probabilidad</a></li>
 </ul>
 
     </div>
@@ -251,7 +243,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/mbalbi/ciencia_de_datos" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -268,7 +260,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapter1_intro/intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/mbalbi/ciencia_de_datos/issues/new?title=Issue%20on%20page%20%2Fchapter1_intro/intro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -419,7 +411,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="introduccion">
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
 <h1><span class="section-number">1. </span>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
 <section id="que-es-la-ciencia-de-datos">
 <h2><span class="section-number">1.1. </span>Qué es la ciencia de datos?<a class="headerlink" href="#que-es-la-ciencia-de-datos" title="Link to this heading">#</a></h2>
@@ -458,7 +450,7 @@ Control de calidad en un proceso</div>
 <p class="sd-card-text"><em>Cómo relacionamos el promedio de la muestra con el promedio de toda la población?</em></p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/bulones.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/bulones.jpg" /></p>
 </div>
 </div>
 </div>
@@ -475,7 +467,7 @@ Estimación de acciones sobre una estructura</div>
 <p class="sd-card-text"><em>Cómo relacionamos los valores pasados con los posibles valores futuros?</em></p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/estacion_meteorologica.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/estacion_meteorologica.jpg" /></p>
 </div>
 </div>
 </div>
@@ -492,7 +484,7 @@ Regresiones entre variables</div>
 <p class="sd-card-text"><em>Cómo predecimos el volumen para la nueva avenida a partir de los volúmenes de las calles existentes?</em></p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/trafico_calles.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/trafico_calles.jpg" /></p>
 </div>
 </div>
 </div>
@@ -506,7 +498,13 @@ Regresiones entre variables</div>
 </div></blockquote>
 <p>De los ejemplos queda claro, además, que el objeto último de la ciencia de datos no es el estudio de un conjunto específico de observaciones en sí, también llamado <strong>muestra</strong>, si no el conjunto de observaciones potencialmente realizables dentro de un determinado proceso físico real, también llamado <strong>población</strong>. La noción de <strong>población</strong> es un concepto amplio que involucra “todas las observaciones que podrían ocurrir” si repitiésemos el procedimiento de tomar muestras <span id="id5"><sup><a class="reference internal" href="#id16" title="Simon Vaughan. Scientific Inferece: Learning from Data. Cambridge University Press, 2013.">5</a></sup></span> (ver <a class="reference internal" href="#fig-poblacion"><span class="std std-numref">Fig. 1.1</span></a>). En el ejemplo de los bulones, la población tiene forma clara y tangible: son todos los bulones obtenidos en la tanda. En el ejemplo de los vientos, por otro lado, la muestra son los vientos de los últimos 40 años, y la población incluiría además todos los vientos anteriores (no observados) y los futuros. Por último, en el ejemplo de los volúmenes de tráfico en la avenida, la muestra está compuesta por todas las vías medidas (incluso podrían ser todas las calles de una ciudad), pero la población también incluye hipotéticas calles con anchos de calzada y densidades poblacionales que no existen pero podrían existir <a class="footnote-reference brackets" href="#spiegelhalter" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <figure class="align-default" id="fig-poblacion">
-<a class="reference internal image-reference" href="../_images/population_and_sample_2.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="../_images/population_and_sample_2.png" style="width: 585.5px; height: 433.5px;" />
+<a class="reference internal image-reference" href="chapter1_intro/figuras/population_and_sample_2.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="chapter1_intro/figuras/population_and_sample_2.png" />
+<aside class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">C:\Users\balbi\OneDrive\Docencia\ICDIC\icdic-libro\chapter1_intro/intro.md</span>, line 103)</p>
+<p>Cannot scale image!
+  Could not get size from &quot;chapter1_intro/figuras/population_and_sample_2.png&quot;:
+  [Errno 2] No such file or directory: 'chapter1_intro/figuras/population_and_sample_2.png'</p>
+</aside>
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">El círculo rojo son las muestras que observamos, dentro de un universo posible de muestras (población general). Las conclusiones que más interesan son sobre la población general.</span><a class="headerlink" href="#fig-poblacion" title="Link to this image">#</a></p>
@@ -528,7 +526,7 @@ Clasficación de imagenes</div>
 <p class="sd-card-text">En un contexto de planificación urbano-ambiental, una agencia gubernamental necesita hacer una evaluación del balance hídrico de una cuenca. Para esto, es útil conocer la geografía de la región, incluyendo los tipos de suelo y cursos de agua existentes. Esto puede ser una tarea gigante de realizar mediante inspecciones oculares. Por suerte, hoy en día, las imágenes satelitales permiten obtener información periódica sobre el estado del terreno, y son de acceso relativamente barato.</p>
 <p class="sd-card-text"><em>Cómo usamos imágenes satelitales viejas para automatizar la clasificación de tipos de suelo en imágenes satelitales nuevas?</em></p>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/imagen_satelital_LU.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/imagen_satelital_LU.jpg" /></p>
 </div>
 </div>
 </div>
@@ -537,7 +535,13 @@ Clasficación de imagenes</div>
 </div>
 <p>El auge de estos nuevos algoritmos y aplicaciones requirió también el desarrollo de técnicas computacionales para el almacenamiento y procesamiento de grandes cantidades de datos de estructuras muy diferentes (una sola imagen satelital son miles de numeritos con un determinado orden). En este contexto, se acuña en la década del 70 el término “ciencia de datos”<span id="id8"><sup><a class="reference internal" href="#id14" title="Longbing Cao. Data Science: A Comprehensive Overview. ACM Computing Surveys, 50(3):43:1–43:42, June 2017. doi:10.1145/3076253.">6</a></sup></span> como una disciplina más amplia que contiene a la inferencia estadística clásica y que incluye conocimientos de informática y cálculo computacional. Estas herramientas son combinadas, hoy en día, con conociemintos técnicos de los distintos ámbitos de aplicación. La ciencia de datos moderna es, entonces, una disciplina transversal y que ha permeado en los desarrollos de la mayor parte de las ingenierías y, en particular, de la ingeniería civil (ver <a class="reference internal" href="#ciencia-datos"><span class="std std-numref">Fig. 1.2</span></a>).</p>
 <figure class="align-default" id="ciencia-datos">
-<a class="reference internal image-reference" href="../_images/burbujas_ciencia_de_datos.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="../_images/burbujas_ciencia_de_datos.png" style="width: 578.0px; height: 516.75px;" />
+<a class="reference internal image-reference" href="chapter1_intro/figuras/burbujas_ciencia_de_datos.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="chapter1_intro/figuras/burbujas_ciencia_de_datos.png" />
+<aside class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">C:\Users\balbi\OneDrive\Docencia\ICDIC\icdic-libro\chapter1_intro/intro.md</span>, line 138)</p>
+<p>Cannot scale image!
+  Could not get size from &quot;chapter1_intro/figuras/burbujas_ciencia_de_datos.png&quot;:
+  [Errno 2] No such file or directory: 'chapter1_intro/figuras/burbujas_ciencia_de_datos.png'</p>
+</aside>
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">La ciencia de datos como encuentro de distintas especialidades</span><a class="headerlink" href="#ciencia-datos" title="Link to this image">#</a></p>
@@ -607,7 +611,7 @@ Asociación o causalidad?</div>
 <p class="sd-card-text"><em>Podemos usar X para predecir Y de manera razonable?</em></p>
 <p class="sd-card-text"><em>Si modificamos el valor de X, esperamos modificar Y?</em></p>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/imagen_satelital_LU.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/imagen_satelital_LU.jpg" /></p>
 </div>
 </div>
 </div>
@@ -653,10 +657,16 @@ Inferencia causal</div>
 <h2><span class="section-number">1.3. </span>Cómo hacemos ciencia de datos?<a class="headerlink" href="#como-hacemos-ciencia-de-datos" title="Link to this heading">#</a></h2>
 <p>xxx</p>
 <figure class="align-default" id="fig-somerville">
-<a class="reference internal image-reference" href="../_images/datascience_somerville.jpeg"><img alt="El proceso de la ciencia de datos" src="../_images/datascience_somerville.jpeg" style="width: 255.25px; height: 83.0px;" />
+<a class="reference internal image-reference" href="chapter1_intro/figuras/datascience_somerville.jpeg"><img alt="El proceso de la ciencia de datos" src="chapter1_intro/figuras/datascience_somerville.jpeg" />
+<aside class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">C:\Users\balbi\OneDrive\Docencia\ICDIC\icdic-libro\chapter1_intro/intro.md</span>, line 248)</p>
+<p>Cannot scale image!
+  Could not get size from &quot;chapter1_intro/figuras/datascience_somerville.jpeg&quot;:
+  [Errno 2] No such file or directory: 'chapter1_intro/figuras/datascience_somerville.jpeg'</p>
+</aside>
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Caricatura del proceso de extraer conocimiento de un conjunto de observaciones realizada por David Somerville basado en el original de Hugh McLeod (https://random-blather.com/2014/04/28/information-isnt-power/).</span><a class="headerlink" href="#fig-somerville" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Caricatura del proceso de extraer conocimiento de un conjunto de observaciones realizada por David Somerville basado en el original de Hugh McLeod (<a class="reference external" href="https://random-blather.com/2014/04/28/information-isnt-power/">https://random-blather.com/2014/04/28/information-isnt-power/</a>).</span><a class="headerlink" href="#fig-somerville" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>El proceso de <em>construcción de conocimiento a partir de datos</em> solo es posible mediante una adecuada definición del problema a resolver (las preguntas a contestar) y una adecuada planificación en la recolección, procesamiento y visualización de los datos disponibles. En este contexto, la ciencia de datos abarca una serie de etapas, retroalimentadas entre sí, donde cada una requiere de cuidadoso estudio y de técnica específicas:</p>
@@ -709,7 +719,7 @@ La construcción del modelo implica la postulación de un conjunto de hipótesis
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Cuánto desciende la siguiente viga?</p>
-<p>La teoría de la mecánica del sólido nos dice que la flecha puede calcularse como $f=\frac{Pl^3}{48EJ}$, donde $E$ es el módulo de elasticidad, $J$ el momento de inercia, $L$ la lontigud entre apoyos y $P$ la carga. Teóricamente podríamos medir estos valores y calcular la flecha sin necesidad de construir y ensayar la viga.</p>
+<p>La teoría de la mecánica del sólido nos dice que la flecha puede calcularse como <span class="math notranslate nohighlight">\(f=\frac{Pl^3}{48EJ}\)</span>, donde <span class="math notranslate nohighlight">\(E\)</span> es el módulo de elasticidad, <span class="math notranslate nohighlight">\(J\)</span> el momento de inercia, <span class="math notranslate nohighlight">\(L\)</span> la lontigud entre apoyos y <span class="math notranslate nohighlight">\(P\)</span> la carga. Teóricamente podríamos medir estos valores y calcular la flecha sin necesidad de construir y ensayar la viga.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -754,7 +764,7 @@ Ejemplo 1: Evaluación de la distribución de muestras</div>
 <p class="sd-card-text"><strong>Datos:</strong>  Observaciones de resistencias en probetas obtenidas al azar según ensayo normalizado en laboratorio</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="probetas" src="../_images/probetas_hormigon.jpg" /></p>
+<p class="sd-card-text"><img alt="probetas" src="chapter1_intro/figuras/probetas_hormigon.jpg" /></p>
 </div>
 </div>
 </div>
@@ -775,7 +785,7 @@ Ejemplo 2: Comparación entre muestras</div>
 <p class="sd-card-text"><strong>Datos:</strong>  Serie de observaciones de densidad de la mezcla para la máquina vieja, y otra serie para la máquina nueva obtenidas en terreno</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/compactacion_asfalto.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/compactacion_asfalto.jpg" /></p>
 </div>
 </div>
 </div>
@@ -797,7 +807,7 @@ Ejemplo 3: Comparación entre muestras</div>
 <p class="sd-card-text"><strong>Datos:</strong> Serie de observaciones previas y posteriores al inicio del nuevo esquema obtenidas mediante conteo en estación de peajes.</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/autopista_peaje.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/autopista_peaje.jpg" /></p>
 </div>
 </div>
 </div>
@@ -819,7 +829,7 @@ Ejemplo 4: Caracterización de distribuciones</div>
 <p class="sd-card-text"><strong>Datos:</strong> Serie temporal de descargas máximas diarias obtenidas en estación permanente de medición sobre el río</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/inundacion_muro.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/inundacion_muro.jpg" /></p>
 </div>
 </div>
 </div>
@@ -842,7 +852,7 @@ Ejemplo 5: Modelos de regresión</div>
 <p class="sd-card-text"><strong>Datos:</strong> Conjunto de observaciones de resistencia y propiedades para cada mezcla, obtenidos en laboratorio</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/hormigon_mezclas.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/hormigon_mezclas.jpg" /></p>
 </div>
 </div>
 </div>
@@ -865,7 +875,7 @@ Ejemplo 6: Modelos de clasificación</div>
 <p class="sd-card-text"><strong>Datos:</strong> Observaciones en terreno de nivel de daño, tipología estructural, y características arquitectónicas para cada estructura</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/dano_sismico.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/dano_sismico.jpg" /></p>
 </div>
 </div>
 </div>
@@ -885,7 +895,7 @@ Ejemplo 7: Causalidad versus correlación</div>
 <p class="sd-card-text"><strong>Datos:</strong></p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/dano_sismico.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/dano_sismico.jpg" /></p>
 </div>
 </div>
 </div>
@@ -907,7 +917,7 @@ Ejemplo 8: Calibración de modelos físicos</div>
 <p class="sd-card-text"><strong>Datos:</strong> Observaciones en terreno de los desplazamientos obtenidos mediante acelerómetros en distintos puntos de la estructura</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/puente_fem.png" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/puente_fem.png" /></p>
 </div>
 </div>
 </div>
@@ -929,7 +939,7 @@ Ejemplo 9: Modelos avanzados de clasificación: clasificación de imágenes</div
 <p class="sd-card-text"><strong>Datos:</strong> Fotos de los elementos estructurales obtenidos mediante un dron</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/fisuras_pavimentos.jpg" />
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/fisuras_pavimentos.jpg" />
 <em>*Arya et el (2021), RDD2020: An annotated image dataset for automatic road damage detection using deep learning</em></p>
 </div>
 </div>
@@ -952,7 +962,7 @@ Ejemplo 10: Modelos avanzados de clasificación: clasificación de imágenes</di
 <p class="sd-card-text"><strong>Datos:</strong> Imágenes satelitales ópticas de la región</p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="asfalto" src="../_images/imagen_satelital_LU.jpg" /></p>
+<p class="sd-card-text"><img alt="asfalto" src="chapter1_intro/figuras/imagen_satelital_LU.jpg" /></p>
 </div>
 </div>
 </div>

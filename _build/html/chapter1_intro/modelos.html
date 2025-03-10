@@ -28,12 +28,14 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -47,6 +49,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -57,10 +60,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter1_intro/modelos';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Variables, poblaciones y datos" href="../chapter2_aed/datos_y_variables.html" />
+    <link rel="next" title="3. Repaso de probabilidad" href="repaso_de_probabilidad.html" />
     <link rel="prev" title="1. Introducción" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,20 +188,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introducción</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Modelos, variables y parámetros</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Recolección y descripción de datos</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/datos_y_variables.html">3. Variables, poblaciones y datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/data_mining.html">4. Minado de datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapter2_aed/aed.html">5. Análisis exploratorio de datos</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Conceptos de inferencia estadística</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter3_inferencia/inferencia.html">6. Introducción a la inferencia estadística</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelos de probabilidad condicional</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter4_modelos/regresion.html">7. Minado de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repaso_de_probabilidad.html">3. Repaso de probabilidad</a></li>
 </ul>
 
     </div>
@@ -251,7 +243,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/mbalbi/ciencia_de_datos" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -268,7 +260,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapter1_intro/modelos.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/mbalbi/ciencia_de_datos/issues/new?title=Issue%20on%20page%20%2Fchapter1_intro/modelos.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -407,7 +399,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="modelos-variables-y-parametros">
+  <section class="tex2jax_ignore mathjax_ignore" id="modelos-variables-y-parametros">
 <h1><span class="section-number">2. </span>Modelos, variables y parámetros<a class="headerlink" href="#modelos-variables-y-parametros" title="Link to this heading">#</a></h1>
 <p>ESTO ES UNA PRUEBA!</p>
 <p>Hypotheses may come from some more general theory, or may be more ad hoc,
@@ -435,7 +427,7 @@ clusions about unobserved cases or theories. Vaughan et al.</p>
 <p>Experimental and observational science is all about inductive reasoning, going
 from a ﬁnite number of observations or results to a general conclusion about unobserved cases (induction), or a theory that explains them (abduction).</p>
 <hr class="docutils" />
-<p>from https://bjlkeng.io/posts/hypothesis-testing/#id11:</p>
+<p>from <a class="reference external" href="https://bjlkeng.io/posts/hypothesis-testing/#id11:">https://bjlkeng.io/posts/hypothesis-testing/#id11:</a></p>
 <p>The first big idea is that all data (or observations as statisticians like to say) have a “true” probability distribution 1. Of course, it is almost never possible to precisely define it because the real world rarely fits so nicely into the distributions we learn in stats class. However, the implications of this idea is that the “true” distribution and its parameters are fixed (i.e. not random) albeit unknown. The randomness comes in when you sample from this “true” distribution from which each datum is randomly drawn.</p>
 <p>The second big idea is that statistical inference 2 (or as computer scientists call it “learning” 3) basically boils down to estimating this distribution directly by computing the distribution or density function 4, or indirectly by estimating derived metrics such as the mean or median of the distribution.</p>
 <p>Give a sample X1,X2,…,Xn drawn from some (unknown) distribution F , how do we estimate F
@@ -451,7 +443,13 @@ from a ﬁnite number of observations or results to a general conclusion about u
 <li><p>Comparación y mejora del modelo: El modelo resultante puede utilizarse para realizar predicciones sobre nuevas potenciales observaciones. Comparar a estas con las observaciones que sí tenemos sirve como medida de lo útil que es el modelo como representación del mecanismo de generación de datos real. Esto se conoce como una medida de la <strong>bondad de ajuste</strong> del modelo propuesto, y sirve para poder comparar distintos modelos (hipótesis) entre sí.</p></li>
 </ol>
 <figure class="align-default" id="fig-poblacion-2">
-<a class="reference internal image-reference" href="../_images/population_and_sample_and_model.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="../_images/population_and_sample_and_model.png" style="width: 624.25px; height: 499.0px;" />
+<a class="reference internal image-reference" href="chapter1_intro/figuras/population_and_sample_and_model.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="chapter1_intro/figuras/population_and_sample_and_model.png" />
+<aside class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">C:\Users\balbi\OneDrive\Docencia\ICDIC\icdic-libro\chapter1_intro/modelos.md</span>, line 74)</p>
+<p>Cannot scale image!
+  Could not get size from &quot;chapter1_intro/figuras/population_and_sample_and_model.png&quot;:
+  [Errno 2] No such file or directory: 'chapter1_intro/figuras/population_and_sample_and_model.png'</p>
+</aside>
 </a>
 <figcaption>
 <p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">EL modelo de generación de datos son las hipótesis simplificativas de la población general que realizamos para poder hacer inferencias sobre la misma</span><a class="headerlink" href="#fig-poblacion-2" title="Link to this image">#</a></p>
@@ -460,7 +458,7 @@ from a ﬁnite number of observations or results to a general conclusion about u
 <section id="como-se-define-un-modelo">
 <h2><span class="section-number">2.1. </span>Cómo se define un modelo?<a class="headerlink" href="#como-se-define-un-modelo" title="Link to this heading">#</a></h2>
 <p>The type of randomness described above is usually called random error (or measurement error) by physicists (the term error is used differently by statisticians6). Here, error does not mean a mistake as in the usual sense. To most scientists the ‘measurement error’ is an estimate of the repeatability of a measurement. If we take some data and use them to infer the speed of sound through air, what is the error on our measurement? If we repeat the entire experiment – under almost identical conditions – chances are the next measurements will be slightly different, by some unpredictable amount. As will further repeats. The ‘random error’ is a quantitative indication of how close repeated results will be. Data with small errors are said to have high precision – if we repeat the measurement the next value is likely to be very close to the previous value(s). Vaughan et al.</p>
-<p>modelos paramétricos vs no-paramétricos (ver https://bjlkeng.io/posts/hypothesis-testing/#id11 o wasserman)</p>
+<p>modelos paramétricos vs no-paramétricos (ver <a class="reference external" href="https://bjlkeng.io/posts/hypothesis-testing/#id11">https://bjlkeng.io/posts/hypothesis-testing/#id11</a> o wasserman)</p>
 <p>(The art of statistics - Spiegelhalter)
 -Simple mathematical representations for associations (statisticians)
 -Complex deterministic models based on scientific understanding of a physical process
@@ -479,12 +477,12 @@ from a ﬁnite number of observations or results to a general conclusion about u
 <section id="variables-datos-y-parametros">
 <h2><span class="section-number">2.4. </span>Variables, datos y parámetros<a class="headerlink" href="#variables-datos-y-parametros" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p><strong>Variables</strong>: características (atributos) físicas medibles de los objetos de una población, y que presentan una variabilidad dentro de esa población. <em>Caracterizados con letras latinas mayúsculas ($X$,$Y$,…)</em></p></li>
-<li><p><strong>Datos</strong>: Mediciones (observaciones) de variables. Un conjunto de datos es una “muestra”. <em>Caracterizados con letras latinas minúsculas ($y_1$,$y_2$,…)</em>.</p></li>
+<li><p><strong>Variables</strong>: características (atributos) físicas medibles de los objetos de una población, y que presentan una variabilidad dentro de esa población. <em>Caracterizados con letras latinas mayúsculas (<span class="math notranslate nohighlight">\(X\)</span>,<span class="math notranslate nohighlight">\(Y\)</span>,…)</em></p></li>
+<li><p><strong>Datos</strong>: Mediciones (observaciones) de variables. Un conjunto de datos es una “muestra”. <em>Caracterizados con letras latinas minúsculas (<span class="math notranslate nohighlight">\(y_1\)</span>,<span class="math notranslate nohighlight">\(y_2\)</span>,…)</em>.</p></li>
 <li><p><strong>Parámetros</strong>: propiedades de una variable o un conjunto de datos.</p>
 <ol class="arabic simple">
-<li><p>poblacionales: Propiedad de la distribución de probabilidad (o población) de una variable. Por ejemplo, la esperanza, el desvío estándar, el percentil. <em>Caracterizados con letras griegas ($\alpha$,$\theta$,…)</em>.</p></li>
-<li><p>muestrales: Propiedad de un conjunto de datos (de la muestra). Por ejemplo, el promedio, la dispersión, la proporción, etc. <em>Caracterizados con letras latinas minúsculas ($\alpha$,$\theta$,…)</em>.</p></li>
+<li><p>poblacionales: Propiedad de la distribución de probabilidad (o población) de una variable. Por ejemplo, la esperanza, el desvío estándar, el percentil. <em>Caracterizados con letras griegas (<span class="math notranslate nohighlight">\(\alpha\)</span>,<span class="math notranslate nohighlight">\(\theta\)</span>,…)</em>.</p></li>
+<li><p>muestrales: Propiedad de un conjunto de datos (de la muestra). Por ejemplo, el promedio, la dispersión, la proporción, etc. <em>Caracterizados con letras latinas minúsculas (<span class="math notranslate nohighlight">\(\alpha\)</span>,<span class="math notranslate nohighlight">\(\theta\)</span>,…)</em>.</p></li>
 </ol>
 </li>
 </ol>
@@ -532,11 +530,11 @@ from a ﬁnite number of observations or results to a general conclusion about u
       </div>
     </a>
     <a class="right-next"
-       href="../chapter2_aed/datos_y_variables.html"
+       href="repaso_de_probabilidad.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Variables, poblaciones y datos</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Repaso de probabilidad</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

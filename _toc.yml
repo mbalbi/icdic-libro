@@ -6,12 +6,12 @@ root: front
 options:
   numbered: true
 parts:
-  - caption: Introducción
-    numbered: True
+  - numbered: True
     chapters:
-    - file: chapter1_intro/intro
-    - file: chapter1_intro/modelos
-    - file: chapter1_intro/repaso_de_probabilidad
+      - file: chapter1_intro/intro/intro
+      - file: chapter1_intro/repaso_de_probabilidad/repaso_de_probabilidad
+      - file: chapter1_intro/modelos/modelos
+
   # - caption: Recolección y descripción de datos
   #   numbered: True
   #   chapters:
