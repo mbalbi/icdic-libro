@@ -26,6 +26,7 @@ sphinx:
   extra_extensions:
     - sphinx_inline_tabs
     - sphinx_proof
+    - sphinx_exercise
 
 # Information about where the book exists on the web
 repository:

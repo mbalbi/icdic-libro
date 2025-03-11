@@ -49,7 +49,7 @@ Probability theory is nothing but common sense reduced to calculation.
 
 Desde un punto de vista epistemológico, la probabilidad es una medida de la incertidumbre asociada a un evento. Esta definición ha dado origen a distintos enfoques en la manera de interpretar, y cuantificar, la probabilidad: enfoque clásico, frecuentista y subjetivo (o bayesiano)[^enfoques_prob]. El enfoque **clásico**, desarrollado por Laplace, se basa en la idea de que el espacio de valores posibles se puede dividir en un conjunto equiprobable de resultados, haciendo que la probabilidad de un evento sea el cociente entre la cantidad de resultados asociados al evento de interés y la cantidad de resultados posibles. El enfoque **frecuentista**, propuesto por autores como von Mises y Fisher, concibe la probabilidad como el límite de la frecuencia relativa de un suceso cuando el número de repeticiones tiende a infinito. Finalmente, el enfoque **subjetivo**, asociado a Thomas Bayes y desarrollado posteriormente por autores como De Finetti, interpreta la probabilidad como un grado de plausibilidad asignado a un evento incierto por un agente racional.
 
-[^enfoques_prob]: Para más detalles ver: [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/probability-interpret/#MaiInt)
+[^enfoques_prob]: Para más detalles ver: [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/probability-interpret/#MaiInt){:target="_blank"}
 
 ``````{card} Enfoque clásico
 ````{grid}
@@ -225,12 +225,28 @@ $P(a \leq x \leq b) = \int_{a}^{b} f_X(x)dx = F_X(b) - F_X(a)$
 Cálculo de probabilidades con funciones de distribución y de densidad
 ```
 
-````{prf:example}
-:label: example-calculo_probs
+`````{exercise}
+:label: ex-calculo-probabilidades
 
-Escribir ejercicio
+Ejercicio de ejemplo
 
+````{solution} ex-calculo-probabilidades
+:class: dropdown
+
+Here's one solution.
+
+```{code-block} python
+def factorial(n):
+    k = 1
+    for i in range(n):
+        k = k * (i + 1)
+    return k
+
+factorial(4)
+```
 ````
+
+`````
 
 ### Descriptores de una variable aleatoria
 
@@ -284,12 +300,28 @@ Existen momentos de orden superior que describen otras propiedades de la distrib
 
 ```
 
-````{prf:example}
-:label: example-momentos
+`````{exercise}
+:label: ex-calculo-momentos
 
-Escribir ejercicio
+Ejercicio de ejemplo
 
+````{solution} ex-calculo-momentos
+:class: dropdown
+
+Here's one solution.
+
+```{code-block} python
+def factorial(n):
+    k = 1
+    for i in range(n):
+        k = k * (i + 1)
+    return k
+
+factorial(4)
+```
 ````
+
+`````
 
 ## Probabilidad conjunta
 
@@ -351,12 +383,28 @@ f_{XY}(x,y) = f_X(x) f_Y(y)\\
 F_{XY}(x,y) = F_X(x) F_Y(y)
 $$
 
-````{prf:example}
-:label: example-independencia
+`````{exercise}
+:label: ex-independencia
 
-Escribir ejercicio
+Ejercicio de ejemplo
 
+````{solution} ex-independencia
+:class: dropdown
+
+Here's one solution.
+
+```{code-block} python
+def factorial(n):
+    k = 1
+    for i in range(n):
+        k = k * (i + 1)
+    return k
+
+factorial(4)
+```
 ````
+
+`````
 
 ### Covarianza y Correlación
 
@@ -385,12 +433,28 @@ La sentencia opuesta no necesariamente es cierta. Es decir, Si dos variables son
 
 ```
 
-````{prf:example}
-:label: example-covarianza
+`````{exercise}
+:label: ex-covarianza
 
-Escribir ejercicio
+Ejercicio de ejemplo
 
+````{solution} ex-covarianza
+:class: dropdown
+
+Here's one solution.
+
+```{code-block} python
+def factorial(n):
+    k = 1
+    for i in range(n):
+        k = k * (i + 1)
+    return k
+
+factorial(4)
+```
 ````
+
+`````
 
 ## Teorema de la probabilidad total
 
@@ -422,12 +486,28 @@ $$
 P(A) = P(A / E_1) P(E_1) + P(A / E_2) P(E_2) + \ldots + P(A / E_n) P(E_n)
 $$
 
-````{prf:example}
-:label: example-probabilidad-total
+`````{exercise}
+:label: ex-probabilidad-total
 
-Escribir ejercicio
+Ejercicio de ejemplo
 
+````{solution} ex-probabilidad-total
+:class: dropdown
+
+Here's one solution.
+
+```{code-block} python
+def factorial(n):
+    k = 1
+    for i in range(n):
+        k = k * (i + 1)
+    return k
+
+factorial(4)
+```
 ````
+
+`````
 
 ### Distribuciones marginales
 
@@ -447,12 +527,28 @@ f_X(x) = \int_{-\infty}^{\infty} f_{X|Y}(x, y) f_Y (y) dy = \int_{-\infty}^{\inf
 f_Y(y) = \int_{-\infty}^{\infty} f_{Y|X}(y, x) f_X(x) dx = \int_{-\infty}^{\infty} f_{XY}(x, y) dx
 $$
 
-````{prf:example}
-:label: example-marginales
+`````{exercise}
+:label: ex-calculo-marginales
 
-Escribir ejercicio
+Ejercicio de ejemplo
 
+````{solution} ex-calculo-marginales
+:class: dropdown
+
+Here's one solution.
+
+```{code-block} python
+def factorial(n):
+    k = 1
+    for i in range(n):
+        k = k * (i + 1)
+    return k
+
+factorial(4)
+```
 ````
+
+`````
 
 ## Teorema de Bayes
 
@@ -463,12 +559,28 @@ p(x|y) = \frac{p(x, y)}{p(y)} = \frac{p(y|x)p(x)}{p(y)} \\[3ex]
 p(x|y) = \frac{p(y|x)p(x)}{\int p(y|x)p(x) \, dx}
 $$
 
-````{prf:example}
-:label: example-bayes
+`````{exercise}
+:label: ex-bayes
 
-Escribir ejercicio
+Ejercicio de ejemplo
 
+````{solution} ex-bayes
+:class: dropdown
+
+Here's one solution.
+
+```{code-block} python
+def factorial(n):
+    k = 1
+    for i in range(n):
+        k = k * (i + 1)
+    return k
+
+factorial(4)
+```
 ````
+
+`````
 
 ## Compendio de distribuciones de probabilidad
 
@@ -614,9 +726,9 @@ Esta propiedad de máxima entropía establece a la distribución Normal como la 
 
 ```
 
-[^tcl]: Expresado matemáticamente, si $X_1, X_2, ..., X_n$ son variables aleatorias i.i.d. con media $\mu$ y varianza $\sigma^2$, entonces: $$\frac{\sum_{i=1}^{n} X_i - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1) \quad \text{cuando} \quad n \rightarrow \infty$$
+[^tcl]: Expresado matemáticamente, si $X_1, X_2, ..., X_n$ son variables aleatorias i.i.d. con media $\mu$ y varianza $\sigma^2$, entonces: $\frac{\sum_{i=1}^{n} X_i - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1) \quad \text{cuando} \quad n \rightarrow \infty$
 
-[^entropia-normal]: Formalmente, la distribución Normal $\mathcal{N}(\mu, \sigma^2)$ es la solución al problema de optimización que busca la distribución de máxima entropía sujeta únicamente a restricciones sobre los dos primeros momentos (media y varianza): $$\max_{f} H(X) \quad \text{sujeto a} \quad \mathbb{E}[(X-\mu)^2] = \sigma^2$$
+[^entropia-normal]: Formalmente, la distribución Normal $\mathcal{N}(\mu, \sigma^2)$ es la solución al problema de optimización que busca la distribución de máxima entropía sujeta únicamente a restricciones sobre los dos primeros momentos (media y varianza): $\max_{f} H(X) \quad \text{sujeto a} \quad \mathbb{E}[(X-\mu)^2] = \sigma^2$
 
 
 #### Distribución Lognormal
@@ -871,7 +983,7 @@ Supongamos que tenemos un mecanismo para generar muestras de una variable aleato
 
 *siendo $x$ un vector de $N$ simulaciones de la variable aleatoria $X$
 
-[^kde]: La densidad de probabilidad se puede aproximar a través de un Kernel Density Estimation (KDE) o estimación de densidad por núcleos. Para más detalles sobre este método ver [aquí](https://seaborn.pydata.org/tutorial/distributions.html#kernel-density-estimation).
+[^kde]: La densidad de probabilidad se puede aproximar a través de un Kernel Density Estimation (KDE) o estimación de densidad por núcleos. Para más detalles sobre este método ver [aquí](https://seaborn.pydata.org/tutorial/distributions.html#kernel-density-estimation){:target="_blank"}.
 
 ```{code-cell} python
 
