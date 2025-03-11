@@ -21,7 +21,7 @@ import scipy.stats as stats
 
 ```
 
-## Definicón de probabilidad
+## Definición de probabilidad
 
 Usamos el término probabilidad de manera informal para expresar nuestra información y confianza sobre valores desconocidos
 
@@ -307,7 +307,7 @@ $$F_{XY}(x_i, y_i) = \int_{-\infty}^{x}\int_{-\infty}^{y} f_{XY}(u, v) du dv$$
 
 ```{figure} figuras/distribucion_conjunta.png
 :height: 250px
-:name: fig-diagrama-de-venn
+:name: fig-densidad-conjunta
 
 Distribución de probabilidad conjunta
 ```
@@ -867,8 +867,112 @@ Supongamos que tenemos un mecanismo para generar muestras de una variable aleato
 | Varianza | $ \frac{1}{N} \sum_{i=1}^{N} (x_i - E[X])^2$ | `np.var(x)` |
 | Desvío estándar | $ \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (x_i - E[X])^2 }$ | `np.std(x)` |
 | Probabilidad | $\frac{1}{N} \sum_{i=1}^{N} I(a \leq x_i \leq b)$ | `np.mean(x<b && x>a)` |
-| Densidad | $ \frac{1}{N} \sum_{i=1}^{N} \delta(x - x_i)$ | `stats.kde(x)` |
+| Densidad[^kde] | $ \frac{1}{N} \sum_{i=1}^{N} \delta(x - x_i)$ | `stats.kde(x)` or `sns.kdeplot(x)` |
 
 *siendo $x$ un vector de $N$ simulaciones de la variable aleatoria $X$
 
+[^kde]: La densidad de probabilidad se puede aproximar a través de un Kernel Density Estimation (KDE) o estimación de densidad por núcleos. Para más detalles sobre este método ver [aquí](https://seaborn.pydata.org/tutorial/distributions.html#kernel-density-estimation).
 
+```{code-cell} python
+
+# Parámetros
+N = 10000  # Número de simulaciones
+mu, sigma = 0, 1  # Media y desviación estándar
+
+# Muestreo de una distribución normal usando scipy.stats
+samples = stats.norm.rvs(loc=mu, scale=sigma, size=N)
+
+# Definir el rango para graficar
+x = np.linspace(mu - 4*sigma, mu + 4*sigma, 1000)
+
+# Graficar la PDF analítica y el KDE usando seaborn
+plt.figure(figsize=(8, 4))
+sns.lineplot(x=x, y=stats.norm.pdf(x, mu, sigma), label='PDF Analítica', color='blue')
+sns.kdeplot(samples, bw_adjust=2, label='KDE', color='orange')
+
+# Añadir leyenda y mostrar el gráfico
+plt.legend()
+plt.title('PDF Analítica vs KDE')
+plt.xlabel('x')
+plt.ylabel('Densidad')
+plt.show()
+
+```
+
+### Simulación de funciones de variables
+
+Una de los aspectos más útiles de calcular probabilidades mediante simulación es la simpleza para realizar cálculo que analíticamente son muy complejos. Por ejemplo, calcular probabilidades de funciones de variables aleatorias.
+
+Supongamos que quiero calcular el valor medio y desvío estándar de que $Y=3 X^3 - 1$ sea mayor a 2, donde $X$ sigue una distribución normal con media 0 y desvío estándar 1. Analíticamente habría que estimar la densidad de probabilidad de $Y$ y luego integrar para obtener los momentos. Sin embargo, mediante simulación se puede calcular de manera sencilla, aplicando la transformación a los valores simulado de $X$.
+
+```{code-cell} python
+
+# Parámetros
+N = 10000  # Número de simulaciones
+mu, sigma = 0, 1  # Media y desviación estándar
+
+# Muestreo de una distribución normal usando scipy.stats
+x_samples = stats.norm.rvs(loc=mu, scale=sigma, size=N)
+
+# Simulación de Y
+y_samples = 3 * x_samples**3 - 1
+
+# Estimación del valor medio de Y
+mu_Y = np.mean(y_samples)
+print(f'El valor medio de Y es: {mu_Y}')
+
+# Estimación del desvío estándar de Y
+sigma_Y = np.std(y_samples)
+print(f'El desvío estándar de Y es: {sigma_Y}')
+
+# Cálculo de la probabilidad de que Y > 2
+prob = np.mean(y_samples > 2)
+print(f'La probabilidad de que Y sea mayor a 2 es: {prob}')
+
+```
+
+### El error en las aproximaciones por simulación
+
+Es importante tener en cuenta que las aproximaciones por simulación tienen un error asociado, que depende del número de simulaciones realizadas. A medida que se aumenta el número de simulaciones, el error disminuye, y se obtiene una estimación más precisa de los valores de interés.
+
+```{code-cell} python
+
+# Establecer la semilla para la reproducibilidad
+np.random.seed(42)
+
+# Valor exacto de la probabilidad de que X > 2 para una normal estándar
+exact_probability = 1 - stats.norm.cdf(2)
+
+# Números de simulaciones a evaluar
+Ns = [10, 50, 100, 500, 1000, 5000, 10000, 20000, 100000, 1000000]
+estimates = []
+
+# Calcular la probabilidad estimada para cada N
+for N in Ns:
+    # Muestreo de una distribución normal estándar
+    samples = stats.norm.rvs(size=N)
+    # Estimación de la probabilidad de que X > 2
+    estimate = np.mean(samples > 2)
+    estimates.append(estimate)
+
+# Graficar los resultados
+plt.figure(figsize=(8, 4))
+plt.plot(Ns, estimates, marker='o', linestyle='-', color='b', label='Estimación')
+plt.axhline(y=exact_probability, color='r', linestyle='--', label='Valor Exacto')
+
+# Aplicar escala logarítmica al eje x
+plt.xscale('log')
+
+# Añadir etiquetas y leyenda
+plt.xlabel('Número de Simulaciones (N)')
+plt.ylabel('Probabilidad Estimada (X > 2)')
+plt.title('Influencia del Número de Simulaciones en la Estimación de Probabilidad')
+plt.legend()
+plt.grid(True, which="both", ls="--")
+plt.show()
+
+```
+
+Si bien el ejemplo anterior ejemplifica el concepto de la influencia del número de simulaciones sobre la precisión de la estimación, la velocidad de convergencia depende del valor a estimar y de la distribución de la variable aleatoria.
+
+---
