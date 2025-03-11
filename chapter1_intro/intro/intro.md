@@ -39,7 +39,7 @@ Muy sucintamente puede definirse **Ciencia de Datos** como la "ciencia de aprend
 ```
 ````
 
-Hay dos conceptos clave en estas definiciones: **datos** y **extraer conocimiento**. En primer lugar, los **datos** son observaciones de algún aspecto de la realidad. Es decir, no son _LA REALIDAD_, si no mediciones (ruidosas) de la realidad. Los términos _datos_, _observaciones_ y _mediciones_ serán utilizados de manera intercambiable. Por otro lado, la expresión de "extraer conocimiento" (o "aprender" o "extraer valor") implica, de manera general, obtener conclusiones que puedan ser generalizadas más allá de las observaciones. 
+Hay dos conceptos clave en estas definiciones: **datos** y **extraer conocimiento**. En primer lugar, los **datos** son observaciones de algún aspecto de la realidad. Es decir, no son _LA REALIDAD_, si no mediciones (ruidosas) de la realidad. Los términos _datos_, _observaciones_ y _mediciones_ serán utilizados de manera intercambiable. Por otro lado, la expresión de "extraer conocimiento" (o "aprender" o "extraer valor") implica, de manera general, obtener conclusiones que puedan ser generalizadas más allá de las observaciones.
 
 ``````{card} Control de calidad en un proceso
 
@@ -108,6 +108,7 @@ De los ejemplos queda claro, además, que el objeto último de la ciencia de dat
 El círculo rojo son las muestras que observamos, dentro de un universo posible de muestras (población general). Las conclusiones que más interesan son sobre la población general.
 
 ```
+
 Y se desprende, además, que su principal herramienta es la _inferencia estadística_ que es la conceptualización matemática del razonamiento inductivo.
 
 ### Como disciplina

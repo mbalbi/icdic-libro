@@ -854,3 +854,21 @@ from bokeh_plots import create_gen_bokeh_plot
 layout = create_gen_bokeh_plot()
 show(layout)
 ```
+
+## Simulación de variables aleatorias
+
+Una manera alternativa de calcular probabilidades, momentos y descriptores asociados a una variable, o más, variable aleatoria es a través de simulaciones. En este caso, se generan muestras de la variable aleatoria a partir de la función de densidad de probabilidad asociada, y se calculan los valores de interés a partir de estas muestras.
+
+Supongamos que tenemos un mecanismo para generar muestras de una variable aleatoria $X$ con función de densidad de probabilidad $f_X(x)$. Podemos calcular de manera aproximada,
+
+| | Aproximación | Python |
+|---|---|---|
+| Esperanza | $ \frac{1}{N} \sum_{i=1}^{N} x_i$ | `np.mean(x)` |
+| Varianza | $ \frac{1}{N} \sum_{i=1}^{N} (x_i - E[X])^2$ | `np.var(x)` |
+| Desvío estándar | $ \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (x_i - E[X])^2 }$ | `np.std(x)` |
+| Probabilidad | $\frac{1}{N} \sum_{i=1}^{N} I(a \leq x_i \leq b)$ | `np.mean(x<b && x>a)` |
+| Densidad | $ \frac{1}{N} \sum_{i=1}^{N} \delta(x - x_i)$ | `stats.kde(x)` |
+
+*siendo $x$ un vector de $N$ simulaciones de la variable aleatoria $X$
+
+
