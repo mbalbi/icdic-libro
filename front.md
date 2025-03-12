@@ -1,21 +1,11 @@
 # Introducción a la Ciencia de Datos para Ingeniería Civil
 
-*Mariano Balbi, Profesor Adjunto, Facultad de Ingeniería de la Uniersidad de Buenos Aires*
+*Mariano Balbi, Profesor Adjunto, Facultad de Ingeniería de la Universidad de Buenos Aires*
 
-<p align="left">
-  <a href="mailto:mabalbi@fi.uba.ar">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/gmail.svg" alt="Email" width="40" height="40" style="margin-right: 15px">
-  </a>
-  <a href="https://www.linkedin.com/in/mariano-balbi-73525b62/" target="_blank">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/linkedin.svg" alt="LinkedIn" width="40" height="40" style="margin-right: 15">
-  </a>
-  <a href="https://x.com/MarianoBalbi_" target="_blank">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/twitter.svg" alt="Twitter" width="40" height="40" style="margin-right: 15">
-  </a>
-  <a href="https://www.researchgate.net/profile/Mariano-Balbi?ev=hdr_xprf" target="_blank">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v6/icons/researchgate.svg" alt="ResearchGate" width="40" height="40" style="margin-right: 10px">
-  </a>
-</p>
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mabalbi@fi.uba.ar)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mariano-balbi-73525b62/)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/MarianoBalbi_)
+[![ResearchGate](https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Mariano-Balbi?ev=hdr_xprf)
 
 
 Este documento es el apunte de cátedra de la materia "Introducción a la Ciencia de Datos para Ingeniería Civil", dictada por el Departamento de Estabilidad de la <a href="https://fi.uba.ar" target="_blank" rel="noopener noreferrer">FIUBA</a>.

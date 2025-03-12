@@ -49,7 +49,7 @@ Probability theory is nothing but common sense reduced to calculation.
 
 Desde un punto de vista epistemológico, la probabilidad es una medida de la incertidumbre asociada a un evento. Esta definición ha dado origen a distintos enfoques en la manera de interpretar, y cuantificar, la probabilidad: enfoque clásico, frecuentista y subjetivo (o bayesiano)[^enfoques_prob]. El enfoque **clásico**, desarrollado por Laplace, se basa en la idea de que el espacio de valores posibles se puede dividir en un conjunto equiprobable de resultados, haciendo que la probabilidad de un evento sea el cociente entre la cantidad de resultados asociados al evento de interés y la cantidad de resultados posibles. El enfoque **frecuentista**, propuesto por autores como von Mises y Fisher, concibe la probabilidad como el límite de la frecuencia relativa de un suceso cuando el número de repeticiones tiende a infinito. Finalmente, el enfoque **subjetivo**, asociado a Thomas Bayes y desarrollado posteriormente por autores como De Finetti, interpreta la probabilidad como un grado de plausibilidad asignado a un evento incierto por un agente racional.
 
-[^enfoques_prob]: Para más detalles ver: [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/probability-interpret/#MaiInt){:target="_blank"}
+[^enfoques_prob]: Para más detalles ver <a href="https://plato.stanford.edu/entries/probability-interpret/#MaiInt" target="_blank" rel="noopener noreferrer">Stanford Encyclopedia of Philosophy</a>.
 
 ``````{card} Enfoque clásico
 ````{grid}
@@ -771,7 +771,7 @@ Supongamos que tenemos un mecanismo para generar muestras de una variable aleato
 
 *siendo $x$ un vector de $N$ simulaciones de la variable aleatoria $X$
 
-[^kde]: La densidad de probabilidad se puede aproximar a través de un Kernel Density Estimation (KDE) o estimación de densidad por núcleos. Para más detalles sobre este método ver [aquí](https://seaborn.pydata.org/tutorial/distributions.html#kernel-density-estimation){:target="_blank"}.
+[^kde]: La densidad de probabilidad se puede aproximar a través de un Kernel Density Estimation (KDE) o estimación de densidad por núcleos. Para más detalles sobre este método ver <a href="https://seaborn.pydata.org/tutorial/distributions.html#kernel-density-estimation" target="_blank" rel="noopener noreferrer">aquí</a>.
 
 ```{code-cell} python
 
