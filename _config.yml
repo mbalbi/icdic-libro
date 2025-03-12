@@ -27,6 +27,7 @@ sphinx:
     - sphinx_inline_tabs
     - sphinx_proof
     - sphinx_exercise
+    - myst_nb
 
 # Information about where the book exists on the web
 repository:

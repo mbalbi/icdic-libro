@@ -119,9 +119,9 @@ def create_gen_bokeh_plot():
 
     # Create distribution type selection widgets - now with Beta and Gumbel added
     dist_options = ["Normal", "LogNormal", "Exponential", "Beta", "Gumbel"]
-    dist_type_1 = Select(title="Distribución 1:", value="Normal", options=dist_options, width=150)
-    dist_type_2 = Select(title="Distribución 2:", value="Normal", options=dist_options, width=150)
-    dist_type_3 = Select(title="Distribución 3:", value="Normal", options=dist_options, width=150)  # Added 3rd distribution
+    dist_type_1 = Select(title="Distribución 1:", value="Normal", options=dist_options, width=140)
+    dist_type_2 = Select(title="Distribución 2:", value="Normal", options=dist_options, width=140)
+    dist_type_3 = Select(title="Distribución 3:", value="Normal", options=dist_options, width=140)  # Added 3rd distribution
 
     # Create input widgets for distribution parameters
     
@@ -145,7 +145,7 @@ def create_gen_bokeh_plot():
     param2_input_3 = TextInput(value='1', title="", width=box_width)
 
     # Create plots
-    p = figure(title='Density', x_axis_label='x', y_axis_label='Density', height=300)
+    p = figure(title='Función de densidad', x_axis_label='x', y_axis_label='Density', height=300)
     source1 = ColumnDataSource(data={'x': [], 'y': []})
     p.line('x', 'y', source=source1, line_width=2, line_color='red')
     source2 = ColumnDataSource(data={'x': [], 'y': []})
@@ -153,7 +153,7 @@ def create_gen_bokeh_plot():
     source3 = ColumnDataSource(data={'x': [], 'y': []})  # Added 3rd source
     p.line('x', 'y', source=source3, line_width=2, line_color='green')  # Added 3rd line
 
-    p_cum = figure(title='Cumulative', x_axis_label='x', y_axis_label='Cumulative', height=300)
+    p_cum = figure(title='Función de probabilidad acumulada', x_axis_label='x', y_axis_label='Cumulative', height=300)
     source_cum1 = ColumnDataSource(data={'x': [], 'y': []})
     p_cum.line('x', 'y', source=source_cum1, line_width=2, line_color='red')
     source_cum2 = ColumnDataSource(data={'x': [], 'y': []})

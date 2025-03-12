@@ -203,6 +203,8 @@ A partir de las definiciones dadas puede deducirse la siguiente relación entre 
 
 $$f_X(x) = \frac{dF_X(x)}{dx}$$
 
+$$F_X (x) = \int_{-\infty}^{x} f_X(x) dx$$
+
 Por los postulados de la teoría matemática de la probabilidad vistos en el capítulo anterior, las funciones de
 probabilidad y de distribución deben cumplir las siguientes propiedades:
 
@@ -212,7 +214,7 @@ $F_X(\infty) = 1$
 
 $F_X(x) \geq 0$ y monotónicamente creciente
 
-### Cálculo de probabilidades
+### Cálculo de probabilidades y percentiles
 
 Se puede calcular la probabilidad de cualquier evento (subconjunto de la recta real) de interés a partir de las distribuciones de probabilidad.
 
@@ -225,25 +227,37 @@ $P(a \leq x \leq b) = \int_{a}^{b} f_X(x)dx = F_X(b) - F_X(a)$
 Cálculo de probabilidades con funciones de distribución y de densidad
 ```
 
+De igual manera, puede calcularse el percentil $p$ de una variable aleatoria continua como el valor $x_p$ tal que $F_X(x_p) = p$. Es decir, el percentil $p$ es el valor de la variable aleatoria tal que la probabilidad de que la variable aleatoria tome un valor menor o igual a $x_p$ es $p$.
+
 `````{exercise}
 :label: ex-calculo-probabilidades
 
-Ejercicio de ejemplo
+Sea una variable aleatoria $X$ continua con función de densidad de probabilidad $f_X(x) = 2x$ para $0 \leq x \leq 1$. 
+
+1. Calcular la probabilidad de que la variable aleatoria tome un valor entre 0.2 y 0.5.
+2. Calcular el percentil 0.95 de la variable aleatoria.
 
 ````{solution} ex-calculo-probabilidades
 :class: dropdown
 
-Here's one solution.
+1. Calculamos la distribución de probabilidad acumulada como,
 
-```{code-block} python
-def factorial(n):
-    k = 1
-    for i in range(n):
-        k = k * (i + 1)
-    return k
+$$
+F_X (x) = \int_{0}^{x} 2u du = u^2 \Big|_{0}^{x} = x^2
+$$
 
-factorial(4)
-```
+La probabilidad requerida se calcula como,
+
+$$
+P(0.2 \leq X \leq 0.5) = F_X(0.5) - F_X(0.2) = 0.5^2 - 0.2^2 = 0.25 - 0.04 = 0.21
+$$
+
+2. Podemos calcular el percentil 0.95 resolviendo la ecuación,
+
+$$
+F_X(x_p) = 0.95 \Rightarrow x_p = \sqrt{0.95} = 0.975
+$$
+
 ````
 
 `````
@@ -252,18 +266,21 @@ factorial(4)
 
 Los descriptores son valores numéricos que resumen alguna característica de la distribución de probabilidad de una variable aleatoria. Los más comunes son la esperanza, la varianza y el desvío estándar. Son útiles para describir la distribución de probabilidad de una variable aleatoria de manera resumida.
 
-La esperanza, moda y mediana de una variable aleatoria son parámetros que identifican de
-diferente manera en qué rango de los valores posibles de la variable se encuentra el valor medio
-o los valores más probables de la misma. Se los denomina "valores centrales". Para medir la
-dispersión de los valores que puede tomar una variable aleatoria alrededor de su valor medio, el
-parámetro más utilizado es la varianza. El desvío estándar es también un parámetro de dispersión
-muy utilizado en la práctica.
+#### Valores centrales
 
-Muchos de estos descriptores se definen a través del Operador Esperanza, y se los conoce como **momentos**. El operador esperanza se define como:
+Los denominados valores centrales son parámetros que identifican un punto del dominio de la variable aleatoria alrededor del cual se concentran zonas de alta probabilidad. Los valores centrales más comunes son la esperanza, la moda y la mediana.
 
-$$
-E[g(X)] = \int g(x) f_X(x)dx
-$$
+- **Valor medio** o esperanza $\mu_X$: Es el valor promedio de la variable aleatoria. Representa el centro de masas de la función de probabilidad de la variable.
+- **Moda** $\overline{x}$: Es el valor de la variable aleatoria que tiene la mayor probabilidad de ocurrencia. Es el valor que maximiza la función de probabilidad de masa o densidad de probabilidad.
+- **Mediana** $x_m$: Es el valor de la variable aleatoria que divide el área bajo la curva de densidad de probabilidad en dos partes iguales.
+
+#### Indicadores de dispersión
+
+Los indicadores de dispersión describen qué tan dispersos están los valores de la variable aleatoria alrededor de su valor medio. Los más comunes son la varianza y el desvío estándar.
+
+- **Varianza** $Var(X)$: Es una medida de la dispersión de los valores de la variable aleatoria alrededor de su valor medio.
+- **Desvío estándar** $\sigma_X$: Es la raíz cuadrada de la varianza
+- **Coeficiente de correlación** $\delta_X$: Es una medida adimensional de la dispersión de los valores de la variable aleatoria en relación a su valor medio.
 
 A continuación se muestra una tabla con las expresiones de los parámetros que más comúnmente se utilizan en la práctica.
 
@@ -271,15 +288,15 @@ A continuación se muestra una tabla con las expresiones de los parámetros que 
 
 | | VA Discreta | VA Continua |
 |---|---|---|
-| Esperanza | $E[X] = \sum_{all\ x_i} x_i p_X(x_i)$ | $E[X] = \int x f_X(x)dx$ |
-| Moda | $x_m / p_X(x_m)$ es máximo | $x_m / f_X(x_m)$ es máximo |
-| Mediana | $x_m / F_X(x_m) = 0.5$ | $x_m / F_X(x_m) = 0.5$ |
+| Esperanza | $\mu_X = \sum_{all\ x_i} x_i p_X(x_i)$ | $\mu_X = \int x f_X(x)dx$ |
+| Moda | $x_m = \max_x p_X(x) $ | $x_m = \max_x f_X(x)$ es máximo |
+| Mediana | $x_m \rightarrow F_X(x_m) = 0.5$ | $x_m \rightarrow F_X(x_m) = 0.5$ |
 | Varianza | $Var[X] = \sum_{all\ x_i} (x_i-\mu_X)^2 p_X(x_i)$ | $Var[X] = \int (x-\mu_X)^2 f_X(x)dx$ |
 | | $Var[X] = E[X^2] - \mu_X^2$ |
 | Desvío Estándar | $\sigma_X = \sqrt{Var[X]}$ |
-| Coeficiente de variación | $v_X = \frac{\sigma_X}{\mu_X}$ |
+| Coeficiente de variación | $\delta_X = \frac{\sigma_X}{\mu_X}$ |
 
-````{admonition} Distribuciones y momentos
+````{admonition} Distribuciones y descriptores
 :class: warning
 
 Dos variables con el mismo $\mu$ y $\sigma$ no necesariamente tienen la misma distribución.
@@ -293,12 +310,77 @@ Ejemplo de variables con la misma media y desvío estándar
 
 ````
 
-```{admonition} Momentos de orden superior
+```{admonition} El operador esperanza y los momentos de una variable aleatoria
 :class: tip
 
-Existen momentos de orden superior que describen otras propiedades de la distribución de probabilidad. Por ejemplo, el momento de tercer orden se relaciona con la asimetría de la distribución, y el de cuarto orden con la curtosis.
+Algunos de los descriptores más utilizados pueden generalizarse a través del operador esperanza y los denominados momentos de una variable aleatoria. EL operador esperanza se define como,
+
+$$
+E[X] = \sum_{all\ x_i} x_i p_X(x_i) \quad \text{para variables discretas}
+$$
+
+El valor medio se define entonces como $\mu_X = E[X]$. De igual manera, la varianza se puede definir como $Var[X] = E[(X-\mu_X)^2]$.
+
+Otros descriptores pueden definirse usando el operador esperanza, como los momentos de orden $n$ de una variable aleatoria: $E[X^n] = \sum_{all\ x_i} x_i^n p_X(x_i)$. Estos describen otros aspectos de la distribución de probabilidad de una variable aleatoria, como la asimetría y la curtosis.
 
 ```
+
+#### Intervalos de confianza (Credible Intervals)
+
+Los intervalos, o regiones (si es un conjunto disjunto), de confianza son rangos de valores que contienen un cierto porcentaje de la probabilidad total de una variable aleatoria. Por ejemplo, el intervalo de probabilidad del 95% de una variable aleatoria es el rango de valores que contiene el 95% de la probabilidad total de la variable aleatoria.
+
+No hay una sola manera de definir un rango de valores que contenga una probabilidad $p$ de una variable aleatoria. Algunas definiciones comunes para el intervalo son:
+
+- **Intervalo centrado en la media**: Es el rango continuo de valores que contiene una probabilidad $p$ y que tiene como punto central la media de la variable aleatoria. Es el rango $(a,b)$ tal que 
+
+$$F_X(a) = 0.5 - p/2, F_X(b) = 0.5 + p/2$$
+
+- **Intervalo simétrico**: Es el rango continuo de valores $(a,b)$ tal que
+
+$$F_X(a) = 1 - F_X(b) = p/2$$
+
+- **Intervalo de máxima densidad**: Es elintevalo más chico que cubre la probabilidad deseada. Es el intervalo de todos los valores de $X$ que colectivamente suman una probabilidad $p$ y, a su vez, tienen mayor probabilidad que cualquier valor fuera del rango. Es el rango de valores tal que
+ 
+$$\int_{a}^{b} f_X(x)dx = p\ \text{y} \ f(a)=f(b)$$
+
+```{admonition} Intervalos de confianza y distribuciones
+:class: warning
+
+En distribuciones bi-modales, el intervalo de máxima densidad puede ser una región disjunta.
+
+```
+
+
+:::::{grid}
+:gutter: 3
+
+::::{grid-item}
+
+:::{card} Intervalo simétrico
+
+```{figure} figuras/intervalo_confianza_simetrico.png
+:height: 400px
+
+Intervalos de confianza simétrico para distintas distribuciones ($p=85\%$)
+```
+
+:::
+
+::::
+
+::::{grid-item}
+:::{card} Intervalo de densidad máxima
+
+```{figure} figuras/intervalo_confianza_hdi.png
+:height: 400px
+
+Intervalos de confianza simétrico para distintas distribuciones ($p=85\%$)
+```
+
+:::
+::::
+:::::
+
 
 `````{exercise}
 :label: ex-calculo-momentos
@@ -338,7 +420,7 @@ $$f_{XY}(x_i, y_i) = P(x \leq X \leq x+dx, y \leq Y \leq y+dy)$$
 $$F_{XY}(x_i, y_i) = \int_{-\infty}^{x}\int_{-\infty}^{y} f_{XY}(u, v) du dv$$
 
 ```{figure} figuras/distribucion_conjunta.png
-:height: 250px
+:height: 300px
 :name: fig-densidad-conjunta
 
 Distribución de probabilidad conjunta
@@ -376,12 +458,19 @@ f_{X|y}(x,y) = f_X(x)\\
 f_{Y|x}(y,x) = f_Y(y)
 $$
 
-Además, se ve que si dos variables son estadísticamente independientes, la distribución de probabilidad conjunta se puede escribir como el producto de las distribuciones marginales
+Corolario:
+
+```{admonition} Independencia estadística y probabilidad conjunta
+:class: important
+
+Si dos variables aleatorias son independientes, entonces su función de probabilidad conjunta es el producto de sus funciones de probabilidad marginales.
 
 $$
 f_{XY}(x,y) = f_X(x) f_Y(y)\\
 F_{XY}(x,y) = F_X(x) F_Y(y)
 $$
+
+```
 
 `````{exercise}
 :label: ex-independencia
@@ -408,7 +497,7 @@ factorial(4)
 
 ### Covarianza y Correlación
 
-Para caracterizar el grado de dependencia entre dos variables aleatorias, se definen dos conceptos: la Covarianza y el Coeficiente de Correlación.
+Una manera resumida de describir el *grado relación lineal* entre dos variables aleatorias es a través de la covarianza y el coeficiente de correlación.
 
 Se define la Covarianza entre dos variables aleatorias a través de la siguiente función,
 
@@ -471,6 +560,13 @@ El teorema de la probabilidad total y la desagregación de la probabilidad de oc
 El Teorema de la probabilidad total establece que, dados $n$ eventos $E_i$ mutuamente exclusivos y colectivamente exhaustivos, la probabilidad del evento $A$ puede calcularse según,
 
 $$
+P(A) = P(A / E_1) P(E_1) + P(A / E_2) P(E_2) + \ldots + P(A / E_n) P(E_n)
+$$
+
+```{admonition} Deducción del Teorema de la probabilidad total
+:class: important, dropdown
+
+$$
 A = A S = A (E_1 \cup E_2 \cup \ldots \cup E_n) = A E_1 \cup A E_2 \cup \ldots \cup A E_n
 $$
 
@@ -486,101 +582,327 @@ $$
 P(A) = P(A / E_1) P(E_1) + P(A / E_2) P(E_2) + \ldots + P(A / E_n) P(E_n)
 $$
 
+```
+
 `````{exercise}
 :label: ex-probabilidad-total
 
-Ejercicio de ejemplo
+Se pide calcular la probabilidad de colapso de un edificio durante el próximo terremoto posible. No se sabe a ciencia cierta la intensidad del próximo terremoto, pero en base al juicio de expertos sismólogos, se definen las siguientes probabilidades:
+
+$$P (fuerte) = 0.01, P(medio)=0.1, P(debil)=0.89$$
+
+Del análisis estructural del edificio se estiman las siguientes probabilidades:
+
+$$P(C|fuerte)=0.9, P(C|medio)=0.2, P(C|debil)=0.01$$
+
+Determinar la probabilidad de colapso
 
 ````{solution} ex-probabilidad-total
 :class: dropdown
 
-Here's one solution.
+Podemos calcular la probabilidad de colapso a partir del Teorema de la Probabilidad Total,
+
+$$
+P(C) = P(C|fuerte)P(fuerte) + P(C|medio)P(medio) + P(C|debil)P(debil)\\
+P(C) = 0.9 \times 0.01 + 0.2 \times 0.1 + 0.01 \times 0.89 = 0.038
+$$
 
 ```{code-block} python
-def factorial(n):
-    k = 1
-    for i in range(n):
-        k = k * (i + 1)
-    return k
 
-factorial(4)
+# Probabilidad de magnitud de sismo
+p_fuerte = 0.01
+p_medio = 0.1
+p_debil = 0.89
+
+# Probabilidades de colapso condicionadas a la magnitud del sismo
+p_c_fuerte = 0.9
+p_c_medio = 0.2
+p_c_debil = 0.01
+
+# Probabilidad de colapso
+p_C = p_c_fuerte * p_fuerte + p_c_medio * p_medio + p_c_debil * p_debil
 ```
 ````
 
 `````
 
+
 ### Distribuciones marginales
 
-A partir del Teorema de la Probabilidad Total, se pueden calcular las distribuciones marginales de las variables aleatorias a partir de la distribución de probabilidad conjunta.
+A partir del Teorema de la Probabilidad Total, se pueden calcular las distribuciones marginales de las variables aleatorias a partir de la distribución de probabilidad condicional (o conjunta).
 
 **Variables Discretas**
 
 $$
-f_X(x_i) = \sum_{j} f_{X|Y}(x_i, y_j) f_{Y}(y_i) = \sum_{j} f_{XY}(x_i, y_j)\\
+f_X(x_i) = \sum_{j} f_{X|Y}(x_i, y_j) f_{Y}(y_i) = \sum_{j} f_{XY}(x_i, y_j)\\[2ex]
 f_Y(y_i) = \sum_{j} f_{Y|X}(y_i, x_j) f_X (x_j) = \sum_{j} f_{XY}(x_j, y_i)
 $$
 
 **Variables continuas**
 
 $$
-f_X(x) = \int_{-\infty}^{\infty} f_{X|Y}(x, y) f_Y (y) dy = \int_{-\infty}^{\infty} f_{XY}(x, y) dy\\
+f_X(x) = \int_{-\infty}^{\infty} f_{X|Y}(x, y) f_Y (y) dy = \int_{-\infty}^{\infty} f_{XY}(x, y) dy\\[2ex]
 f_Y(y) = \int_{-\infty}^{\infty} f_{Y|X}(y, x) f_X(x) dx = \int_{-\infty}^{\infty} f_{XY}(x, y) dx
 $$
-
-`````{exercise}
-:label: ex-calculo-marginales
-
-Ejercicio de ejemplo
-
-````{solution} ex-calculo-marginales
-:class: dropdown
-
-Here's one solution.
-
-```{code-block} python
-def factorial(n):
-    k = 1
-    for i in range(n):
-        k = k * (i + 1)
-    return k
-
-factorial(4)
-```
-````
-
-`````
 
 ## Teorema de Bayes
 
 A partir del Teorema de la Probabilidad Total, se puede deducir el Teorema de Bayes. Este teorema es de gran utilidad en la inferencia estadística y en la toma de decisiones, ya que permite calcular la probabilidad de un evento condicionado a la ocurrencia de otro, a partir de la probabilidad de ocurrencia de este último condicionado al primero.
 
 $$
-p(x|y) = \frac{p(x, y)}{p(y)} = \frac{p(y|x)p(x)}{p(y)} \\[3ex]
-p(x|y) = \frac{p(y|x)p(x)}{\int p(y|x)p(x) \, dx}
+P(X=x_i|Y) = \frac{P(Y|X=x_i)P(X=x_i)}{\sum_{i} P(Y|X=x_i)P(X=x_i)}
+$$
+
+O en el caso de variables aleatorias continuas,
+
+$$
+f_{X|Y}(x,y) = \frac{f_{Y|X}(y,x)f_X(x)}{\int f_{Y|X}(y,x)f_X(x) \, dx}
 $$
 
 `````{exercise}
-:label: ex-bayes
+:label: ex-bayes-1
 
-Ejercicio de ejemplo
+Para el ejercicio {ref}`ex-probabilidad-total`, se pide calcular la probabilidad de que el sismo sea de magnitud débil, media o fuerte, dado que el edificio colapsó. Comparar con las probabilidades de la magnitud del sismo previas a obsevar que colapsó.
 
-````{solution} ex-bayes
+````{solution} ex-bayes-1
 :class: dropdown
 
-Here's one solution.
+Las probabilidades condicionales de la magnitud del sismo dado que el edificio colapsó se pueden calcular a partir del Teorema de Bayes,
+
+$$
+P( fuerte|C) = \frac{P(C|fuerte)P(fuerte)}{P(C)} = \frac{0.9 \times 0.01}{0.038} = 0.24\\
+P( medio|C) = \frac{P(C|medio)P(medio)}{P(C)} = \frac{0.2 \times 0.1}{0.038} = 0.53\\
+P( debil|C) = \frac{P(C|debil)P(debil)}{P(C)} = \frac{0.01 \times 0.89}{0.038} = 0.23
+$$
+
+Puede verse que, una vez observado que la estructura colapsó, la probabilidad de que el sismo haya sido de magnitud media es la más alta.
 
 ```{code-block} python
-def factorial(n):
-    k = 1
-    for i in range(n):
-        k = k * (i + 1)
-    return k
 
-factorial(4)
+p_fuerte_dado_C = p_c_fuerte * p_fuerte / p_C
+p_medio_dado_C = p_c_medio * p_medio / p_C
+p_debil_dado_C = p_c_debil * p_debil / p_C
+
 ```
+
 ````
 
 `````
+
+
+`````{exercise}
+:label: ex-bayes-2
+
+Se tiene un grupo de pilotes diseñado para soportar una carga última de 200 t. Por un caso extraordinario, debe pasar por encima de ellos *una* carga de 300 t. De ensayos de carga realizados se sabe que la probabilidad de que el grupo de pilotes resista las 300 t (evento $A$) es del 70%.
+
+Se propone realizar una prueba de carga sobre los pilotes, sometiéndolos a una carga de 280 t. Si el grupo de pilotes es capaz de soportar 300 t, entonces el resultado de la prueba será exitoso (evento $T$) con seguridad. Si el grupo de pilotes no es capaz de soportar las 300 t, entonces la probabilidad de que el ensayo sea exitoso es del 50%.
+
+**Determinar si se justifica realizar el ensayo sobre los pilotes.**
+
+````{solution} ex-bayes-2
+:class: dropdown
+
+De los datos del problema tenemos que:
+
+$$
+P(A) = 0.70
+$$
+
+$$
+P(\bar{T} \mid \bar{A}) = 0.50
+$$
+
+$$
+P(T \mid A) = 1
+$$
+
+Para determinar si se justifica la realización del ensayo o no, tenemos que determinar cuál es la probabilidad de que el grupo de pilotes soporte las 300 t, si es que el ensayo es exitoso. Entonces,
+
+$$
+P(A \mid T) = \frac{P(T \mid A) P(A)}{P(T)}
+$$
+
+Donde:
+
+$$
+P(T) = P(T \mid A) P(A) + P(T \mid \bar{A}) P(\bar{A})
+$$
+
+Reemplazando valores:
+
+$$
+P(A \mid T) = \frac{1 \times 0.70}{1 \times 0.70 + (1 - 0.50) \times 0.30} = 0.824
+$$
+
+Como se ve del resultado, si el ensayo resulta exitoso, la probabilidad de que el grupo de pilotes soporte la carga extraordinaria aumenta. **El ensayo está justificado.**
+
+```{code-block} python
+
+# Datos
+pA = 0.70
+p_nT_nA = 0.50
+p_T_A = 1
+
+# Probabilidad de resultado de prueba exitoso
+p_T = p_T_A * pA + p_nT_nA * (1 - pA)
+
+# Probabilidad de que los pilotes resistan dado que el ensayo fue exitoso
+p_A_T = p_T_A * pA / (p_T_A * pA + p_nT_nA * (1 - pA))
+
+```
+
+````
+
+`````
+
+## Simulación de variables aleatorias
+
+Una manera alternativa de calcular probabilidades, momentos y descriptores asociados a una variable, o más, variable aleatoria es a través de simulaciones. En este caso, se generan muestras de la variable aleatoria a partir de la función de densidad de probabilidad asociada, y se calculan los valores de interés a partir de estas muestras.
+
+Supongamos que tenemos un mecanismo para generar muestras de una variable aleatoria $X$ con función de densidad de probabilidad $f_X(x)$. Podemos calcular de manera aproximada,
+
+| | Aproximación | Python |
+|---|---|---|
+| Valor medio | $ \frac{1}{N} \sum_{i=1}^{N} x_i$ | `np.mean(x)` |
+| Varianza | $ \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu_X)^2$ | `np.var(x)` |
+| Desvío estándar | $ \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu_X)^2 }$ | `np.std(x)` |
+| Probabilidad | $\frac{1}{N} \sum_{i=1}^{N} I(a \leq x_i \leq b)$ | `np.mean(x<b && x>a)` |
+| Densidad[^kde] | $ \frac{1}{N} \sum_{i=1}^{N} \delta(x - x_i)$ | `stats.kde(x)` or `sns.kdeplot(x)` |
+
+*siendo $x$ un vector de $N$ simulaciones de la variable aleatoria $X$
+
+[^kde]: La densidad de probabilidad se puede aproximar a través de un Kernel Density Estimation (KDE) o estimación de densidad por núcleos. Para más detalles sobre este método ver [aquí](https://seaborn.pydata.org/tutorial/distributions.html#kernel-density-estimation){:target="_blank"}.
+
+```{code-cell} python
+
+# Parámetros
+N = 10000  # Número de simulaciones
+mu, sigma = 0, 1  # Media y desviación estándar
+
+# Muestreo de una distribución normal usando scipy.stats
+samples = stats.norm.rvs(loc=mu, scale=sigma, size=N)
+
+# Definir el rango para graficar
+x = np.linspace(mu - 4*sigma, mu + 4*sigma, 1000)
+
+# Graficar la PDF analítica y el KDE usando seaborN
+plt.figure(figsize=(8, 4))
+sns.lineplot(x=x, y=stats.norm.pdf(x, mu, sigma), label='PDF Analítica', color='blue')
+sns.kdeplot(samples, bw_adjust=2, label='KDE', color='orange')
+
+# Añadir leyenda y mostrar el gráfico
+plt.legend()
+plt.title('PDF Analítica vs KDE')
+plt.xlabel('x')
+plt.ylabel('Densidad')
+plt.show()
+
+```
+
+### Simulación de funciones de variables
+
+Una de los aspectos más útiles de calcular probabilidades mediante simulación es la simpleza para realizar cálculo que analíticamente son muy complejos. Por ejemplo, calcular probabilidades de funciones de variables aleatorias.
+
+Supongamos que quiero calcular el valor medio y desvío estándar de que $Y=3 X^3 - 1$ sea mayor a 2, donde $X$ sigue una distribución normal con media 0 y desvío estándar 1. Analíticamente habría que estimar la densidad de probabilidad de $Y$ y luego integrar para obtener los momentos. Sin embargo, mediante simulación se puede calcular de manera sencilla, aplicando la transformación a los valores simulado de $X$.
+
+```{code-cell} python
+
+# Parámetros
+N = 10000  # Número de simulaciones
+mu, sigma = 0, 1  # Media y desviación estándar
+
+# Muestreo de una distribución normal usando scipy.stats
+x_samples = stats.norm.rvs(loc=mu, scale=sigma, size=N)
+
+# Simulación de Y
+y_samples = 3 * x_samples**3 - 1
+
+# Estimación del valor medio de Y
+mu_Y = np.mean(y_samples)
+print(f'El valor medio de Y es: {mu_Y}')
+
+# Estimación del desvío estándar de Y
+sigma_Y = np.std(y_samples)
+print(f'El desvío estándar de Y es: {sigma_Y}')
+
+# Cálculo de la probabilidad de que Y > 2
+prob = np.mean(y_samples > 2)
+print(f'La probabilidad de que Y sea mayor a 2 es: {prob}')
+
+```
+
+### Probabilidad marginal
+
+Si tenemos un conjunto de simulaciones de varias variables correlacionadas, podemos calcular la probabilidad marginal de una de ellas, ignorando el efecto de las demás. Por ejemplo, si tenemos dos variables $X$ e $Y$ correlacionadas, podemos calcular la probabilidad de que $X$ sea mayor a 2, sin considerar el valor de $Y$ como,
+
+```{code-cell} python
+
+# Simular variables (X,Y) normales correlacionadas
+x_samples, y_samples = stats.multivariate_normal(mean=[0, 0], cov=[[1, 0.5], [0.5, 1]]).rvs(N).T
+
+prob = np.mean( x_samples > 2 ) # Probabilidad marginal
+print(f'La probabilidad de que X > 2 es: {prob}')
+
+```
+
+### Probabilidad condicional
+
+Si tenemos un conjunto de simulaciones de varias variables correlacionadas, podemos calcular la probabilidad condicional de una de ellas, reduciendo el vector de simulaciones a solo las que cumplen la condición, y luego calculando la probabilidad del evento de manera normal. Por ejemplo, si tenemos dos variables $X$ e $Y$ correlacionadas, podemos calcular la probabilidad de que $X$ sea mayor a 2, dado que $Y$ es menor a 1 como,
+
+```{code-cell} python
+
+x_samples_red = x_samples[ y_samples < 1 ] # Espacio muestral reducido a la condición
+p_cond = np.mean( x_samples_red > 2 ) # Probabilidad condicional
+print(f'La probabilidad de que X > 2 dado que Y < 1 es: {p_cond}')
+
+```
+
+### El error en las aproximaciones por simulación
+
+Es importante tener en cuenta que las aproximaciones por simulación tienen un error asociado, que depende del número de simulaciones realizadas. A medida que se aumenta el número de simulaciones, el error disminuye, y se obtiene una estimación más precisa de los valores de interés.
+
+```{code-cell} python
+:tags: [remove-input]
+
+# Establecer la semilla para la reproducibilidad
+np.random.seed(42)
+
+# Valor exacto de la probabilidad de que X > 2 para una normal estándar
+exact_probability = 1 - stats.norm.cdf(2)
+
+# Números de simulaciones a evaluar
+Ns = [10, 50, 100, 500, 1000, 5000, 10000, 20000, 100000, 1000000]
+estimates = []
+
+# Calcular la probabilidad estimada para cada N
+for N in Ns:
+    # Muestreo de una distribución normal estándar
+    samples = stats.norm.rvs(size=N)
+    # Estimación de la probabilidad de que X > 2
+    estimate = np.mean(samples > 2)
+    estimates.append(estimate)
+
+# Graficar los resultados
+plt.figure(figsize=(8, 4))
+plt.plot(Ns, estimates, marker='o', linestyle='-', color='b', label='Estimación')
+plt.axhline(y=exact_probability, color='r', linestyle='--', label='Valor Exacto')
+
+# Aplicar escala logarítmica al eje x
+plt.xscale('log')
+
+# Añadir etiquetas y leyenda
+plt.xlabel('Número de Simulaciones (N)')
+plt.ylabel('Probabilidad Estimada (X > 2)')
+plt.title('Influencia del Número de Simulaciones en la Estimación de Probabilidad')
+plt.legend()
+plt.grid(True, which="both", ls="--")
+plt.show()
+
+```
+
+Si bien el ejemplo anterior ejemplifica el concepto de la influencia del número de simulaciones sobre la precisión de la estimación, la velocidad de convergencia depende del valor a estimar y de la distribución de la variable aleatoria.
+
+
 
 ## Compendio de distribuciones de probabilidad
 
@@ -614,6 +936,70 @@ En aplicaciones prácticas, la distribución Bernoulli es útil para modelar pro
 
 ```
 
+#### Distribución Binomial
+
+La distribución binomial es una distribución discreta de probabilidad que modela el número de éxitos en una secuencia de $n$ ensayos independientes de Bernoulli, cada uno con una probabilidad de éxito $p$. Es particularmente útil para modelar situaciones donde cada ensayo tiene exactamente dos posibles resultados: "éxito" o "fracaso". La función de masa de probabilidad de una variable aleatoria binomial está dada por:
+
+$$
+P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k \in \{0, 1, 2, \ldots, n\}
+$$
+
+donde $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ es el coeficiente binomial que representa el número de formas de seleccionar $k$ elementos de un conjunto de $n$ elementos.
+
+Dominio de la función: $X \in \{0, 1, 2, \ldots, n\}$
+
+Parámetros de la distribución:
+- $n$: Número de ensayos (entero positivo).
+- $p$: Probabilidad de éxito en cada ensayo ($0 \leq p \leq 1$).
+
+Momentos de la distribución:
+- $\mu_X = n \cdot p$
+- $\sigma_X^2 = n \cdot p \cdot (1-p)$
+
+```{code-cell} python
+:tags: [remove-input]
+
+# Valores de k a graficar (variable discreta)
+k_values = np.arange(0, 21)  # Del 0 al 20
+
+# Parámetros para diferentes distribuciones binomiales
+params = [(10, 0.5), (10, 0.2), (20, 0.3)]
+colors = ['C0', 'C1', 'C2']  # Colores para cada curva
+
+# Inicializar gráficos
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+
+# Plotear PMFs y CDFs
+for (n, p), color in zip(params, colors):
+    # Para la PMF, calculamos k hasta n
+    k_vals = np.arange(0, n+1)
+    ax1.stem(k_vals, stats.binom.pmf(k_vals, n, p), linefmt=color, markerfmt=f'{color}o', 
+             basefmt=' ', label=f"n={n}, p={p}")
+    
+    # Para la CDF, usamos el rango común de k_values
+    ax2.step(k_values, stats.binom.cdf(k_values, n, p), color=color, where='post')
+
+# Formatear ejes
+ax1.set(title='PMF', xlabel='k', ylabel='P(X=k)')
+ax2.set(title='CDF', xlabel='k', ylabel='P(X≤k)')
+ax1.legend()
+ax1.grid(alpha=0.3)
+ax2.grid(alpha=0.3)
+
+plt.tight_layout()  # Ajustar márgenes
+plt.show()  # Mostrar en pantalla
+```
+
+```{admonition} Sobre la importancia de la distribución Binomial
+:class: tip, dropdown
+
+La distribución binomial es fundamental en estadística y probabilidad por su capacidad para modelar situaciones donde se cuenta el número de ocurrencias de un evento específico en un número fijo de ensayos independientes.
+
+Una propiedad importante de la distribución binomial es que puede aproximarse mediante una distribución normal cuando $n$ es grande y $p$ no está extremadamente cerca de 0 o 1. Esta aproximación es especialmente buena cuando $n \cdot p > 5$ y $n \cdot (1-p) > 5$.
+
+Además, la distribución binomial es un caso especial de la distribución de Poisson cuando el número de ensayos $n$ tiende a infinito y la probabilidad de éxito $p$ tiende a cero, de manera que $n \cdot p$ permanezca constante.
+```
+
 #### Distribución Poisson
 
 La distribución Poisson es una distribución discreta de probabilidad que modela el número de eventos que ocurren en un intervalo fijo de tiempo o espacio, bajo la suposición de que los eventos ocurren con una tasa constante y de manera independiente. Su función de masa de probabilidad está dada por:
@@ -632,6 +1018,8 @@ Momentos de la distribución:
 - $ \sigma_X = \lambda $
 
 ```{code-cell} python
+:tags: [remove-input]
+
 x = np.arange(0, 20, 1)  # valores de x a graficar
 params = [1, 3, 5]  # parámetros de las distribuciones Normales
 colors = ['C0', 'C1', 'C2']  # colores para cada curva
@@ -661,9 +1049,9 @@ plt.show()  # Mostrar en pantalla
 ```{admonition} Sobre la importancia de la distribución Poisson
 :class: tip, dropdown
 
-La distribución Poisson es ampliamente utilizada en probabilidad y estadística para modelar eventos raros o de baja frecuencia en un intervalo continuo, como el número de llamadas telefónicas a una central, la cantidad de autos que pasan por un peaje, o la ocurrencia de fenómenos naturales extremos.
+La distribución Poisson es ampliamente utilizada en probabilidad y estadística para modelar eventos raros o de baja frecuencia en un intervalo continuo, como la cantidad de autos que pasan por un peaje, o la ocurrencia de fenómenos naturales extremos.
 
-Es especialmente útil en procesos estocásticos de tipo Poisson, donde los eventos son independientes y la probabilidad de ocurrencia en un pequeño intervalo de tiempo o espacio es proporcional al tamaño del intervalo. Además, la distribución Poisson es un límite de la distribución binomial cuando el número de ensayos es muy grande y la probabilidad de éxito es muy pequeña.
+Es especialmente útil en procesos aleatorios de tipo Poisson, donde los eventos son independientes y la probabilidad de ocurrencia en un pequeño intervalo de tiempo o espacio es proporcional al tamaño del intervalo. Además, la distribución Poisson es un límite de la distribución binomial cuando el número de ensayos es muy grande y la probabilidad de éxito es muy pequeña.
 
 Su aplicabilidad en la teoría de colas, análisis de riesgos, teoría de renovaciones y procesos de conteo en general, le otorgan un rol central en la modelización de fenómenos discretos en el tiempo o el espacio.
 
@@ -690,6 +1078,8 @@ Momentos de la distribución:
 - $ \sigma_X = \sigma $
 
 ```{code-cell} python
+:tags: [remove-input]
+
 x = np.linspace(-5, 5, 1000) # valores de x a graficar
 params = [(0, 1), (0, 0.5), (1, 2)] # parámetros de las distribuciones Normales
 colors = ['C0', 'C1', 'C2'] # colores para cada curva
@@ -750,6 +1140,8 @@ Momentos de la distribución:
 - $ \sigma_X = \lambda \cdot e^{\frac{\xi^2}{2}} \cdot \sqrt{e^{\xi^2} - 1} $
 
 ```{code-cell} python
+:tags: [remove-input]
+
 x = np.linspace(0, 10, 1000) # valores de x a graficar
 params = [(-1, 1), (0, 0.5), (1, 0.2)] # parámetros de las distribuciones Normales
 colors = ['C0', 'C1', 'C2'] # colores para cada curva
@@ -775,7 +1167,7 @@ plt.show() # Mostrar en pantalla
 ```{admonition} Sobre la importancia de la distribución Lognormal
 :class: tip, dropdown
 
-La distribución lognormal es especialmente relevante en contextos donde las variables aleatorias son producto de múltiples factores positivos independientes. Ejemplos comunes incluyen el tamaño de partículas en materiales pulverizados, tiempos de vida de ciertos procesos biológicos y la modelación de precios de activos financieros.
+La distribución lognormal es especialmente relevante en contextos donde las variables aleatorias son producto de múltiples factores positivos independientes.
 
 Una propiedad importante de la distribución lognormal es que, a diferencia de la normal, es asimétrica y solo admite valores positivos. Esto la convierte en una opción adecuada para modelar fenómenos donde la variable no puede ser negativa y donde la multiplicación de pequeños factores aleatorios independientes genera el comportamiento observado.
 
@@ -800,6 +1192,8 @@ Momentos de la distribución:
 - $ \sigma_X = 1/\lambda $
 
 ```{code-cell} python
+:tags: [remove-input]
+
 x = np.linspace(0, 10, 1000) # valores de x a graficar
 params = [1, 0.5, 0.2] # parámetros de las distribuciones Normales
 colors = ['C0', 'C1', 'C2'] # colores para cada curva
@@ -858,6 +1252,8 @@ Momentos de la distribución:
 - $ \sigma_X = \sqrt{\frac{\alpha\beta}{(\alpha + \beta)^2(\alpha + \beta + 1)}} $
 
 ```{code-cell} python
+:tags: [remove-input]
+
 x = np.linspace(0, 1, 1000)  # valores de x a graficar (beta está definida en [0,1])
 params = [(2, 5), (5, 2), (1, 1)]  # parámetros de las distribuciones Beta (alpha, beta)
 colors = ['C0', 'C1', 'C2']  # colores para cada curva
@@ -910,6 +1306,8 @@ Momentos de la distribución:
 - $ \sigma_X = \frac{\beta \pi}{\sqrt{6}} $
 
 ```{code-cell} python
+:tags: [remove-input]
+
 x = np.linspace(-5, 10, 1000)  # valores de x a graficar
 params = [(0, 1), (2, 1), (0, 2)]  # parámetros de las distribuciones Gumbel (loc, scale)
 colors = ['C0', 'C1', 'C2']  # colores para cada curva
@@ -967,124 +1365,6 @@ layout = create_gen_bokeh_plot()
 show(layout)
 ```
 
-## Simulación de variables aleatorias
 
-Una manera alternativa de calcular probabilidades, momentos y descriptores asociados a una variable, o más, variable aleatoria es a través de simulaciones. En este caso, se generan muestras de la variable aleatoria a partir de la función de densidad de probabilidad asociada, y se calculan los valores de interés a partir de estas muestras.
-
-Supongamos que tenemos un mecanismo para generar muestras de una variable aleatoria $X$ con función de densidad de probabilidad $f_X(x)$. Podemos calcular de manera aproximada,
-
-| | Aproximación | Python |
-|---|---|---|
-| Esperanza | $ \frac{1}{N} \sum_{i=1}^{N} x_i$ | `np.mean(x)` |
-| Varianza | $ \frac{1}{N} \sum_{i=1}^{N} (x_i - E[X])^2$ | `np.var(x)` |
-| Desvío estándar | $ \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (x_i - E[X])^2 }$ | `np.std(x)` |
-| Probabilidad | $\frac{1}{N} \sum_{i=1}^{N} I(a \leq x_i \leq b)$ | `np.mean(x<b && x>a)` |
-| Densidad[^kde] | $ \frac{1}{N} \sum_{i=1}^{N} \delta(x - x_i)$ | `stats.kde(x)` or `sns.kdeplot(x)` |
-
-*siendo $x$ un vector de $N$ simulaciones de la variable aleatoria $X$
-
-[^kde]: La densidad de probabilidad se puede aproximar a través de un Kernel Density Estimation (KDE) o estimación de densidad por núcleos. Para más detalles sobre este método ver [aquí](https://seaborn.pydata.org/tutorial/distributions.html#kernel-density-estimation){:target="_blank"}.
-
-```{code-cell} python
-
-# Parámetros
-N = 10000  # Número de simulaciones
-mu, sigma = 0, 1  # Media y desviación estándar
-
-# Muestreo de una distribución normal usando scipy.stats
-samples = stats.norm.rvs(loc=mu, scale=sigma, size=N)
-
-# Definir el rango para graficar
-x = np.linspace(mu - 4*sigma, mu + 4*sigma, 1000)
-
-# Graficar la PDF analítica y el KDE usando seaborn
-plt.figure(figsize=(8, 4))
-sns.lineplot(x=x, y=stats.norm.pdf(x, mu, sigma), label='PDF Analítica', color='blue')
-sns.kdeplot(samples, bw_adjust=2, label='KDE', color='orange')
-
-# Añadir leyenda y mostrar el gráfico
-plt.legend()
-plt.title('PDF Analítica vs KDE')
-plt.xlabel('x')
-plt.ylabel('Densidad')
-plt.show()
-
-```
-
-### Simulación de funciones de variables
-
-Una de los aspectos más útiles de calcular probabilidades mediante simulación es la simpleza para realizar cálculo que analíticamente son muy complejos. Por ejemplo, calcular probabilidades de funciones de variables aleatorias.
-
-Supongamos que quiero calcular el valor medio y desvío estándar de que $Y=3 X^3 - 1$ sea mayor a 2, donde $X$ sigue una distribución normal con media 0 y desvío estándar 1. Analíticamente habría que estimar la densidad de probabilidad de $Y$ y luego integrar para obtener los momentos. Sin embargo, mediante simulación se puede calcular de manera sencilla, aplicando la transformación a los valores simulado de $X$.
-
-```{code-cell} python
-
-# Parámetros
-N = 10000  # Número de simulaciones
-mu, sigma = 0, 1  # Media y desviación estándar
-
-# Muestreo de una distribución normal usando scipy.stats
-x_samples = stats.norm.rvs(loc=mu, scale=sigma, size=N)
-
-# Simulación de Y
-y_samples = 3 * x_samples**3 - 1
-
-# Estimación del valor medio de Y
-mu_Y = np.mean(y_samples)
-print(f'El valor medio de Y es: {mu_Y}')
-
-# Estimación del desvío estándar de Y
-sigma_Y = np.std(y_samples)
-print(f'El desvío estándar de Y es: {sigma_Y}')
-
-# Cálculo de la probabilidad de que Y > 2
-prob = np.mean(y_samples > 2)
-print(f'La probabilidad de que Y sea mayor a 2 es: {prob}')
-
-```
-
-### El error en las aproximaciones por simulación
-
-Es importante tener en cuenta que las aproximaciones por simulación tienen un error asociado, que depende del número de simulaciones realizadas. A medida que se aumenta el número de simulaciones, el error disminuye, y se obtiene una estimación más precisa de los valores de interés.
-
-```{code-cell} python
-
-# Establecer la semilla para la reproducibilidad
-np.random.seed(42)
-
-# Valor exacto de la probabilidad de que X > 2 para una normal estándar
-exact_probability = 1 - stats.norm.cdf(2)
-
-# Números de simulaciones a evaluar
-Ns = [10, 50, 100, 500, 1000, 5000, 10000, 20000, 100000, 1000000]
-estimates = []
-
-# Calcular la probabilidad estimada para cada N
-for N in Ns:
-    # Muestreo de una distribución normal estándar
-    samples = stats.norm.rvs(size=N)
-    # Estimación de la probabilidad de que X > 2
-    estimate = np.mean(samples > 2)
-    estimates.append(estimate)
-
-# Graficar los resultados
-plt.figure(figsize=(8, 4))
-plt.plot(Ns, estimates, marker='o', linestyle='-', color='b', label='Estimación')
-plt.axhline(y=exact_probability, color='r', linestyle='--', label='Valor Exacto')
-
-# Aplicar escala logarítmica al eje x
-plt.xscale('log')
-
-# Añadir etiquetas y leyenda
-plt.xlabel('Número de Simulaciones (N)')
-plt.ylabel('Probabilidad Estimada (X > 2)')
-plt.title('Influencia del Número de Simulaciones en la Estimación de Probabilidad')
-plt.legend()
-plt.grid(True, which="both", ls="--")
-plt.show()
-
-```
-
-Si bien el ejemplo anterior ejemplifica el concepto de la influencia del número de simulaciones sobre la precisión de la estimación, la velocidad de convergencia depende del valor a estimar y de la distribución de la variable aleatoria.
-
+---
 ---
