@@ -1,0 +1,1468 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Análisis Exploratorio de Datos &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter2_aed/analisis_exploratorio';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2. Variables, poblaciones y datos" href="datos_y_variables.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../front.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Introducción a la Ciencia de Datos para Ingeniería Civil - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Introducción a la Ciencia de Datos para Ingeniería Civil - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../front.html">
+                    Introducción a la Ciencia de Datos para Ingeniería Civil
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter1_intro/repaso_de_probabilidad/repaso_de_probabilidad.html">1. Repaso de probabilidad</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Recolección y descripción de datos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="datos_y_variables.html">2. Variables, poblaciones y datos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Análisis Exploratorio de Datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/mbalbi/ciencia_de_datos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mbalbi/ciencia_de_datos/issues/new?title=Issue%20on%20page%20%2Fchapter2_aed/analisis_exploratorio.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter2_aed/analisis_exploratorio.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Análisis Exploratorio de Datos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">3.1. Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracterizacion-de-observaciones-univariadas">3.2. Caracterización de Observaciones Univariadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entendiendo-la-distribucion-de-los-datos">3.2.1. Entendiendo la distribución de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramas">3.2.1.1. Histogramas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-de-densidad-de-kernel">3.2.1.2. Estimación de densidad de Kernel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-distribucion-acumulada-empirica">3.2.1.3. Función de distribución acumulada empírica</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#percentiles-y-cuartiles">3.2.1.4. Percentiles y Cuartiles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramas-de-caja">3.2.1.5. Diagramas de Caja</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-tendencia-central">3.2.2. Medidas de Tendencia Central</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#media-promedio">3.2.2.1. Media (Promedio)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mediana">3.2.2.2. Mediana</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#moda">3.2.2.3. Moda</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-dispersion">3.2.3. Medidas de Dispersión</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza-y-desviacion-estandar">3.2.3.1. Varianza y Desviación Estándar</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#desviacion-media-absoluta">3.2.3.2. Desviación Media Absoluta</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rango-intercuartil-ric">3.2.3.3. Rango Intercuartil (RIC)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-confianza">3.2.4. Intervalos de confianza</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-confianza-centados">3.2.4.1. Intervalos de confianza centados</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-maxima-densidad-de-probabilidad">3.2.4.2. Intervalos de máxima densidad de probabilidad</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracterizacion-de-asociaciones-entre-variables">3.3. Caracterización de Asociaciones Entre Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-datos-bivariados">3.3.1. Análisis de Datos Bivariados</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramas-de-dispersion-para-variables-continuas">3.3.1.1. Diagramas de Dispersión para Variables Continuas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-correlacion">3.3.1.2. Análisis de Correlación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#consideraciones-importantes-para-la-correlacion">3.3.1.3. Consideraciones Importantes para la Correlación</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-continuas-vs-categoricas">3.3.2. Variables Continuas vs Categóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas-vs-categoricas">3.3.3. Variables Categóricas vs Categóricas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-series-temporales">3.4. Visualización de Series Temporales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graficos-basicos-de-series-temporales">3.4.1. Gráficos Básicos de Series Temporales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medias-moviles">3.4.2. Medias Móviles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-estacionalidad">3.4.3. Análisis de Estacionalidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-descomposicion">3.4.4. Visualización de Descomposición</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">3.5. Resumen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-univariado">3.5.1. Análisis Univariado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-multivariado">3.5.2. Análisis Multivariado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-series-temporales">3.5.3. Análisis de Series Temporales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-clave">3.5.4. Conclusiones Clave</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="analisis-exploratorio-de-datos">
+<h1><span class="section-number">3. </span>Análisis Exploratorio de Datos<a class="headerlink" href="#analisis-exploratorio-de-datos" title="Link to this heading">#</a></h1>
+<p>En este capítulo se utilizarán las siguientes librerías de Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="introduccion">
+<h2><span class="section-number">3.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
+<p>En el Análisis Exploratorio de Datos (AED) intentaremos entender de qué se componen las observaciones que tenemos entre manos con los objetivos de:</p>
+<ol class="arabic simple">
+<li><p>Limpiar el conjunto de datos e identificar problemas potenciales en las mediciones disponibles</p></li>
+<li><p>Formular hipótesis sobre la población (por ej. asociaciones entre variables)</p></li>
+<li><p>Guiar las decisiones de modelado posteriores</p></li>
+</ol>
+<p>Para lograr esto usamos herramientas como:</p>
+<ul class="simple">
+<li><p><strong>Estadísticos resumen</strong>: Medidas numéricas (métricas) que resumen propiedades relevantes de los datos</p></li>
+<li><p><strong>Gráficos de visualización</strong>: Representaciones gráficas que permiten relevar valores típicos y “extraños”, asociaciones entre variables</p></li>
+</ul>
+</section>
+<section id="caracterizacion-de-observaciones-univariadas">
+<h2><span class="section-number">3.2. </span>Caracterización de Observaciones Univariadas<a class="headerlink" href="#caracterizacion-de-observaciones-univariadas" title="Link to this heading">#</a></h2>
+<section id="entendiendo-la-distribucion-de-los-datos">
+<h3><span class="section-number">3.2.1. </span>Entendiendo la distribución de los datos<a class="headerlink" href="#entendiendo-la-distribucion-de-los-datos" title="Link to this heading">#</a></h3>
+<p>El primer paso en el análisis de cualquier variable es comprender cómo se distribuyen sus valores. Esto implica examinar la frecuencia de ocurrencia de diferentes valores o rangos de valores dentro de los valores observados.</p>
+<section id="histogramas">
+<h4><span class="section-number">3.2.1.1. </span>Histogramas<a class="headerlink" href="#histogramas" title="Link to this heading">#</a></h4>
+<p>Los <strong>histogramas</strong> son la herramienta principal para visualizar la distribución de variables continuas y discretas. Muestran la frecuencia o recuento de observaciones dentro de intervalos específicos (bins).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar datos de muestra</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Crear histograma</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma de Datos de Muestra&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Densidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6fd0050b5c55860d7b21e398fe6a381afb508a23d398441b241467f1340369c0.png" src="../_images/6fd0050b5c55860d7b21e398fe6a381afb508a23d398441b241467f1340369c0.png" />
+</div>
+</div>
+<p><strong>Consideraciones clave para histogramas:</strong></p>
+<ul class="simple">
+<li><p><strong>Sensibilidad al ancho del bin</strong>: La elección del ancho del bin afecta significativamente la apariencia del histograma</p></li>
+<li><p><strong>Regla de Sturges</strong>: Una guía común para elegir el número de bins: <span class="math notranslate nohighlight">\(K = 1 + 3.222 \log_{10}(N)\)</span>, donde <span class="math notranslate nohighlight">\(N\)</span> es el tamaño de la muestra</p></li>
+<li><p><strong>Cobertura</strong>: Todos los puntos de datos deben estar incluidos en los bins</p></li>
+</ul>
+</section>
+<section id="estimacion-de-densidad-de-kernel">
+<h4><span class="section-number">3.2.1.2. </span>Estimación de densidad de Kernel<a class="headerlink" href="#estimacion-de-densidad-de-kernel" title="Link to this heading">#</a></h4>
+<p>La estimación de densidad por kernel proporciona una estimación suave de la función de densidad de probabilidad, efectivamente “suavizando” el histograma.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear gráfico de densidad por kernel</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma con Estimación de Densidad por Kernel&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Densidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/cdce66691695aecb8b319884d04b3949150d72dccd567ec5b844bbb8053b1441.png" src="../_images/cdce66691695aecb8b319884d04b3949150d72dccd567ec5b844bbb8053b1441.png" />
+</div>
+</div>
+<p>El parámetro de ancho de banda controla la suavidad de la estimación de densidad por kernel - anchos de banda más amplios producen curvas más suaves pero pueden ocultar detalles importantes.</p>
+</section>
+<section id="funcion-de-distribucion-acumulada-empirica">
+<h4><span class="section-number">3.2.1.3. </span>Función de distribución acumulada empírica<a class="headerlink" href="#funcion-de-distribucion-acumulada-empirica" title="Link to this heading">#</a></h4>
+<p>La función de distribución acumulada empírica (FDAE) muestra la proporción de puntos de datos menores o iguales a un valor dado:</p>
+<div class="math notranslate nohighlight">
+\[\hat{F}_n(x) = \frac{\#\text{ de datos } \leq x}{n} = \frac{1}{n}\sum_{i=1}^{n} I(x_i \leq x)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear gráfico de FDAE</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">datos_ordenados</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">valores_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos_ordenados</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">datos_ordenados</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">datos_ordenados</span><span class="p">,</span> <span class="n">valores_y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Función de Distribución Acumulada Empírica&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probabilidad Acumulada&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e1a583cf98d80d9fdb51159564d9bd8cbe58d0605b466f8d51f1fa476808db67.png" src="../_images/e1a583cf98d80d9fdb51159564d9bd8cbe58d0605b466f8d51f1fa476808db67.png" />
+</div>
+</div>
+</section>
+<section id="percentiles-y-cuartiles">
+<h4><span class="section-number">3.2.1.4. </span>Percentiles y Cuartiles<a class="headerlink" href="#percentiles-y-cuartiles" title="Link to this heading">#</a></h4>
+<p>Los percentiles describen la posición relativa de los valores dentro del conjunto de datos.</p>
+<p>El percentil <span class="math notranslate nohighlight">\(p\)</span> es el valor por debajo del cual cae el <span class="math notranslate nohighlight">\(p\%\)</span> de los datos:</p>
+<ul class="simple">
+<li><p><strong>Primer cuartil (Q1)</strong>: percentil 25</p></li>
+<li><p><strong>Mediana (Q2)</strong>: percentil 50</p></li>
+<li><p><strong>Tercer cuartil (Q3)</strong>: percentil 75</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular cuartiles</span>
+<span class="n">q1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">q2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>  <span class="c1"># mediana</span>
+<span class="n">q3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Q1 (percentil 25): </span><span class="si">{</span><span class="n">q1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Q2 (percentil 50/mediana): </span><span class="si">{</span><span class="n">q2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Q3 (percentil 75): </span><span class="si">{</span><span class="n">q3</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q1 (percentil 25): 90.29
+Q2 (percentil 50/mediana): 100.38
+Q3 (percentil 75): 109.72
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="diagramas-de-caja">
+<h4><span class="section-number">3.2.1.5. </span>Diagramas de Caja<a class="headerlink" href="#diagramas-de-caja" title="Link to this heading">#</a></h4>
+<p>Los diagramas de caja proporcionan un resumen visual de la distribución usando cuartiles:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear diagrama de caja</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Diagrama de Caja&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+
+<span class="c1"># Crear diagrama de caja horizontal con observaciones individuales</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Diagrama de Caja con Puntos de Datos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dff87f0be6f7b444cd6b64f0763c0c05246112508741498fdcd2c497eab1e792.png" src="../_images/dff87f0be6f7b444cd6b64f0763c0c05246112508741498fdcd2c497eab1e792.png" />
+</div>
+</div>
+<p>El diagrama de caja muestra:</p>
+<ul class="simple">
+<li><p><strong>Caja</strong>: Rango intercuartil (RIC) desde Q1 hasta Q3</p></li>
+<li><p><strong>Línea en la caja</strong>: Mediana (Q2)</p></li>
+<li><p><strong>Bigotes</strong>: Se extienden hasta 1.5 × RIC más allá de los cuartiles o hasta los extremos de los datos</p></li>
+<li><p><strong>Valores atípicos</strong>: Puntos más allá de los bigotes</p></li>
+</ul>
+</section>
+</section>
+<section id="medidas-de-tendencia-central">
+<h3><span class="section-number">3.2.2. </span>Medidas de Tendencia Central<a class="headerlink" href="#medidas-de-tendencia-central" title="Link to this heading">#</a></h3>
+<p>Las medidas de tendencia central describen el valor “típico” o representativo alrededor del cual se agrupan los datos.</p>
+<section id="media-promedio">
+<h4><span class="section-number">3.2.2.1. </span>Media (Promedio)<a class="headerlink" href="#media-promedio" title="Link to this heading">#</a></h4>
+<p>La media muestral es el promedio aritmético de todas las observaciones:</p>
+<div class="math notranslate nohighlight">
+\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i\]</div>
+<p><strong>Propiedades de la media:</strong></p>
+<ul class="simple">
+<li><p>Minimiza la suma de desviaciones cuadradas de los puntos de datos</p></li>
+<li><p>Representa el “centro de gravedad” de los datos</p></li>
+<li><p>Puede no ser un valor posible para datos discretos</p></li>
+<li><p>No tiene sentido para datos categóricos nominales</p></li>
+<li><p>Sensible a valores atípicos</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular y mostrar la media</span>
+<span class="n">media_muestral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Media muestral: </span><span class="si">{</span><span class="n">media_muestral</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Visualizar la media en el histograma</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">media_muestral</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Media: </span><span class="si">{</span><span class="n">media_muestral</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución con Media&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Densidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media muestral: 100.29
+</pre></div>
+</div>
+<img alt="../_images/0c845202c423dc2a025cc2cf61325a84cfbf804a6205a71b4b33ffb748babd2f.png" src="../_images/0c845202c423dc2a025cc2cf61325a84cfbf804a6205a71b4b33ffb748babd2f.png" />
+</div>
+</div>
+</section>
+<section id="mediana">
+<h4><span class="section-number">3.2.2.2. </span>Mediana<a class="headerlink" href="#mediana" title="Link to this heading">#</a></h4>
+<p>La mediana es el valor medio cuando los datos están ordenados - divide el conjunto de datos en dos mitades iguales.</p>
+<p><strong>Propiedades de la mediana:</strong></p>
+<ul class="simple">
+<li><p>Minimiza la suma de desviaciones absolutas de los puntos de datos</p></li>
+<li><p>Siempre corresponde a un valor de datos real</p></li>
+<li><p>No tiene sentido para datos categóricos nominales</p></li>
+<li><p>Menos sensible a valores atípicos que la media</p></li>
+<li><p>Más representativa del punto de datos “típico” en distribuciones sesgadas</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demostrar sensibilidad de mediana vs media a valores atípicos</span>
+<span class="n">datos_normales</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.2</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">7.9</span><span class="p">,</span> <span class="mf">6.4</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">]</span>
+<span class="n">con_atipico</span> <span class="o">=</span> <span class="n">datos_normales</span> <span class="o">+</span> <span class="p">[</span><span class="mf">20.3</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sin valor atípico:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Media: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">datos_normales</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mediana: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">datos_normales</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Con valor atípico:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Media: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">con_atipico</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mediana: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">con_atipico</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sin valor atípico:
+Media: 5.21
+Mediana: 5.10
+
+Con valor atípico:
+Media: 7.10
+Mediana: 5.20
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="moda">
+<h4><span class="section-number">3.2.2.3. </span>Moda<a class="headerlink" href="#moda" title="Link to this heading">#</a></h4>
+<p>La moda es el valor que ocurre con mayor frecuencia en el conjunto de datos.</p>
+<p><strong>Propiedades de la moda:</strong></p>
+<ul class="simple">
+<li><p>Siempre corresponde a un valor de datos real para variables discretas y categóricas</p></li>
+<li><p>Para datos continuos, puede aproximarse usando histogramas o estimación de densidad por kernel</p></li>
+<li><p>Una distribución puede tener múltiples modas (multimodal) o no tener moda clara</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo con datos discretos</span>
+<span class="n">datos_discretos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">resultado_moda</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">datos_discretos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Moda: </span><span class="si">{</span><span class="n">resultado_moda</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="s2">, Frecuencia: </span><span class="si">{</span><span class="n">resultado_moda</span><span class="o">.</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Visualizar la moda</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">unicos</span><span class="p">,</span> <span class="n">frecuencias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">datos_discretos</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">unicos</span><span class="p">,</span> <span class="n">frecuencias</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frecuencia de Valores (Moda Resaltada)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moda: 3, Frecuencia: 3
+</pre></div>
+</div>
+<img alt="../_images/e87b09b40bf6754844a8aabd51a0c89a70db7e050db4349ec90e828e366a9cb0.png" src="../_images/e87b09b40bf6754844a8aabd51a0c89a70db7e050db4349ec90e828e366a9cb0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="medidas-de-dispersion">
+<h3><span class="section-number">3.2.3. </span>Medidas de Dispersión<a class="headerlink" href="#medidas-de-dispersion" title="Link to this heading">#</a></h3>
+<p>Las medidas de dispersión cuantifican qué tan dispersos están los puntos de datos alrededor de la tendencia central.</p>
+<section id="varianza-y-desviacion-estandar">
+<h4><span class="section-number">3.2.3.1. </span>Varianza y Desviación Estándar<a class="headerlink" href="#varianza-y-desviacion-estandar" title="Link to this heading">#</a></h4>
+<p><strong>Varianza muestral</strong>: Promedio de las desviaciones cuadradas de la media:
+$<span class="math notranslate nohighlight">\(s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2\)</span>$</p>
+<p><strong>Desviación estándar</strong>: Raíz cuadrada de la varianza:
+$<span class="math notranslate nohighlight">\(s = \sqrt{s^2}\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular varianza y desviación estándar</span>
+<span class="n">varianza</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># ddof=1 para varianza muestral</span>
+<span class="n">desv_estandar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># ddof=1 para desviación estándar muestral</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Varianza muestral: </span><span class="si">{</span><span class="n">varianza</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Desviación estándar muestral: </span><span class="si">{</span><span class="n">desv_estandar</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Visualizar desviación estándar</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">media_muestral</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Media: </span><span class="si">{</span><span class="n">media_muestral</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">media_muestral</span> <span class="o">+</span> <span class="n">desv_estandar</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Media + 1σ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">media_muestral</span> <span class="o">-</span> <span class="n">desv_estandar</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Media - 1σ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución con Media y Desviación Estándar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Densidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Varianza muestral: 215.74
+Desviación estándar muestral: 14.69
+</pre></div>
+</div>
+<img alt="../_images/3f1ccf5b3ee96f0825e5bb92647b2eaaf919da03d75b74ae5203827b2c998b1c.png" src="../_images/3f1ccf5b3ee96f0825e5bb92647b2eaaf919da03d75b74ae5203827b2c998b1c.png" />
+</div>
+</div>
+</section>
+<section id="desviacion-media-absoluta">
+<h4><span class="section-number">3.2.3.2. </span>Desviación Media Absoluta<a class="headerlink" href="#desviacion-media-absoluta" title="Link to this heading">#</a></h4>
+<p>Promedio de las desviaciones absolutas de la media:
+$<span class="math notranslate nohighlight">\(\text{DMA} = \frac{1}{n}\sum_{i=1}^{n}|x_i - \bar{x}|\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular desviación media absoluta</span>
+<span class="n">dma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">datos</span> <span class="o">-</span> <span class="n">media_muestral</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Desviación Media Absoluta: </span><span class="si">{</span><span class="n">dma</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Desviación Media Absoluta: 11.69
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rango-intercuartil-ric">
+<h4><span class="section-number">3.2.3.3. </span>Rango Intercuartil (RIC)<a class="headerlink" href="#rango-intercuartil-ric" title="Link to this heading">#</a></h4>
+<p>El RIC mide la dispersión del 50% central de los datos:
+$<span class="math notranslate nohighlight">\(\text{RIC} = Q_3 - Q_1\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular RIC</span>
+<span class="n">ric</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">-</span> <span class="n">q1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rango Intercuartil (RIC): </span><span class="si">{</span><span class="n">ric</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rango Intercuartil (RIC): 19.43
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="intervalos-de-confianza">
+<h3><span class="section-number">3.2.4. </span>Intervalos de confianza<a class="headerlink" href="#intervalos-de-confianza" title="Link to this heading">#</a></h3>
+<p>xxx</p>
+<section id="intervalos-de-confianza-centados">
+<h4><span class="section-number">3.2.4.1. </span>Intervalos de confianza centados<a class="headerlink" href="#intervalos-de-confianza-centados" title="Link to this heading">#</a></h4>
+</section>
+<section id="intervalos-de-maxima-densidad-de-probabilidad">
+<h4><span class="section-number">3.2.4.2. </span>Intervalos de máxima densidad de probabilidad<a class="headerlink" href="#intervalos-de-maxima-densidad-de-probabilidad" title="Link to this heading">#</a></h4>
+</section>
+</section>
+</section>
+<section id="caracterizacion-de-asociaciones-entre-variables">
+<h2><span class="section-number">3.3. </span>Caracterización de Asociaciones Entre Variables<a class="headerlink" href="#caracterizacion-de-asociaciones-entre-variables" title="Link to this heading">#</a></h2>
+<section id="analisis-de-datos-bivariados">
+<h3><span class="section-number">3.3.1. </span>Análisis de Datos Bivariados<a class="headerlink" href="#analisis-de-datos-bivariados" title="Link to this heading">#</a></h3>
+<p>Al trabajar con dos variables simultáneamente, estamos interesados en comprender su distribución conjunta y posibles relaciones.</p>
+<section id="diagramas-de-dispersion-para-variables-continuas">
+<h4><span class="section-number">3.3.1.1. </span>Diagramas de Dispersión para Variables Continuas<a class="headerlink" href="#diagramas-de-dispersion-para-variables-continuas" title="Link to this heading">#</a></h4>
+<p>Los diagramas de dispersión son la herramienta principal para visualizar relaciones entre dos variables continuas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar datos correlacionados</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># Crear diagrama de dispersión</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Diagrama de Dispersión de Dos Variables&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Variable X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Variable Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ecba6ad21b796b0053ea460ddc25fc45191b23fea98ef63c0ae0fa7bd2312030.png" src="../_images/ecba6ad21b796b0053ea460ddc25fc45191b23fea98ef63c0ae0fa7bd2312030.png" />
+</div>
+</div>
+</section>
+<section id="analisis-de-correlacion">
+<h4><span class="section-number">3.3.1.2. </span>Análisis de Correlación<a class="headerlink" href="#analisis-de-correlacion" title="Link to this heading">#</a></h4>
+<p>El <strong>coeficiente de correlación de Pearson</strong> mide la asociación lineal entre dos variables:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{1}{n-1} \frac{1}{s_X s_Y} \sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(s_X\)</span> y <span class="math notranslate nohighlight">\(s_Y\)</span> son las desviaciones estándar muestrales de X e Y respectivamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular correlación</span>
+<span class="n">correlacion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coeficiente de correlación de Pearson: </span><span class="si">{</span><span class="n">correlacion</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Visualizar correlación</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Diagrama de Dispersión con Correlación r = </span><span class="si">{</span><span class="n">correlacion</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Variable X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Variable Y&#39;</span><span class="p">)</span>
+<span class="c1"># Agregar línea de tendencia</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s2">&quot;r--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coeficiente de correlación de Pearson: 0.968
+</pre></div>
+</div>
+<img alt="../_images/5c47e32ffeeeeb7c33f563185c1cb8a13a79bcd7214fcd0628c1c54dbbbf12bd.png" src="../_images/5c47e32ffeeeeb7c33f563185c1cb8a13a79bcd7214fcd0628c1c54dbbbf12bd.png" />
+</div>
+</div>
+</section>
+<section id="consideraciones-importantes-para-la-correlacion">
+<h4><span class="section-number">3.3.1.3. </span>Consideraciones Importantes para la Correlación<a class="headerlink" href="#consideraciones-importantes-para-la-correlacion" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Correlación cero no implica ausencia de relación</strong> - solo ausencia de relación lineal:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo de relación no lineal con correlación cero</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">x_no_lineal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">y_no_lineal</span> <span class="o">=</span> <span class="n">x_no_lineal</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="n">correlacion_no_lineal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x_no_lineal</span><span class="p">,</span> <span class="n">y_no_lineal</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_no_lineal</span><span class="p">,</span> <span class="n">y_no_lineal</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Relación No Lineal (r = </span><span class="si">{</span><span class="n">correlacion_no_lineal</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Variable X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Variable Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2b7a4de8c14d36bf2ce56f17d883839531166dbf9ce894301a6fbd3ce5eaea60.png" src="../_images/2b7a4de8c14d36bf2ce56f17d883839531166dbf9ce894301a6fbd3ce5eaea60.png" />
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>La misma correlación puede representar relaciones muy diferentes</strong> (Cuarteto de Anscombe):</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demostración del Cuarteto de Anscombe</span>
+<span class="c1"># Conjunto de datos 1: Relación lineal</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">8.04</span><span class="p">,</span> <span class="mf">6.95</span><span class="p">,</span> <span class="mf">7.58</span><span class="p">,</span> <span class="mf">8.81</span><span class="p">,</span> <span class="mf">8.33</span><span class="p">,</span> <span class="mf">9.96</span><span class="p">,</span> <span class="mf">7.24</span><span class="p">,</span> <span class="mf">4.26</span><span class="p">,</span> <span class="mf">10.84</span><span class="p">,</span> <span class="mf">4.82</span><span class="p">,</span> <span class="mf">5.68</span><span class="p">])</span>
+
+<span class="c1"># Conjunto de datos 2: Relación no lineal</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">9.14</span><span class="p">,</span> <span class="mf">8.14</span><span class="p">,</span> <span class="mf">8.74</span><span class="p">,</span> <span class="mf">8.77</span><span class="p">,</span> <span class="mf">9.26</span><span class="p">,</span> <span class="mf">8.10</span><span class="p">,</span> <span class="mf">6.13</span><span class="p">,</span> <span class="mf">3.10</span><span class="p">,</span> <span class="mf">9.13</span><span class="p">,</span> <span class="mf">7.26</span><span class="p">,</span> <span class="mf">4.74</span><span class="p">])</span>
+
+<span class="c1"># Calcular correlaciones</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Graficar ambos conjuntos de datos</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conjunto de Datos 1: r = </span><span class="si">{</span><span class="n">r1</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conjunto de Datos 2: r = </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A pesar de patrones muy diferentes, ambos conjuntos tienen correlaciones similares:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Correlación conjunto 1: </span><span class="si">{</span><span class="n">r1</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Correlación conjunto 2: </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/83cf2e86fb522186d3d00950c1fc08f38f98e3216eb0f5cdb9e19c1f6bf1440f.png" src="../_images/83cf2e86fb522186d3d00950c1fc08f38f98e3216eb0f5cdb9e19c1f6bf1440f.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A pesar de patrones muy diferentes, ambos conjuntos tienen correlaciones similares:
+Correlación conjunto 1: 0.816
+Correlación conjunto 2: 0.816
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="variables-continuas-vs-categoricas">
+<h3><span class="section-number">3.3.2. </span>Variables Continuas vs Categóricas<a class="headerlink" href="#variables-continuas-vs-categoricas" title="Link to this heading">#</a></h3>
+<p>Cuando una variable es continua y la otra es categórica, típicamente usamos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar datos de muestra</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">categorias</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">]</span>
+<span class="n">dict_datos</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="n">categorias</span><span class="p">:</span>
+    <span class="c1"># Diferentes medias para cada categoría</span>
+    <span class="n">valor_medio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="n">dict_datos</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">valor_medio</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Crear DataFrame</span>
+<span class="n">df_cont_cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">([(</span><span class="n">k</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dict_datos</span><span class="o">.</span><span class="n">items</span><span class="p">()]))</span>
+<span class="n">df_derretido</span> <span class="o">=</span> <span class="n">df_cont_cat</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Categoría&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+
+<span class="c1"># Comparación con diagrama de caja</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_derretido</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Categoría&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Variable Continua por Categoría&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/19a229005e7cd200e5527753f69bc15145f9855649acd17d6852c17cd24e268a.png" src="../_images/19a229005e7cd200e5527753f69bc15145f9855649acd17d6852c17cd24e268a.png" />
+</div>
+</div>
+</section>
+<section id="variables-categoricas-vs-categoricas">
+<h3><span class="section-number">3.3.3. </span>Variables Categóricas vs Categóricas<a class="headerlink" href="#variables-categoricas-vs-categoricas" title="Link to this heading">#</a></h3>
+<p>Para dos variables categóricas, usamos <strong>tablas de contingencia</strong> y visualizaciones asociadas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear datos categóricos de muestra</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">categoria1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;X1=0&#39;</span><span class="p">,</span> <span class="s1">&#39;X1=1&#39;</span><span class="p">],</span> <span class="mi">500</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+<span class="n">categoria2</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="n">categoria1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">cat</span> <span class="o">==</span> <span class="s1">&#39;X1=0&#39;</span><span class="p">:</span>
+        <span class="n">categoria2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span> 
+                                         <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">categoria2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">],</span> 
+                                         <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">]))</span>
+
+<span class="c1"># Crear tabla de contingencia</span>
+<span class="n">tabla_contingencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">categoria2</span><span class="p">,</span> <span class="n">categoria1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tabla de Contingencia (Frecuencias):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tabla_contingencia</span><span class="p">)</span>
+
+<span class="c1"># Crear tabla de proporciones</span>
+<span class="n">tabla_proporciones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">categoria2</span><span class="p">,</span> <span class="n">categoria1</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tabla de Proporciones:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tabla_proporciones</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Visualizar con mapa de calor</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">tabla_contingencia</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mapa de Calor de Tabla de Contingencia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Categoría 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Categoría 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tabla de Contingencia (Frecuencias):
+col_0  X1=0  X1=1
+row_0            
+A        97    17
+B        70    41
+C        71    78
+D        45    40
+E        10    31
+
+Tabla de Proporciones:
+col_0   X1=0   X1=1
+row_0              
+A      0.331  0.082
+B      0.239  0.198
+C      0.242  0.377
+D      0.154  0.193
+E      0.034  0.150
+</pre></div>
+</div>
+<img alt="../_images/eb794e26ad057364dd0a2ecbedcf7e0e8d2418226f23ee1da4482e65a7fc5fa4.png" src="../_images/eb794e26ad057364dd0a2ecbedcf7e0e8d2418226f23ee1da4482e65a7fc5fa4.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="visualizacion-de-series-temporales">
+<h2><span class="section-number">3.4. </span>Visualización de Series Temporales<a class="headerlink" href="#visualizacion-de-series-temporales" title="Link to this heading">#</a></h2>
+<p>Cuando una de las variables representa tiempo, las técnicas de visualización especiales ayudan a identificar patrones temporales.</p>
+<section id="graficos-basicos-de-series-temporales">
+<h3><span class="section-number">3.4.1. </span>Gráficos Básicos de Series Temporales<a class="headerlink" href="#graficos-basicos-de-series-temporales" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar datos de serie temporal de muestra</span>
+<span class="n">fechas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">365</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Crear tendencia + estacionalidad + ruido</span>
+<span class="n">tendencia</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">365</span><span class="p">)</span>
+<span class="n">estacional</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">365</span><span class="p">)</span> <span class="o">/</span> <span class="mf">365.25</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># Patrón trimestral</span>
+<span class="n">ruido</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">365</span><span class="p">)</span>
+<span class="n">valores</span> <span class="o">=</span> <span class="n">tendencia</span> <span class="o">+</span> <span class="n">estacional</span> <span class="o">+</span> <span class="n">ruido</span>
+
+<span class="n">datos_st</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;fecha&#39;</span><span class="p">:</span> <span class="n">fechas</span><span class="p">,</span> <span class="s1">&#39;valor&#39;</span><span class="p">:</span> <span class="n">valores</span><span class="p">})</span>
+
+<span class="c1"># Gráfico básico de serie temporal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;fecha&#39;</span><span class="p">],</span> <span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;valor&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gráfico de Serie Temporal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9923f1f8b291e2e5077abd56f2283ad92939ae5d379f5d491c903250884129f2.png" src="../_images/9923f1f8b291e2e5077abd56f2283ad92939ae5d379f5d491c903250884129f2.png" />
+</div>
+</div>
+</section>
+<section id="medias-moviles">
+<h3><span class="section-number">3.4.2. </span>Medias Móviles<a class="headerlink" href="#medias-moviles" title="Link to this heading">#</a></h3>
+<p>Las medias móviles ayudan a detectar tendencias suavizando las fluctuaciones a corto plazo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular medias móviles</span>
+<span class="n">tamaños_ventana</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;fecha&#39;</span><span class="p">],</span> <span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;valor&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">colores</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ventana</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tamaños_ventana</span><span class="p">):</span>
+    <span class="n">datos_st</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;MM_</span><span class="si">{</span><span class="n">ventana</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;valor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">ventana</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;fecha&#39;</span><span class="p">],</span> <span class="n">datos_st</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;MM_</span><span class="si">{</span><span class="n">ventana</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">],</span> 
+             <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Media Móvil </span><span class="si">{</span><span class="n">ventana</span><span class="si">}</span><span class="s1"> días&#39;</span><span class="p">,</span> 
+             <span class="n">color</span><span class="o">=</span><span class="n">colores</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Serie Temporal con Medias Móviles&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7e3f54ec438ca2d5e582c9e51e692fd6d17f6864bf4c5a84244b388ad9ac1f64.png" src="../_images/7e3f54ec438ca2d5e582c9e51e692fd6d17f6864bf4c5a84244b388ad9ac1f64.png" />
+</div>
+</div>
+</section>
+<section id="analisis-de-estacionalidad">
+<h3><span class="section-number">3.4.3. </span>Análisis de Estacionalidad<a class="headerlink" href="#analisis-de-estacionalidad" title="Link to this heading">#</a></h3>
+<p>Los gráficos de estacionalidad ayudan a identificar patrones recurrentes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregar información de mes y trimestre</span>
+<span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;mes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;fecha&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+<span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;trimestre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;fecha&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">quarter</span>
+
+<span class="c1"># Gráfico de estacionalidad mensual</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">promedio_mensual</span> <span class="o">=</span> <span class="n">datos_st</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;mes&#39;</span><span class="p">)[</span><span class="s1">&#39;valor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">promedio_mensual</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">promedio_mensual</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Estacionalidad Mensual&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor Promedio&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Gráfico de estacionalidad trimestral</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">promedio_trimestral</span> <span class="o">=</span> <span class="n">datos_st</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;trimestre&#39;</span><span class="p">)[</span><span class="s1">&#39;valor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">promedio_trimestral</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">promedio_trimestral</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Estacionalidad Trimestral&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Trimestre&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor Promedio&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Diagrama de caja por mes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">datos_st</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;mes&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución de Valores por Mes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+
+<span class="c1"># Diagrama de caja por trimestre</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">datos_st</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;trimestre&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribución de Valores por Trimestre&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Trimestre&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7cee379bd634c22761fbbf91603848f059f3179eb536a5ab34dd064240bc4322.png" src="../_images/7cee379bd634c22761fbbf91603848f059f3179eb536a5ab34dd064240bc4322.png" />
+</div>
+</div>
+</section>
+<section id="visualizacion-de-descomposicion">
+<h3><span class="section-number">3.4.4. </span>Visualización de Descomposición<a class="headerlink" href="#visualizacion-de-descomposicion" title="Link to this heading">#</a></h3>
+<p>La descomposición de series temporales separa los componentes de tendencia, estacionalidad y residuos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.seasonal</span><span class="w"> </span><span class="kn">import</span> <span class="n">seasonal_decompose</span>
+
+<span class="c1"># Realizar descomposición</span>
+<span class="n">descomposicion</span> <span class="o">=</span> <span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;valor&#39;</span><span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;additive&#39;</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="c1"># Graficar descomposición</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;valor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+
+<span class="n">descomposicion</span><span class="o">.</span><span class="n">trend</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Tendencia&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Tendencia&#39;</span><span class="p">)</span>
+
+<span class="n">descomposicion</span><span class="o">.</span><span class="n">seasonal</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Estacional&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Estacional&#39;</span><span class="p">)</span>
+
+<span class="n">descomposicion</span><span class="o">.</span><span class="n">resid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Residuos&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Residuos&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.seasonal</span><span class="w"> </span><span class="kn">import</span> <span class="n">seasonal_decompose</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Realizar descomposición</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">descomposicion</span> <span class="o">=</span> <span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">datos_st</span><span class="p">[</span><span class="s1">&#39;valor&#39;</span><span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;additive&#39;</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;statsmodels&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="resumen">
+<h2><span class="section-number">3.5. </span>Resumen<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
+<p>Este capítulo cubrió los conceptos y técnicas fundamentales del Análisis Exploratorio de Datos:</p>
+<section id="analisis-univariado">
+<h3><span class="section-number">3.5.1. </span>Análisis Univariado<a class="headerlink" href="#analisis-univariado" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Distribuciones de frecuencia</strong>: Histogramas, estimación de densidad por kernel, y funciones de distribución acumulada empírica</p></li>
+<li><p><strong>Tendencia central</strong>: Media, mediana y moda con sus respectivas propiedades y casos de uso</p></li>
+<li><p><strong>Medidas de posición</strong>: Percentiles y cuartiles, visualizados mediante diagramas de caja</p></li>
+<li><p><strong>Medidas de dispersión</strong>: Varianza, desviación estándar, desviación media absoluta y rango intercuartil</p></li>
+</ul>
+</section>
+<section id="analisis-multivariado">
+<h3><span class="section-number">3.5.2. </span>Análisis Multivariado<a class="headerlink" href="#analisis-multivariado" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Relaciones continuas-continuas</strong>: Diagramas de dispersión y análisis de correlación</p></li>
+<li><p><strong>Relaciones continuas-categóricas</strong>: Diagramas de caja y comparaciones de distribuciones</p></li>
+<li><p><strong>Relaciones categóricas-categóricas</strong>: Tablas de contingencia y análisis de proporciones</p></li>
+</ul>
+</section>
+<section id="analisis-de-series-temporales">
+<h3><span class="section-number">3.5.3. </span>Análisis de Series Temporales<a class="headerlink" href="#analisis-de-series-temporales" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Patrones temporales</strong>: Gráficos básicos de series temporales e identificación de tendencias</p></li>
+<li><p><strong>Técnicas de suavizado</strong>: Medias móviles para detectar tendencias subyacentes</p></li>
+<li><p><strong>Estacionalidad</strong>: Identificación y visualización de patrones recurrentes</p></li>
+<li><p><strong>Descomposición</strong>: Separación de componentes de tendencia, estacionalidad y residuos</p></li>
+</ul>
+</section>
+<section id="conclusiones-clave">
+<h3><span class="section-number">3.5.4. </span>Conclusiones Clave<a class="headerlink" href="#conclusiones-clave" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Siempre visualice sus datos</strong> - los resúmenes numéricos por sí solos pueden ser engañosos</p></li>
+<li><p><strong>Considere el tipo de datos</strong> - diferentes técnicas se aplican a variables continuas vs categóricas</p></li>
+<li><p><strong>Tenga en cuenta los valores atípicos</strong> - pueden afectar significativamente las estadísticas resumen</p></li>
+<li><p><strong>La correlación no implica causalidad</strong> - y correlación cero no significa ausencia de relación</p></li>
+<li><p><strong>Múltiples perspectivas</strong> - use varias técnicas de visualización para comprender completamente sus datos</p></li>
+</ol>
+<p>Estas técnicas de AED forman la base para aplicaciones más avanzadas de modelado estadístico y aprendizaje automático. Ayudan a asegurar la calidad de los datos, guían las decisiones de ingeniería de características y proporcionan información que informa todo el flujo de trabajo de ciencia de datos.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter2_aed"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="datos_y_variables.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Variables, poblaciones y datos</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">3.1. Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracterizacion-de-observaciones-univariadas">3.2. Caracterización de Observaciones Univariadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entendiendo-la-distribucion-de-los-datos">3.2.1. Entendiendo la distribución de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramas">3.2.1.1. Histogramas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-de-densidad-de-kernel">3.2.1.2. Estimación de densidad de Kernel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-distribucion-acumulada-empirica">3.2.1.3. Función de distribución acumulada empírica</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#percentiles-y-cuartiles">3.2.1.4. Percentiles y Cuartiles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramas-de-caja">3.2.1.5. Diagramas de Caja</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-tendencia-central">3.2.2. Medidas de Tendencia Central</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#media-promedio">3.2.2.1. Media (Promedio)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mediana">3.2.2.2. Mediana</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#moda">3.2.2.3. Moda</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medidas-de-dispersion">3.2.3. Medidas de Dispersión</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza-y-desviacion-estandar">3.2.3.1. Varianza y Desviación Estándar</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#desviacion-media-absoluta">3.2.3.2. Desviación Media Absoluta</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rango-intercuartil-ric">3.2.3.3. Rango Intercuartil (RIC)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-confianza">3.2.4. Intervalos de confianza</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-confianza-centados">3.2.4.1. Intervalos de confianza centados</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intervalos-de-maxima-densidad-de-probabilidad">3.2.4.2. Intervalos de máxima densidad de probabilidad</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracterizacion-de-asociaciones-entre-variables">3.3. Caracterización de Asociaciones Entre Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-datos-bivariados">3.3.1. Análisis de Datos Bivariados</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diagramas-de-dispersion-para-variables-continuas">3.3.1.1. Diagramas de Dispersión para Variables Continuas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-correlacion">3.3.1.2. Análisis de Correlación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#consideraciones-importantes-para-la-correlacion">3.3.1.3. Consideraciones Importantes para la Correlación</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-continuas-vs-categoricas">3.3.2. Variables Continuas vs Categóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas-vs-categoricas">3.3.3. Variables Categóricas vs Categóricas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-series-temporales">3.4. Visualización de Series Temporales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graficos-basicos-de-series-temporales">3.4.1. Gráficos Básicos de Series Temporales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medias-moviles">3.4.2. Medias Móviles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-estacionalidad">3.4.3. Análisis de Estacionalidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-descomposicion">3.4.4. Visualización de Descomposición</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">3.5. Resumen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-univariado">3.5.1. Análisis Univariado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-multivariado">3.5.2. Análisis Multivariado</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-series-temporales">3.5.3. Análisis de Series Temporales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-clave">3.5.4. Conclusiones Clave</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mariano Balbi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
