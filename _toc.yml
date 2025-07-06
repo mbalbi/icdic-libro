@@ -12,11 +12,11 @@ parts:
       - file: chapter1_intro/repaso_de_probabilidad/repaso_de_probabilidad
       # - file: chapter1_intro/modelos/modelos
 
-  # - caption: Recolección y descripción de datos`x`x
-  #   numbered: True
-  #   chapters:
-  #   - file: chapter2_aed/datos_y_variables
-  #   - file: chapter2_aed/data_mining
+  - caption: Recolección y descripción de datos
+    numbered: True
+    chapters:
+    - file: chapter2_aed/datos_y_variables
+    - file: chapter2_aed/analisis_exploratorio
   #   - file: chapter2_aed/aed
   # - caption: Conceptos de inferencia estadística
   #   numbered: True
