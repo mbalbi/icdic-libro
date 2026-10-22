@@ -23,7 +23,7 @@ import pandas as pd
 
 ## Introducción
 
-En el Análisis Exploratorio de Datos (AED) intentaremos entender de qué se componen las observaciones que tenemos entre manos con los objetivos de:
+En el Análisis Exploratorio de Datos (AED) intentaremos entender las observaciones que tenemos entre manos con los objetivos de:
 
 1. Limpiar el conjunto de datos e identificar problemas potenciales en las mediciones disponibles
 2. Formular hipótesis sobre la población (por ej. asociaciones entre variables)

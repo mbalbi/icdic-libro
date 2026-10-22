@@ -16,34 +16,15 @@ kernelspec:
 
 ESTO ES UNA PRUEBA!
 
-Hypotheses may come from some more general theory, or may be more ad hoc,
-based on intuition or guesswork about the way some phenomenon might work.
-Experiments or observations of the phenomenon can be made, and the results com-
-pared with the predictions of the hypothesis. This comparison allows one to test
-the model and/or estimate any unknown parameters. Any mismatch between data
-and model predictions, or other unpredicted ﬁndings in the data, may suggest ways
-to revise or change the model. This process of learning about hypotheses from data
-is scientiﬁc inference. Vaughan et al.
+Hypotheses may come from some more general theory, or may be more ad hoc, based on intuition or guesswork about the way some phenomenon might work. Experiments or observations of the phenomenon can be made, and the results compared with the predictions of the hypothesis. This comparison allows one to test the model and/or estimate any unknown parameters. Any mismatch between data and model predictions, or other unpredicted ﬁndings in the data, may suggest ways to revise or change the model. This process of learning about hypotheses from data is scientiﬁc inference. Vaughan et al.
 
-We might say that deductive reasoning concerns statements that are either
-true or false, whereas inductive reasoning concerns statements whose truth value
-is unknown, about which we are better to speak in terms of ‘degree of belief’ or
-‘conﬁdence’. Vaughan et al.
+We might say that deductive reasoning concerns statements that are either true or false, whereas inductive reasoning concerns statements whose truth value is unknown, about which we are better to speak in terms of ‘degree of belief’ or ‘conﬁdence’. Vaughan et al.
 
-There is another kind of non-deductive inference, called abduction, or inference to
-the best explanation...
-Again the conclusion is not unavoidable, other conclusions are valid. Perhaps
-someone else ate the banana. But the original conclusion seems to be in some sense
-the simplest of those allowed. This kind of reasoning, from observed data to an
-explanation, is used all the time in science. Vaughan et al.
+There is another kind of non-deductive inference, called abduction, or inference to the best explanation...Again the conclusion is not unavoidable, other conclusions are valid. Perhaps someone else ate the banana. But the original conclusion seems to be in some sense the simplest of those allowed. This kind of reasoning, from observed data to an explanation, is used all the time in science. Vaughan et al.
 
-Scientiﬁc work employs all the above forms of reasoning. We use deductive rea-
-soning to go from general theories to speciﬁc predictions about the data we could
-observe, and non-deductive reasoning to go from our limited data to general con-
-clusions about unobserved cases or theories. Vaughan et al.
+Scientiﬁc work employs all the above forms of reasoning. We use deductive reasoning to go from general theories to speciﬁc predictions about the data we could observe, and non-deductive reasoning to go from our limited data to general conclusions about unobserved cases or theories. Vaughan et al.
 
-Experimental and observational science is all about inductive reasoning, going
-from a ﬁnite number of observations or results to a general conclusion about unobserved cases (induction), or a theory that explains them (abduction).
+Experimental and observational science is all about inductive reasoning, going from a ﬁnite number of observations or results to a general conclusion about unobserved cases (induction), or a theory that  explains them (abduction).
 
 
 ---
