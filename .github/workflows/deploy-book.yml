@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master  # Your main branch
+      - oct26   # Preview branch
+  workflow_dispatch:
 
 jobs:
   build-deploy:
