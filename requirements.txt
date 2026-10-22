@@ -1,12 +1,12 @@
-jupyter-book
+jupyter-book==0.15.1
 matplotlib
 numpy
 scipy
 pandas
-jupyter-book
 ghp-import
 bokeh
 seaborn
+ipykernel
 sphinx-inline-tabs
 sphinx_proof
 sphinx_exercise
