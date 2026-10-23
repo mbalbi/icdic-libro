@@ -59,8 +59,9 @@
    The theme appends an author/copyright footer to every page.
    The book does not use it, so remove it.
    ------------------------------------------------------------------ */
+footer.bd-footer-content,
 .bd-footer-content {
-  display: none;
+  display: none !important;
 }
 
 /* Three-column sphinx-design grids get cramped on narrow screens */
