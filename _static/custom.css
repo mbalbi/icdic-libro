@@ -24,6 +24,35 @@
   overflow-wrap: anywhere;
 }
 
+/* ------------------------------------------------------------------
+   Previous / Next navigation
+   ------------------------------------------------------------------
+   The theme drops the prev-next footer next to the article inside a
+   flex row. Its width is driven by the longest page title, so a long
+   title (for example the book title on the first chapter) steals space
+   from the text column and the page looks narrow and off-centre.
+   Put the footer back below the article, at full width, and let the
+   article column use all the remaining space.
+   ------------------------------------------------------------------ */
+.bd-content {
+  flex-wrap: wrap;
+}
+
+.bd-content > .bd-article-container {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.bd-content > .prev-next-footer {
+  flex: 1 0 100%;
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.bd-content > .prev-next-footer .prev-next-area {
+  max-width: 100%;
+}
+
 /* Three-column sphinx-design grids get cramped on narrow screens */
 @media (max-width: 900px) {
   .bd-article .sd-row {
