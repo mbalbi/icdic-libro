@@ -1,0 +1,10 @@
+/* Las figuras de matplotlib (p. ej. 10x4 pulgadas) no deben desbordar la columna de texto */
+.cell-output-display img,
+.cell-output-display svg,
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+.cell-output-display {
+  overflow-x: visible;
+}

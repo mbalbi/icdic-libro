@@ -1,1005 +1,1262 @@
-
-
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<html lang="en" data-content_root="" >
+<title>1&nbsp; Introducción – Introducción a la Ciencia de Datos para Ingeniería Civil</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Introducción &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapter1_intro/repaso_de_probabilidad/repaso_de_probabilidad.html" rel="next">
+<link href="../../index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-631496449bf32ff9b0bb69a6bfd9195d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
-
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="../../_static/tabs.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter1_intro/intro/intro';</script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2. Repaso de probabilidad" href="../repaso_de_probabilidad/repaso_de_probabilidad.html" />
-    <link rel="prev" title="Introducción a la Ciencia de Datos para Ingeniería Civil" href="../../front.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
-  </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="../../search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+<body class="nav-sidebar floating quarto-light">
 
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapter1_intro/intro/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Introducción a la Ciencia de Datos para Ingeniería Civil</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/mbalbi/ciencia_de_datos/tree/master/quarto/" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
 </div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <div class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="../../front.html">
-  
-  
-  
-  
-  
-    
-    
-      
-    
-    
-    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introducción a la Ciencia de Datos para Ingeniería Civil - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introducción a la Ciencia de Datos para Ingeniería Civil - Home"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../../front.html">
-                    Introducción a la Ciencia de Datos para Ingeniería Civil
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introducción</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../repaso_de_probabilidad/repaso_de_probabilidad.html">2. Repaso de probabilidad</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Recolección y descripción de datos</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../chapter2_aed/datos_y_variables.html">3. Variables, poblaciones y datos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../chapter2_aed/analisis_exploratorio.html">4. Análisis Exploratorio de Datos</a></li>
-</ul>
-
     </div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
-
-
       </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-
-<div class="sbt-scroll-pixel-helper"></div>
-
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
-    </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/mbalbi/ciencia_de_datos" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/mbalbi/ciencia_de_datos/issues/new?title=Issue%20on%20page%20%2Fchapter1_intro/intro/intro.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="../../_sources/chapter1_intro/intro/intro.md" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.md</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-<button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
-  
-</div>
-</div>
-              
-              
-
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introducción</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-ciencia-de-datos">1.1. ¿Qué es la ciencia de datos?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#muestra-poblacion-e-inferencia">1.1.1. Muestra, población e inferencia</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-queremos-aprender-de-los-datos">1.2. ¿Qué queremos aprender de los datos?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-preguntas">1.2.1. Tipos de preguntas</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-descriptivas">1.2.1.1. Preguntas descriptivas</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-predictivas">1.2.1.2. Preguntas predictivas</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-causales">1.2.1.3. Preguntas causales</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-extraemos-conocimiento">1.3. ¿Cómo extraemos conocimiento?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#patrones-variabilidad-e-incertidumbre">1.3.1. Patrones, variabilidad e incertidumbre</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilidad-inherente-en-la-poblacion">1.3.1.1. Variabilidad inherente en la población</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilidad-en-el-proceso-de-medicion">1.3.1.2. Variabilidad en el proceso de medición</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantificando-la-incertidumbre">1.3.2. Cuantificando la incertidumbre</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-proceso-de-la-ciencia-de-datos">1.3.3. El proceso de la ciencia de datos</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción a la Ciencia de Datos para Ingeniería Civil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapter1_intro/intro/intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapter1_intro/repaso_de_probabilidad/repaso_de_probabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Repaso de probabilidad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Recolección y descripción de datos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapter2_aed/datos_y_variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Variables, poblaciones y datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapter2_aed/analisis_exploratorio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Análisis Exploratorio de Datos</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
     </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#qué-es-la-ciencia-de-datos" id="toc-qué-es-la-ciencia-de-datos" class="nav-link active" data-scroll-target="#qué-es-la-ciencia-de-datos"><span class="header-section-number">1.1</span> ¿Qué es la ciencia de datos?</a>
+  <ul class="collapse">
+  <li><a href="#muestra-población-e-inferencia" id="toc-muestra-población-e-inferencia" class="nav-link" data-scroll-target="#muestra-población-e-inferencia"><span class="header-section-number">1.1.1</span> Muestra, población e inferencia</a></li>
+  </ul></li>
+  <li><a href="#qué-queremos-aprender-de-los-datos" id="toc-qué-queremos-aprender-de-los-datos" class="nav-link" data-scroll-target="#qué-queremos-aprender-de-los-datos"><span class="header-section-number">1.2</span> ¿Qué queremos aprender de los datos?</a>
+  <ul class="collapse">
+  <li><a href="#tipos-de-preguntas" id="toc-tipos-de-preguntas" class="nav-link" data-scroll-target="#tipos-de-preguntas"><span class="header-section-number">1.2.1</span> Tipos de preguntas</a></li>
+  </ul></li>
+  <li><a href="#cómo-extraemos-conocimiento" id="toc-cómo-extraemos-conocimiento" class="nav-link" data-scroll-target="#cómo-extraemos-conocimiento"><span class="header-section-number">1.3</span> ¿Cómo extraemos conocimiento?</a>
+  <ul class="collapse">
+  <li><a href="#patrones-variabilidad-e-incertidumbre" id="toc-patrones-variabilidad-e-incertidumbre" class="nav-link" data-scroll-target="#patrones-variabilidad-e-incertidumbre"><span class="header-section-number">1.3.1</span> Patrones, variabilidad e incertidumbre</a></li>
+  <li><a href="#cuantificando-la-incertidumbre" id="toc-cuantificando-la-incertidumbre" class="nav-link" data-scroll-target="#cuantificando-la-incertidumbre"><span class="header-section-number">1.3.2</span> Cuantificando la incertidumbre</a></li>
+  <li><a href="#el-proceso-de-la-ciencia-de-datos" id="toc-el-proceso-de-la-ciencia-de-datos" class="nav-link" data-scroll-target="#el-proceso-de-la-ciencia-de-datos"><span class="header-section-number">1.3.3</span> El proceso de la ciencia de datos</a></li>
+  </ul></li>
+  <li><a href="#referencias" id="toc-referencias" class="nav-link" data-scroll-target="#referencias">Referencias</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mbalbi/ciencia_de_datos/blob/master/quarto/chapter1_intro/intro/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/mbalbi/ciencia_de_datos/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></h1>
 </div>
 
-              
-                
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
-  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
-<h1><span class="section-number">1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
-<section id="que-es-la-ciencia-de-datos">
-<h2><span class="section-number">1.1. </span>¿Qué es la ciencia de datos?<a class="headerlink" href="#que-es-la-ciencia-de-datos" title="Permalink to this heading">#</a></h2>
-<p>Muy resumidamente puede definirse <strong>Ciencia de Datos</strong> como la “ciencia de aprender de los datos” según el Profesor David Donoho de la Universidad de Stanford<span id="id1"><sup><a class="reference internal" href="#id6" title="David Donoho. 50 years of data science. Journal of Computational and Graphical Statistics, 26(4):745-766, 2017. URL: https://doi.org/10.1080/10618600.2017.1384734, doi:10.1080/10618600.2017.1384734.">1</a></sup></span>. Esta definición parece simple, pero refleja dos ideas centrales que aparecerán a lo largo de todo el curso: por un lado, trabajamos con <strong>datos</strong>; por otro, buscamos <strong>aprender</strong> algo a partir de ellos.</p>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="qué-es-la-ciencia-de-datos" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="qué-es-la-ciencia-de-datos"><span class="header-section-number">1.1</span> ¿Qué es la ciencia de datos?</h2>
+<p>Muy resumidamente puede definirse <strong>Ciencia de Datos</strong> como la “ciencia de aprender de los datos” según el Profesor David Donoho de la Universidad de Stanford<span class="citation" data-cites="donoho2017"><sup><a href="intro.html#ref-donoho2017" role="doc-biblioref">1</a></sup></span>. Esta definición parece simple, pero refleja dos ideas centrales que aparecerán a lo largo de todo el curso: por un lado, trabajamos con <strong>datos</strong>; por otro, buscamos <strong>aprender</strong> algo a partir de ellos.</p>
 <p>Existen incontables definiciones más extensas y específicas del término. Por ejemplo:</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<blockquote>
-<div><p>Es el estudio de la <strong>extracción generalizable de conocimiento</strong> de los datos</p>
-<p>–<em>Vasant Dahr, New York University<span id="id2"><sup><a class="reference internal" href="#id7" title="Vasant Dhar. Data science and prediction. Commun. ACM, 56(12):64–73, dec 2013. URL: https://doi.org/10.1145/2500499, doi:10.1145/2500499.">2</a></sup></span></em></p>
-</div></blockquote>
+<div class="grid">
+<div class="g-col-12 g-col-md-4">
+<blockquote class="blockquote">
+<p>Es el estudio de la <strong>extracción generalizable de conocimiento</strong> de los datos</p>
+<p>–<em>Vasant Dahr, New York University<span class="citation" data-cites="vasant2013"><sup><a href="intro.html#ref-vasant2013" role="doc-biblioref">2</a></sup></span></em></p>
+</blockquote>
 </div>
-<div class="sd-col sd-d-flex-column docutils">
-<blockquote>
-<div><p>Es el campo inter-disciplinario que usa sistemas computacionales para <strong>extraer conocimiento</strong> de datos estructurados y no estructurados</p>
-<p>–<em>Filippo Chiarello, University of Pisa<span id="id3"><sup><a class="reference internal" href="#id8" title="Filippo Chiarello, Paola Belingheri, and Gualtiero Fantoni. Data science for engineering design: State of the art and future directions. Computers in Industry, 129:103447, August 2021. doi:10.1016/j.compind.2021.103447.">3</a></sup></span></em></p>
-</div></blockquote>
+<div class="g-col-12 g-col-md-4">
+<blockquote class="blockquote">
+<p>Es el campo inter-disciplinario que usa sistemas computacionales para <strong>extraer conocimiento</strong> de datos estructurados y no estructurados</p>
+<p>–<em>Filippo Chiarello, University of Pisa<span class="citation" data-cites="chiarello2021"><sup><a href="intro.html#ref-chiarello2021" role="doc-biblioref">3</a></sup></span></em></p>
+</blockquote>
 </div>
-<div class="sd-col sd-d-flex-column docutils">
-<blockquote>
-<div><p>…obtener datos, entenderlos, procesarlos, <strong>extraer valor</strong>, visualizarlos y comunicarlos…</p>
-<p>–<em>Hal Varian, Google &amp; UC Berkeley<span id="id4"><sup><a class="reference internal" href="#id10" title="McKinsey &amp; Co. Hal Varian on how the Web challenges managers. January 2009.">4</a></sup></span></em></p>
-</div></blockquote>
-</div>
+<div class="g-col-12 g-col-md-4">
+<blockquote class="blockquote">
+<p>…obtener datos, entenderlos, procesarlos, <strong>extraer valor</strong>, visualizarlos y comunicarlos…</p>
+<p>–<em>Hal Varian, Google &amp; UC Berkeley<span class="citation" data-cites="mckinsey2009"><sup><a href="intro.html#ref-mckinsey2009" role="doc-biblioref">4</a></sup></span></em></p>
+</blockquote>
 </div>
 </div>
 <p>Las definiciones anteriores enfatizan aspectos diferentes de la disciplina, pero comparten dos conceptos: <strong>datos</strong> y <strong>extracción de conocimiento</strong>.</p>
 <p>Los <strong>datos</strong> son observaciones, o mediciones, de algún aspecto cuantificable de la realidad. A ese aspecto cuantificable lo llamamos <strong>variable</strong>. Por ejemplo, la resistencia de un bulón, la velocidad del viento o el volumen de tránsito son variables cuyos valores podemos medir en distintos objetos o situaciones. Los datos no son <em>LA REALIDAD</em> en sí misma, sino información obtenida a través de un proceso de medición. En este texto, salvo que se indique lo contrario, los términos <em>datos</em>, <em>observaciones</em> y <em>mediciones</em> se utilizarán de manera indistinta.</p>
 <p>Por otro lado, la expresión “extraer conocimiento” (o “aprender” o “extraer valor”) implica, de manera general, obtener conclusiones que puedan utilizarse más allá de las observaciones concretas que fueron medidas.</p>
-<div class="tip admonition">
-<p class="admonition-title">Idea central</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Idea central">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Idea central
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Extraer conocimiento no significa solamente describir los datos recolectados. En general, buscamos obtener conclusiones que puedan ser generalizadas más allá de las observaciones disponibles.</p>
 </div>
+</div>
 <p>Una forma simple de ver esta diferencia es preguntarnos qué queremos saber realmente cuando recolectamos datos. En muchas aplicaciones de ingeniería, la cantidad que interesa no puede observarse: ensayamos algunas piezas pero nos interesa las que efectivamente vamos a utilizar; conocemos las intensidades del viento del pasado pero diseñamos para vientos futuros; medimos el tráfico de algunas autopistas en las condiciones actuales pero queremos saber cuál el tráfico sería si impusiéramos un peaje más caro.</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Control de calidad en un proceso</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text">Una fábrica produce bulones de acero para la construcción con medidas, materiales y procesos de fabricación estandarizados. En cada turno, se fabrican alrededor de 5.000 bulones de un tipo específico y se quiere conocer la resistencia media a la tracción de los bulones producidos.</p>
-<p class="sd-card-text">No se pueden ensayar todos los bulones porque el ensayo es costoso y, además, los bulones ensayados no pueden venderse. Por eso se selecciona una cantidad reducida de bulones y se mide su resistencia.</p>
-<p class="sd-card-text">Podemos calcular el promedio de las resistencias ensayadas, pero el interés real está en la producción completa.</p>
-<p class="sd-card-text"><em>Cómo relacionamos el promedio de la muestra con el promedio de toda la población?</em></p>
+<div class="card">
+<div class="card-header">
+<p>Control de calidad en un proceso</p>
 </div>
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="bulones" src="../../_images/bulones.jpg" /></p>
+<div class="card-body">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p>Una fábrica produce bulones de acero para la construcción con medidas, materiales y procesos de fabricación estandarizados. En cada turno, se fabrican alrededor de 5.000 bulones de un tipo específico y se quiere conocer la resistencia media a la tracción de los bulones producidos.</p>
+<p>No se pueden ensayar todos los bulones porque el ensayo es costoso y, además, los bulones ensayados no pueden venderse. Por eso se selecciona una cantidad reducida de bulones y se mide su resistencia.</p>
+<p>Podemos calcular el promedio de las resistencias ensayadas, pero el interés real está en la producción completa.</p>
+<p><em>Cómo relacionamos el promedio de la muestra con el promedio de toda la población?</em></p>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Estimación de acciones sobre una estructura</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text">Para el diseño de un puente necesitamos conocer la velocidad máxima del viento que puede actuar sobre la estructura en los próximos años. Para el sitio de emplazamiento contamos con mediciones de los últimos 40 años.</p>
-<p class="sd-card-text">De esas mediciones podemos calcular máximos, mínimos, promedios y muchas otras características. Sin embargo, el interés de diseño no está limitado a esos 40 años: necesitamos razonar sobre vientos que todavía no fueron observados.</p>
-<p class="sd-card-text"><em>Cómo relacionamos los valores pasados con los posibles valores futuros?</em></p>
-</div>
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="estación meteorológica" src="../../_images/estacion_meteorologica.jpg" /></p>
+<div class="g-col-12 g-col-md-6">
+<p><img src="figuras/bulones.jpg" class="img-fluid" alt="bulones"></p>
 </div>
 </div>
 </div>
 </div>
+<div class="card">
+<div class="card-header">
+<p>Estimación de acciones sobre una estructura</p>
 </div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Relaciones entre variables</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text">Para el diseño de una nueva avenida, una agencia de tránsito está interesada en estimar el volumen de tráfico que usará la vía una vez inaugurada. Puede medir volumen de tráfico, densidad poblacional y ancho de calzada en muchas vías existentes.</p>
-<p class="sd-card-text">A partir de esas observaciones puede estudiar asociaciones entre las variables. Pero la combinación de densidad poblacional y ancho de calzada de la nueva avenida puede no coincidir con ninguna de las vías observadas.</p>
-<p class="sd-card-text"><em>Cómo predecimos el volumen de tráfico de una avenida no observada a partir de las calles existentes?</em></p>
+<div class="card-body">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p>Para el diseño de un puente necesitamos conocer la velocidad máxima del viento que puede actuar sobre la estructura en los próximos años. Para el sitio de emplazamiento contamos con mediciones de los últimos 40 años.</p>
+<p>De esas mediciones podemos calcular máximos, mínimos, promedios y muchas otras características. Sin embargo, el interés de diseño no está limitado a esos 40 años: necesitamos razonar sobre vientos que todavía no fueron observados.</p>
+<p><em>Cómo relacionamos los valores pasados con los posibles valores futuros?</em></p>
 </div>
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="tráfico urbano" src="../../_images/trafico_calles.jpg" /></p>
-</div>
+<div class="g-col-12 g-col-md-6">
+<p><img src="figuras/estacion_meteorologica.jpg" class="img-fluid" alt="estación meteorológica"></p>
 </div>
 </div>
 </div>
 </div>
-<section id="muestra-poblacion-e-inferencia">
-<h3><span class="section-number">1.1.1. </span>Muestra, población e inferencia<a class="headerlink" href="#muestra-poblacion-e-inferencia" title="Permalink to this heading">#</a></h3>
+<div class="card">
+<div class="card-header">
+<p>Relaciones entre variables</p>
+</div>
+<div class="card-body">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p>Para el diseño de una nueva avenida, una agencia de tránsito está interesada en estimar el volumen de tráfico que usará la vía una vez inaugurada. Puede medir volumen de tráfico, densidad poblacional y ancho de calzada en muchas vías existentes.</p>
+<p>A partir de esas observaciones puede estudiar asociaciones entre las variables. Pero la combinación de densidad poblacional y ancho de calzada de la nueva avenida puede no coincidir con ninguna de las vías observadas.</p>
+<p><em>Cómo predecimos el volumen de tráfico de una avenida no observada a partir de las calles existentes?</em></p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<p><img src="figuras/trafico_calles.jpg" class="img-fluid" alt="tráfico urbano"></p>
+</div>
+</div>
+</div>
+</div>
+<section id="muestra-población-e-inferencia" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="muestra-población-e-inferencia"><span class="header-section-number">1.1.1</span> Muestra, población e inferencia</h3>
 <p>Los ejemplos anteriores introducen dos grupos de análisis distintos. Por un lado está el conjunto finito de observaciones de las que efectivamente disponemos, que llamamos <strong>muestra</strong>. Por otro, está el universo de objetos u observaciones sobre el que realmente queremos responder una pregunta, que llamamos <strong>población</strong>.</p>
 <p>La noción de <strong>población</strong> debe entenderse en un sentido amplio: puede representar objetos físicos existentes, observaciones futuras o incluso configuraciones posibles de un sistema que todavía no fueron observadas.</p>
 <p>Llamamos <strong>inferencia</strong> al proceso de generalizar los patrones encontrados en los objetos observados hacia objetos no observados. En otras palabras, la inferencia es el puente que permite utilizar una muestra limitada para responder preguntas sobre una población más amplia.</p>
-<blockquote>
-<div><p><strong>Objetivo general de la ciencia de datos:</strong> responder preguntas sobre el mundo real a partir de un conjunto limitado de observaciones.</p>
-</div></blockquote>
-<figure class="align-default" id="fig-poblacion">
-<a class="reference internal image-reference" href="../../_images/population_and_sample.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="../../_images/population_and_sample.png" style="width: 630.25px; height: 378.5px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">El círculo rojo representa la muestra observada dentro de un universo más amplio de observaciones posibles. Las conclusiones de mayor interés suelen referirse a esa población general.</span><a class="headerlink" href="#fig-poblacion" title="Permalink to this image">#</a></p>
+<blockquote class="blockquote">
+<p><strong>Objetivo general de la ciencia de datos:</strong> responder preguntas sobre el mundo real a partir de un conjunto limitado de observaciones.</p>
+</blockquote>
+<div id="fig-poblacion" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Información sobre el objetivo de la ciencia de datos">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-poblacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figuras/population_and_sample.png" class="img-fluid figure-img" alt="Información sobre el objetivo de la ciencia de datos" width="630">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-poblacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.1: El círculo rojo representa la muestra observada dentro de un universo más amplio de observaciones posibles. Las conclusiones de mayor interés suelen referirse a esa población general.
 </figcaption>
 </figure>
-<div class="tip admonition">
-<p class="admonition-title">Tipos de población</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Tipos de población">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Tipos de población
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>En problemas sencillos, la población puede ser un conjunto físico claramente delimitado. En otros problemas, especialmente en ingeniería, la idea de población es más abstracta.</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Producción de bulones</div>
-<p class="sd-card-text">La población puede identificarse con todos los bulones fabricados en una tanda determinada.</p>
+<div class="grid">
+<div class="g-col-12 g-col-md-4">
+<div class="card">
+<div class="card-header">
+<p>Producción de bulones</p>
+</div>
+<div class="card-body">
+<p>La población puede identificarse con todos los bulones fabricados en una tanda determinada.</p>
 </div>
 </div>
 </div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Velocidades de viento</div>
-<p class="sd-card-text">La muestra puede ser una serie observada de 40 años, mientras que la población de interés incluye observaciones no medidas y futuras.</p>
+<div class="g-col-12 g-col-md-4">
+<div class="card">
+<div class="card-header">
+<p>Velocidades de viento</p>
+</div>
+<div class="card-body">
+<p>La muestra puede ser una serie observada de 40 años, mientras que la población de interés incluye observaciones no medidas y futuras.</p>
 </div>
 </div>
 </div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Tránsito urbano</div>
-<p class="sd-card-text">La población puede incluir configuraciones posibles de densidad poblacional y ancho de calzada que no existen entre las calles actualmente observadas.</p>
+<div class="g-col-12 g-col-md-4">
+<div class="card">
+<div class="card-header">
+<p>Tránsito urbano</p>
 </div>
+<div class="card-body">
+<p>La población puede incluir configuraciones posibles de densidad poblacional y ancho de calzada que no existen entre las calles actualmente observadas.</p>
 </div>
 </div>
 </div>
 </div>
 <p>En todos estos casos, la idea de población cumple la misma función conceptual: especificar el universo al que queremos extender nuestras conclusiones.</p>
 </div>
+</div>
 </section>
 </section>
-<section id="que-queremos-aprender-de-los-datos">
-<h2><span class="section-number">1.2. </span>¿Qué queremos aprender de los datos?<a class="headerlink" href="#que-queremos-aprender-de-los-datos" title="Permalink to this heading">#</a></h2>
+<section id="qué-queremos-aprender-de-los-datos" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="qué-queremos-aprender-de-los-datos"><span class="header-section-number">1.2</span> ¿Qué queremos aprender de los datos?</h2>
 <p>Los datos pueden utilizarse con objetivos muy distintos. A veces queremos simplemente <strong>describir lo que observamos</strong>: resumir valores, visualizar su distribución o detectar comportamientos llamativos. En otros casos queremos ir más allá de la muestra y <strong>aprender algo sobre la población</strong>: estimar alguna de sus características, anticipar observaciones no realizadas, estudiar relaciones entre variables o evaluar qué ocurriría si interviniéramos sobre el sistema.</p>
 <p>Esta distinción es importante porque el tipo de pregunta determina qué conclusiones podemos extraer de los datos y qué herramientas necesitamos para hacerlo.</p>
-<section id="tipos-de-preguntas">
-<h3><span class="section-number">1.2.1. </span>Tipos de preguntas<a class="headerlink" href="#tipos-de-preguntas" title="Permalink to this heading">#</a></h3>
+<section id="tipos-de-preguntas" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="tipos-de-preguntas"><span class="header-section-number">1.2.1</span> Tipos de preguntas</h3>
 <p>En términos generales podemos distinguir tres grandes tipos de preguntas: <strong>descriptivas</strong>, <strong>predictivas</strong> y <strong>causales</strong>. La diferencia fundamental entre ellas es el grupo de análisis que queremos describir y cuantificar. Es decir, hasta dónde queremos extender nuestras conclusiones a partir de los datos observados.</p>
-<section id="preguntas-descriptivas">
-<h4><span class="section-number">1.2.1.1. </span>Preguntas descriptivas<a class="headerlink" href="#preguntas-descriptivas" title="Permalink to this heading">#</a></h4>
+<section id="preguntas-descriptivas" class="level4" data-number="1.2.1.1">
+<h4 data-number="1.2.1.1" class="anchored" data-anchor-id="preguntas-descriptivas"><span class="header-section-number">1.2.1.1</span> Preguntas descriptivas</h4>
 <p>Las preguntas descriptivas se refieren exclusivamente a la <strong>muestra observada</strong>. El objetivo es resumir, explorar o visualizar los datos disponibles sin pretender, todavía, generalizar las conclusiones a una población más amplia.</p>
 <p>El <strong>Análisis Exploratorio de Datos (EDA)</strong> se centra justamente en caracterizar los datos obtenidos mediante resúmenes y visualizaciones, con el objetivo de reconocer patrones, comportamientos inusuales y relaciones que puedan resultar relevantes para el análisis posterior.</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Exploración de ensayos de hormigón</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text">Una empresa dispone de los resultados de resistencia de una serie de probetas ensayadas en laboratorio. Antes de plantear cualquier generalización sobre el hormigón producido puede preguntarse:</p>
-<ul class="simple">
-<li><p class="sd-card-text"><em>¿Cuál fue la resistencia media de las probetas ensayadas?</em></p></li>
-<li><p class="sd-card-text"><em>¿Qué rango de resistencias se observó?</em></p></li>
-<li><p class="sd-card-text"><em>¿Hay valores inusuales?</em></p></li>
-<li><p class="sd-card-text"><em>¿Cómo se distribuyen las resistencias medidas?</em></p></li>
+<div class="card">
+<div class="card-header">
+<p>Exploración de ensayos de hormigón</p>
+</div>
+<div class="card-body">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p>Una empresa dispone de los resultados de resistencia de una serie de probetas ensayadas en laboratorio. Antes de plantear cualquier generalización sobre el hormigón producido puede preguntarse:</p>
+<ul>
+<li><em>¿Cuál fue la resistencia media de las probetas ensayadas?</em></li>
+<li><em>¿Qué rango de resistencias se observó?</em></li>
+<li><em>¿Hay valores inusuales?</em></li>
+<li><em>¿Cómo se distribuyen las resistencias medidas?</em></li>
 </ul>
-<p class="sd-card-text">Las respuestas describen las probetas efectivamente ensayadas. Para afirmar que esas características representan también al hormigón no ensayado ya sería necesario realizar inferencia.</p>
+<p>Las respuestas describen las probetas efectivamente ensayadas. Para afirmar que esas características representan también al hormigón no ensayado ya sería necesario realizar inferencia.</p>
 </div>
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="probetas de hormigón" src="../../_images/probetas_hormigon.jpg" /></p>
-</div>
+<div class="g-col-12 g-col-md-6">
+<p><img src="figuras/probetas_hormigon.jpg" class="img-fluid" alt="probetas de hormigón"></p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="preguntas-predictivas">
-<h4><span class="section-number">1.2.1.2. </span>Preguntas predictivas<a class="headerlink" href="#preguntas-predictivas" title="Permalink to this heading">#</a></h4>
+<section id="preguntas-predictivas" class="level4" data-number="1.2.1.2">
+<h4 data-number="1.2.1.2" class="anchored" data-anchor-id="preguntas-predictivas"><span class="header-section-number">1.2.1.2</span> Preguntas predictivas</h4>
 <p>Las preguntas predictivas buscan aprender sobre <strong>aspectos no observados de la misma población o proceso que generó los datos</strong>. En estos problemas utilizamos la muestra para inferir qué podemos esperar de otros elementos, situaciones o características de esa misma población.</p>
 <p>Esto incluye preguntas de naturaleza diferente. Por ejemplo, podemos querer estimar una característica global de la población, anticipar el valor de una nueva observación o estudiar cómo se relacionan dos variables dentro de la población.</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Caracterización de una población</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text">La fábrica ensaya una pequeña cantidad de bulones y obtiene sus resistencias. El promedio de esas mediciones describe la muestra, pero la cantidad que realmente interesa es la resistencia media de todos los bulones producidos.</p>
-<p class="sd-card-text"><em>¿Cuál es la resistencia media de la población de bulones?</em></p>
+<div class="card">
+<div class="card-header">
+<p>Caracterización de una población</p>
 </div>
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="bulones" src="../../_images/bulones.jpg" /></p>
+<div class="card-body">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p>La fábrica ensaya una pequeña cantidad de bulones y obtiene sus resistencias. El promedio de esas mediciones describe la muestra, pero la cantidad que realmente interesa es la resistencia media de todos los bulones producidos.</p>
+<p><em>¿Cuál es la resistencia media de la población de bulones?</em></p>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Predicción del tránsito en una nueva avenida</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text">La agencia de tránsito dispone de mediciones de volumen de tráfico, densidad poblacional y ancho de calzada en vías existentes. Quiere utilizar esos datos para estimar el tránsito en una avenida cuya combinación de características todavía no fue observada.</p>
-<p class="sd-card-text"><em>¿Cuál será el volumen de tráfico esperado en la nueva avenida?</em></p>
-</div>
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="tráfico urbano" src="../../_images/trafico_calles.jpg" /></p>
+<div class="g-col-12 g-col-md-6">
+<p><img src="figuras/bulones.jpg" class="img-fluid" alt="bulones"></p>
 </div>
 </div>
 </div>
 </div>
+<div class="card">
+<div class="card-header">
+<p>Predicción del tránsito en una nueva avenida</p>
 </div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Asociación entre variables</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text">Una empresa de fabricación de hormigones busca entender la relación entre la resistencia y distintos factores que pueden afectarla, como la relación agua/cemento, la proporción de agregados o la presencia de superplastificante. Para ello dispone de numerosos ensayos de laboratorio con distintas combinaciones de esas variables.</p>
-<p class="sd-card-text"><em>¿Existe una asociación entre la relación agua/cemento y la resistencia del hormigón?</em></p>
-<p class="sd-card-text"><em>¿Cuánto varía, en promedio, la resistencia cuando cambia la relación agua/cemento?</em></p>
-<p class="sd-card-text">Aunque aquí el interés está puesto en una relación entre variables y no en una predicción puntual, seguimos intentando aprender sobre la población bajo las mismas condiciones que generaron los datos.</p>
+<div class="card-body">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p>La agencia de tránsito dispone de mediciones de volumen de tráfico, densidad poblacional y ancho de calzada en vías existentes. Quiere utilizar esos datos para estimar el tránsito en una avenida cuya combinación de características todavía no fue observada.</p>
+<p><em>¿Cuál será el volumen de tráfico esperado en la nueva avenida?</em></p>
 </div>
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="mezclas de hormigón" src="../../_images/hormigon_mezclas.jpg" /></p>
+<div class="g-col-12 g-col-md-6">
+<p><img src="figuras/trafico_calles.jpg" class="img-fluid" alt="tráfico urbano"></p>
 </div>
 </div>
 </div>
 </div>
+<div class="card">
+<div class="card-header">
+<p>Asociación entre variables</p>
 </div>
-<div class="note admonition">
-<p class="admonition-title">Sobre el término “predictivo”</p>
+<div class="card-body">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p>Una empresa de fabricación de hormigones busca entender la relación entre la resistencia y distintos factores que pueden afectarla, como la relación agua/cemento, la proporción de agregados o la presencia de superplastificante. Para ello dispone de numerosos ensayos de laboratorio con distintas combinaciones de esas variables.</p>
+<p><em>¿Existe una asociación entre la relación agua/cemento y la resistencia del hormigón?</em></p>
+<p><em>¿Cuánto varía, en promedio, la resistencia cuando cambia la relación agua/cemento?</em></p>
+<p>Aunque aquí el interés está puesto en una relación entre variables y no en una predicción puntual, seguimos intentando aprender sobre la población bajo las mismas condiciones que generaron los datos.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<p><img src="figuras/hormigon_mezclas.jpg" class="img-fluid" alt="mezclas de hormigón"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Sobre el término “predictivo”">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Sobre el término “predictivo”
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>En muchos textos, el término <strong>predicción</strong> se utiliza en un sentido más restringido para referirse únicamente a la estimación de nuevas observaciones. En esta introducción utilizaremos <strong>preguntas predictivas</strong> en un sentido más amplio: incluye toda pregunta que busque aprender sobre la población bajo las mismas condiciones que generaron los datos, ya sea para anticipar nuevas observaciones, caracterizar propiedades de la población o estudiar asociaciones entre sus variables.</p>
 <p>Más adelante distinguiremos estas situaciones con mayor precisión.</p>
 </div>
+</div>
 </section>
-<section id="preguntas-causales">
-<h4><span class="section-number">1.2.1.3. </span>Preguntas causales<a class="headerlink" href="#preguntas-causales" title="Permalink to this heading">#</a></h4>
+<section id="preguntas-causales" class="level4" data-number="1.2.1.3">
+<h4 data-number="1.2.1.3" class="anchored" data-anchor-id="preguntas-causales"><span class="header-section-number">1.2.1.3</span> Preguntas causales</h4>
 <p>Las preguntas causales buscan responder qué ocurriría si <strong>interviniéramos</strong> sobre el sistema y modificáramos alguna de las condiciones que generan la población. Por lo tanto, la respuesta ya no se refiere exactamente a la población observada, sino a una <strong>población alternativa</strong> que existiría bajo esa intervención.</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Cambio tarifario en un peaje</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text">Una ciudad considera aumentar considerablemente el costo de los peajes sobre una autopista con el objetivo de desalentar el uso del automóvil privado. Los datos históricos permiten estudiar cómo se comporta el tránsito en las condiciones observadas, pero la pregunta de interés se refiere a una condición alternativa.</p>
-<p class="sd-card-text"><em>¿Qué efecto tendría un aumento del costo del peaje sobre el volumen de tráfico diario?</em></p>
-<p class="sd-card-text">Responder esta pregunta exige razonar sobre lo que ocurriría después de modificar deliberadamente una de las condiciones del sistema.</p>
+<div class="card">
+<div class="card-header">
+<p>Cambio tarifario en un peaje</p>
 </div>
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="autopista con peaje" src="../../_images/autopista_peaje.jpg" /></p>
+<div class="card-body">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p>Una ciudad considera aumentar considerablemente el costo de los peajes sobre una autopista con el objetivo de desalentar el uso del automóvil privado. Los datos históricos permiten estudiar cómo se comporta el tránsito en las condiciones observadas, pero la pregunta de interés se refiere a una condición alternativa.</p>
+<p><em>¿Qué efecto tendría un aumento del costo del peaje sobre el volumen de tráfico diario?</em></p>
+<p>Responder esta pregunta exige razonar sobre lo que ocurriría después de modificar deliberadamente una de las condiciones del sistema.</p>
 </div>
-</div>
+<div class="g-col-12 g-col-md-6">
+<p><img src="figuras/autopista_peaje.jpg" class="img-fluid" alt="autopista con peaje"></p>
 </div>
 </div>
 </div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Intervención sobre un suelo</div>
-<p class="sd-card-text">Podemos observar asociaciones entre propiedades de un suelo y su resistencia, pero una decisión de ingeniería puede requerir una pregunta diferente: qué ocurriría si modificáramos deliberadamente alguna condición del sistema.</p>
-<p class="sd-card-text"><em>Si realizáramos una compactación del suelo, ¿cuánto aumentaría su resistencia?</em></p>
+</div>
+<div class="card">
+<div class="card-header">
+<p>Intervención sobre un suelo</p>
+</div>
+<div class="card-body">
+<p>Podemos observar asociaciones entre propiedades de un suelo y su resistencia, pero una decisión de ingeniería puede requerir una pregunta diferente: qué ocurriría si modificáramos deliberadamente alguna condición del sistema.</p>
+<p><em>Si realizáramos una compactación del suelo, ¿cuánto aumentaría su resistencia?</em></p>
 </div>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">Asociación y causalidad responden preguntas diferentes</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Asociación y causalidad responden preguntas diferentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Asociación y causalidad responden preguntas diferentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><em>¿Cómo se relacionan X e Y en la población observada?</em></p>
 <p>no es equivalente a</p>
 <p><em>¿Qué ocurriría con Y si interviniéramos sobre el sistema y modificáramos X?</em></p>
 <p>Una asociación observada entre variables no implica, por sí sola, una relación causal.</p>
 </div>
+</div>
 <p>De manera esquemática, los tres tipos de preguntas pueden pensarse así:</p>
-<blockquote>
-<div><p><strong>Descriptivas:</strong> MUESTRA → MUESTRA</p>
+<blockquote class="blockquote">
+<p><strong>Descriptivas:</strong> MUESTRA → MUESTRA</p>
 <p><strong>Predictivas:</strong> MUESTRA → POBLACIÓN</p>
 <p><strong>Causales:</strong> MUESTRA → POBLACIÓN BAJO INTERVENCIÓN</p>
-</div></blockquote>
+</blockquote>
 <p>Los límites entre estas categorías no siempre son completamente nítidos y un mismo conjunto de datos puede utilizarse para responder preguntas diferentes. La diferencia fundamental está en <strong>qué queremos aprender</strong> y, por lo tanto, en qué interpretación pretendemos dar a los resultados.</p>
 <p>En las preguntas predictivas y causales aparece una dificultad común: solamente observamos una muestra, pero queremos decir algo sobre cantidades, relaciones o situaciones que no observamos directamente. ¿Cómo podemos hacer esa generalización y qué tan seguras pueden ser nuestras conclusiones?</p>
 </section>
 </section>
 </section>
-<section id="como-extraemos-conocimiento">
-<h2><span class="section-number">1.3. </span>¿Cómo extraemos conocimiento?<a class="headerlink" href="#como-extraemos-conocimiento" title="Permalink to this heading">#</a></h2>
+<section id="cómo-extraemos-conocimiento" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="cómo-extraemos-conocimiento"><span class="header-section-number">1.3</span> ¿Cómo extraemos conocimiento?</h2>
 <p>El proceso analítico para generalizar (extrapolar) lo medido en una muestra a una población subyacente se conoce como <strong>inferencia</strong>. Este proceso involucra una dificultad fundamental: las observaciones reales presentan, en mayor o menor medida, aleatoriedad y componen solo una parte pequeña de las todas los elementos de la población (entendida como concepto amplio según 1.1). Como consecuencia, nuestras conclusiones sobre la población nunca son completamente ciertas.</p>
-<section id="patrones-variabilidad-e-incertidumbre">
-<h3><span class="section-number">1.3.1. </span>Patrones, variabilidad e incertidumbre<a class="headerlink" href="#patrones-variabilidad-e-incertidumbre" title="Permalink to this heading">#</a></h3>
+<section id="patrones-variabilidad-e-incertidumbre" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="patrones-variabilidad-e-incertidumbre"><span class="header-section-number">1.3.1</span> Patrones, variabilidad e incertidumbre</h3>
 <p>Que una variable tome valores diferentes entre distintas observaciones significa que existe <strong>variabilidad</strong>. Pero variabilidad no es necesariamente sinónimo de aleatoriedad.</p>
 <p>Por ejemplo, la secuencia</p>
-<div class="math notranslate nohighlight">
-\[
+<p><span class="math display">\[
 1,\;2,\;4,\;8,\;16,\ldots
-\]</div>
+\]</span></p>
 <p>presenta una gran variación entre sus valores, pero sigue un patrón completamente determinístico. Una vez identificado ese patrón, el valor siguiente puede determinarse exactamente.</p>
 <p>En las observaciones de sistemas reales, en cambio, suele existir una combinación entre <strong>regularidades o patrones determinísticos</strong> y una componente que no podemos anticipar exactamente para cada observación individual. A esta última la llamaremos <strong>variabilidad aleatoria</strong>.</p>
-<div class="tip admonition">
-<p class="admonition-title">Patrón y variabilidad aleatoria</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Patrón y variabilidad aleatoria">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Patrón y variabilidad aleatoria
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>En muchos problemas podemos pensar, de manera conceptual, que las observaciones contienen:</p>
 <p><strong>un patrón sistemático + variabilidad aleatoria</strong>.</p>
 <p>El patrón representa aquello que se repite o cambia de manera regular en la población. La variabilidad aleatoria hace que las observaciones individuales no sigan ese patrón de manera exacta.</p>
 <p>Uno de los objetivos fundamentales de la inferencia es utilizar una muestra finita para arrojar luz sobre esos patrones subyacentes, sin ignorar la variabilidad aleatoria que los rodea.</p>
 </div>
+</div>
 <p>La variabilidad aleatoria que observamos en los datos puede tener distintas fuentes. Dos de las más importantes son la <strong>variabilidad inherente de la población</strong> y la <strong>variabilidad introducida por el proceso de medición</strong>.</p>
-<section id="variabilidad-inherente-en-la-poblacion">
-<h4><span class="section-number">1.3.1.1. </span>Variabilidad inherente en la población<a class="headerlink" href="#variabilidad-inherente-en-la-poblacion" title="Permalink to this heading">#</a></h4>
+<section id="variabilidad-inherente-en-la-población" class="level4" data-number="1.3.1.1">
+<h4 data-number="1.3.1.1" class="anchored" data-anchor-id="variabilidad-inherente-en-la-población"><span class="header-section-number">1.3.1.1</span> Variabilidad inherente en la población</h4>
 <p>Incluso bajo condiciones nominalmente iguales, distintos elementos o eventos de una población pueden tomar valores diferentes.</p>
-<div class="tip admonition">
-<p class="admonition-title">Ejemplo: resistencia de probetas</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Ejemplo: resistencia de probetas">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejemplo: resistencia de probetas
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Dos probetas fabricadas nominalmente con la misma mezcla de hormigón y curadas bajo condiciones similares no alcanzarán exactamente la misma resistencia. Pequeñas diferencias en los materiales, la preparación, el curado y muchas otras condiciones hacen que la resistencia presente una variabilidad propia de la población.</p>
 <p>Aunque pudiéramos medir cada probeta perfectamente, sus resistencias seguirían siendo diferentes.</p>
 </div>
+</div>
 <p>Esta variabilidad pertenece al fenómeno que queremos estudiar: no surge simplemente porque medimos mal.</p>
 </section>
-<section id="variabilidad-en-el-proceso-de-medicion">
-<h4><span class="section-number">1.3.1.2. </span>Variabilidad en el proceso de medición<a class="headerlink" href="#variabilidad-en-el-proceso-de-medicion" title="Permalink to this heading">#</a></h4>
+<section id="variabilidad-en-el-proceso-de-medición" class="level4" data-number="1.3.1.2">
+<h4 data-number="1.3.1.2" class="anchored" data-anchor-id="variabilidad-en-el-proceso-de-medición"><span class="header-section-number">1.3.1.2</span> Variabilidad en el proceso de medición</h4>
 <p>Las mediciones también presentan variabilidad propia. Si medimos repetidamente una misma magnitud, los valores registrados pueden no ser exactamente iguales debido a la resolución de los instrumentos, ruido electrónico, condiciones ambientales, variaciones del procedimiento u otras imperfecciones del proceso de medición.</p>
-<div class="tip admonition">
-<p class="admonition-title">Ejemplo: medición de desplazamientos</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Ejemplo: medición de desplazamientos">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejemplo: medición de desplazamientos
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Supongamos que medimos repetidamente el desplazamiento de un punto de una estructura sometida a una condición prácticamente constante. Aun si el desplazamiento real permaneciera estable, las lecturas obtenidas por un sensor podrían fluctuar ligeramente alrededor de ese valor.</p>
 <p>En este caso, parte de la variabilidad observada proviene del proceso mediante el cual medimos la variable y no de cambios reales en la estructura.</p>
 </div>
+</div>
 <p>Por lo tanto, las observaciones que vemos son una versión imperfecta de los patrones de la población. Además, la <strong>muestra</strong> contiene solamente una parte de todas las observaciones posibles. Si repitiésemos el proceso de muestreo, probablemente obtendríamos una muestra diferente.</p>
 <p>Estas dos características, la existencia de variabilidad aleatoria y el hecho de observar solamente una parte de la población, generan <strong>incertidumbre</strong> sobre aquello que queremos conocer. No sabemos exactamente cuál es la resistencia media de todos los bulones a partir de unas pocas piezas ensayadas; tampoco podemos saber exactamente cuál será la máxima velocidad de viento del próximo año; ni determinar de manera perfecta una relación entre variables a partir de un conjunto limitado y ruidoso de observaciones.</p>
-<div class="note admonition">
-<p class="admonition-title">Variabilidad e incertidumbre no son lo mismo</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Variabilidad e incertidumbre no son lo mismo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Variabilidad e incertidumbre no son lo mismo
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>La <strong>variabilidad</strong> describe que las observaciones posibles pueden tomar valores diferentes.</p>
 <p>La <strong>variabilidad aleatoria</strong> se refiere a la parte de esas diferencias que no podemos anticipar de manera determinística para cada observación.</p>
 <p>La <strong>incertidumbre</strong> describe nuestro conocimiento incompleto sobre alguna cantidad de interés: un patrón de la población, una característica poblacional, una observación futura o el efecto de una intervención.</p>
 <p>La variabilidad aleatoria de los datos es una de las principales razones por las que nuestras inferencias son inciertas.</p>
 </div>
-<div class="important admonition">
-<p class="admonition-title">Más datos no convierten el problema en determinístico</p>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Más datos no convierten el problema en determinístico">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Más datos no convierten el problema en determinístico
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Obtener más observaciones puede permitirnos caracterizar con mayor precisión algunos patrones de la población y la propia variabilidad aleatoria, siempre que los datos sean informativos y el proceso de medición sea adecuado.</p>
 <p>Sin embargo, más datos <strong>no eliminan la variabilidad aleatoria inherente al fenómeno</strong> ni hacen que una realización futura pueda predecirse exactamente. Tampoco corrigen necesariamente errores sistemáticos del proceso de medición o hipótesis incorrectas sobre el problema.</p>
 <p>En los sistemas reales, donde existen variabilidad inherente y mediciones imperfectas, las conclusiones inferenciales deben expresar explícitamente la incertidumbre que permanece.</p>
+</div>
 </div>
 <p>La consecuencia fundamental es que el proceso inferencial no puede dar certezas donde no las hay. Es decir, no se puede dar una respuesta determinística a un problema que es intrínsecamente aleatorio. Por esta razón, la inferencia lo que busca es cuantificar la incertidumbre sobre las características específicas que queremos conocer sobre la población.</p>
 <p>Esto nos lleva a la siguiente pregunta: ¿cómo cuantificamos esa incertidumbre?</p>
 </section>
 </section>
-<section id="cuantificando-la-incertidumbre">
-<h3><span class="section-number">1.3.2. </span>Cuantificando la incertidumbre<a class="headerlink" href="#cuantificando-la-incertidumbre" title="Permalink to this heading">#</a></h3>
+<section id="cuantificando-la-incertidumbre" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="cuantificando-la-incertidumbre"><span class="header-section-number">1.3.2</span> Cuantificando la incertidumbre</h3>
 <p>La herramienta matemática que utilizamos para cuantificar la incertidumbre es la <strong>probabilidad</strong>.</p>
 <p>En el lenguaje cotidiano ya utilizamos la palabra probabilidad para expresar distintos grados de incertidumbre:</p>
-<ul class="simple">
-<li><p>una moneda tiene aproximadamente la misma probabilidad de caer de cada lado;</p></li>
-<li><p>podemos hablar de la probabilidad de que una persona mida menos de cierta altura;</p></li>
-<li><p>podemos preguntar por la probabilidad de que la resistencia de un suelo supere un determinado valor;</p></li>
-<li><p>podemos expresar qué tan probable consideramos que ocurra lluvia mañana.</p></li>
+<ul>
+<li>una moneda tiene aproximadamente la misma probabilidad de caer de cada lado;</li>
+<li>podemos hablar de la probabilidad de que una persona mida menos de cierta altura;</li>
+<li>podemos preguntar por la probabilidad de que la resistencia de un suelo supere un determinado valor;</li>
+<li>podemos expresar qué tan probable consideramos que ocurra lluvia mañana.</li>
 </ul>
 <p>En ciencia de datos utilizaremos la probabilidad de manera formal para describir la variabilidad aleatoria y, fundamentalmente, para expresar la incertidumbre asociada a nuestras inferencias.</p>
-<div class="tip admonition">
-<p class="admonition-title">Idea central</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Idea central">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Idea central
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Las respuestas inferenciales no son solamente valores: son valores o conclusiones acompañados por una cuantificación de su incertidumbre.</strong></p>
 <p>La probabilidad será el lenguaje matemático que utilizaremos para expresar esa incertidumbre.</p>
 </div>
+</div>
 <p>Más adelante formalizaremos estas ideas mediante variables aleatorias, distribuciones de probabilidad y herramientas de inferencia estadística. Por ahora alcanza con retener la relación conceptual:</p>
-<blockquote>
-<div><p><strong>variabilidad aleatoria + información incompleta → incertidumbre → probabilidad</strong></p>
-</div></blockquote>
+<blockquote class="blockquote">
+<p><strong>variabilidad aleatoria + información incompleta → incertidumbre → probabilidad</strong></p>
+</blockquote>
 </section>
-<section id="el-proceso-de-la-ciencia-de-datos">
-<h3><span class="section-number">1.3.3. </span>El proceso de la ciencia de datos<a class="headerlink" href="#el-proceso-de-la-ciencia-de-datos" title="Permalink to this heading">#</a></h3>
+<section id="el-proceso-de-la-ciencia-de-datos" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="el-proceso-de-la-ciencia-de-datos"><span class="header-section-number">1.3.3</span> El proceso de la ciencia de datos</h3>
 <p>La probabilidad y la inferencia estadística son herramientas centrales para aprender de los datos, pero la ciencia de datos moderna abarca un proceso más amplio. Los datos deben obtenerse, almacenarse y procesarse; deben explorarse y visualizarse; las inferencias deben implementarse y evaluarse; y las conclusiones deben interpretarse dentro del problema de ingeniería que motivó el análisis.</p>
 <p>Por eso, la ciencia de datos se ubica en la intersección de distintas áreas:</p>
-<ul class="simple">
-<li><p><strong>probabilidad y estadística</strong>, para representar variabilidad, cuantificar incertidumbre y realizar inferencia;</p></li>
-<li><p><strong>algoritmos, programación y computación</strong>, para manipular datos y aplicar métodos de manera reproducible y eficiente;</p></li>
-<li><p><strong>conocimiento específico del dominio</strong>, para formular preguntas relevantes, reconocer hipótesis razonables e interpretar correctamente los resultados.</p></li>
+<ul>
+<li><strong>probabilidad y estadística</strong>, para representar variabilidad, cuantificar incertidumbre y realizar inferencia;</li>
+<li><strong>algoritmos, programación y computación</strong>, para manipular datos y aplicar métodos de manera reproducible y eficiente;</li>
+<li><strong>conocimiento específico del dominio</strong>, para formular preguntas relevantes, reconocer hipótesis razonables e interpretar correctamente los resultados.</li>
 </ul>
-<figure class="align-default" id="ciencia-datos">
-<a class="reference internal image-reference" href="../../_images/burbujas_ciencia_de_datos.png"><img alt="La ciencia de datos como encuentro de distintas especialidades" src="../../_images/burbujas_ciencia_de_datos.png" style="width: 578.0px; height: 516.75px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">La ciencia de datos como encuentro entre herramientas estadísticas, computacionales y conocimiento específico del problema.</span><a class="headerlink" href="#ciencia-datos" title="Permalink to this image">#</a></p>
+<div id="fig-ciencia-datos" class="quarto-float quarto-figure quarto-figure-center anchored" alt="La ciencia de datos como encuentro de distintas especialidades">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ciencia-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figuras/burbujas_ciencia_de_datos.png" class="img-fluid figure-img" alt="La ciencia de datos como encuentro de distintas especialidades" width="578">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ciencia-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.2: La ciencia de datos como encuentro entre herramientas estadísticas, computacionales y conocimiento específico del problema.
 </figcaption>
 </figure>
+</div>
 <p>El desarrollo de la computación amplió enormemente el tipo y volumen de datos que pueden analizarse, así como la complejidad de los métodos que pueden aplicarse. Algoritmos capaces de encontrar regularidades en grandes volúmenes de información hicieron posibles aplicaciones que exceden ampliamente los análisis estadísticos tradicionales.</p>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Clasificación de imágenes</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text">En un contexto de planificación urbano-ambiental, un gobierno necesita caracterizar la cobertura y el uso del suelo de una cuenca. Las imágenes satelitales permiten observar grandes extensiones de manera periódica, pero cada imagen contiene una enorme cantidad de información que sería costoso clasificar manualmente.</p>
-<p class="sd-card-text">Un algoritmo puede aprender regularidades a partir de imágenes previamente clasificadas y utilizarlas para caracterizar nuevas imágenes.</p>
-<p class="sd-card-text"><em>¿Cómo usamos imágenes satelitales ya interpretadas para automatizar la clasificación de imágenes nuevas?</em></p>
+<div class="card">
+<div class="card-header">
+<p>Clasificación de imágenes</p>
 </div>
-<div class="sd-col sd-d-flex-column docutils">
-<p class="sd-card-text"><img alt="clasificación de imágenes satelitales" src="../../_images/imagen_satelital_LU.jpg" /></p>
+<div class="card-body">
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p>En un contexto de planificación urbano-ambiental, un gobierno necesita caracterizar la cobertura y el uso del suelo de una cuenca. Las imágenes satelitales permiten observar grandes extensiones de manera periódica, pero cada imagen contiene una enorme cantidad de información que sería costoso clasificar manualmente.</p>
+<p>Un algoritmo puede aprender regularidades a partir de imágenes previamente clasificadas y utilizarlas para caracterizar nuevas imágenes.</p>
+<p><em>¿Cómo usamos imágenes satelitales ya interpretadas para automatizar la clasificación de imágenes nuevas?</em></p>
 </div>
+<div class="g-col-12 g-col-md-6">
+<p><img src="figuras/imagen_satelital_LU.jpg" class="img-fluid" alt="clasificación de imágenes satelitales"></p>
 </div>
 </div>
 </div>
 </div>
 <p>El proceso completo no debe entenderse como una secuencia rígida sino como un ciclo en el que las etapas se retroalimentan. Una exploración puede llevar a reformular la pregunta; los resultados pueden revelar problemas en los datos; y una conclusión puede exigir obtener nuevas observaciones.</p>
-<figure class="align-default" id="fig-somerville">
-<a class="reference internal image-reference" href="../../_images/datascience_somerville.jpeg"><img alt="El proceso de la ciencia de datos" src="../../_images/datascience_somerville.jpeg" style="width: 255.25px; height: 83.0px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Caricatura del proceso de extraer conocimiento de un conjunto de observaciones realizada por David Somerville basado en el original de Hugh McLeod (<a class="reference external" href="https://random-blather.com/2014/04/28/information-isnt-power/">https://random-blather.com/2014/04/28/information-isnt-power/</a>).</span><a class="headerlink" href="#fig-somerville" title="Permalink to this image">#</a></p>
+<div id="fig-somerville" class="quarto-float quarto-figure quarto-figure-center anchored" alt="El proceso de la ciencia de datos">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-somerville-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figuras/datascience_somerville.jpeg" class="img-fluid figure-img" alt="El proceso de la ciencia de datos" width="255">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-somerville-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.3: Caricatura del proceso de extraer conocimiento de un conjunto de observaciones realizada por David Somerville basado en el original de Hugh McLeod (https://random-blather.com/2014/04/28/information-isnt-power/).
 </figcaption>
 </figure>
+</div>
 <p>De manera esquemática, podemos distinguir las siguientes etapas:</p>
-<ol class="arabic simple">
-<li><p><strong>Definición del problema.</strong> Plantear la pregunta que queremos responder y delimitar la población y las variables relevantes.</p></li>
-<li><p><strong>Obtención y preparación de los datos.</strong> Recolectar, almacenar, leer, limpiar y transformar las observaciones necesarias para el análisis.</p></li>
-<li><p><strong>Exploración de los datos.</strong> Caracterizar la muestra mediante resúmenes y visualizaciones, detectar patrones, valores inusuales y posibles problemas.</p></li>
-<li><p><strong>Inferencia.</strong> Utilizar las observaciones disponibles para responder preguntas sobre aspectos no observados, cuantificando la incertidumbre asociada a las conclusiones.</p></li>
-<li><p><strong>Aplicación e interpretación.</strong> Utilizar los resultados para responder la pregunta de interés, comunicar las conclusiones y, cuando corresponda, asistir una decisión de ingeniería.</p></li>
+<ol type="1">
+<li><strong>Definición del problema.</strong> Plantear la pregunta que queremos responder y delimitar la población y las variables relevantes.</li>
+<li><strong>Obtención y preparación de los datos.</strong> Recolectar, almacenar, leer, limpiar y transformar las observaciones necesarias para el análisis.</li>
+<li><strong>Exploración de los datos.</strong> Caracterizar la muestra mediante resúmenes y visualizaciones, detectar patrones, valores inusuales y posibles problemas.</li>
+<li><strong>Inferencia.</strong> Utilizar las observaciones disponibles para responder preguntas sobre aspectos no observados, cuantificando la incertidumbre asociada a las conclusiones.</li>
+<li><strong>Aplicación e interpretación.</strong> Utilizar los resultados para responder la pregunta de interés, comunicar las conclusiones y, cuando corresponda, asistir una decisión de ingeniería.</li>
 </ol>
-<div class="tip admonition">
-<p class="admonition-title">Una idea que atravesará todo el curso</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Una idea que atravesará todo el curso">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Una idea que atravesará todo el curso
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>La ciencia de datos no consiste solamente en aplicar un algoritmo a un conjunto de datos. El objetivo es extraer conclusiones útiles sobre un problema real a partir de observaciones incompletas e imperfectas, haciendo explícitas las incertidumbres involucradas.</p>
 </div>
-<hr class="docutils" />
-<p class="rubric">Referencias</p>
-<div class="docutils container" id="id5">
-<dl class="citation">
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>David Donoho. 50 years of data science. <em>Journal of Computational and Graphical Statistics</em>, 26(4):745–766, 2017. URL: <a class="reference external" href="https://doi.org/10.1080/10618600.2017.1384734">https://doi.org/10.1080/10618600.2017.1384734</a>, <a class="reference external" href="https://doi.org/10.1080/10618600.2017.1384734">doi:10.1080/10618600.2017.1384734</a>.</p>
-</dd>
-<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Vasant Dhar. Data science and prediction. <em>Commun. ACM</em>, 56(12):64–73, dec 2013. URL: <a class="reference external" href="https://doi.org/10.1145/2500499">https://doi.org/10.1145/2500499</a>, <a class="reference external" href="https://doi.org/10.1145/2500499">doi:10.1145/2500499</a>.</p>
-</dd>
-<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
-<dd><p>Filippo Chiarello, Paola Belingheri, and Gualtiero Fantoni. Data science for engineering design: State of the art and future directions. <em>Computers in Industry</em>, 129:103447, August 2021. <a class="reference external" href="https://doi.org/10.1016/j.compind.2021.103447">doi:10.1016/j.compind.2021.103447</a>.</p>
-</dd>
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
-<dd><p>McKinsey &amp; Co. Hal Varian on how the Web challenges managers. January 2009.</p>
-</dd>
-</dl>
 </div>
+<hr>
 </section>
 </section>
+<section id="referencias" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="referencias">Referencias</h2>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-donoho2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Donoho, D. <a href="https://doi.org/10.1080/10618600.2017.1384734">50 years of data
+science</a>. <em>Journal of Computational and Graphical Statistics</em>
+<strong>26</strong>, 745–766 (2017).</div>
+</div>
+<div id="ref-vasant2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Dhar, V. <a href="https://doi.org/10.1145/2500499">Data science and prediction</a>.
+<em>Commun. ACM</em> <strong>56</strong>, 64–73 (2013).</div>
+</div>
+<div id="ref-chiarello2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Chiarello, F., Belingheri, P. &amp; Fantoni, G.
+<a href="https://doi.org/10.1016/j.compind.2021.103447">Data science for
+engineering design: <span>State</span> of the art and future
+directions</a>. <em>Computers in Industry</em> <strong>129</strong>,
+103447 (2021).</div>
+</div>
+<div id="ref-mckinsey2009" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">McKinsey &amp; Co. Hal <span>Varian</span> on
+how the <span>Web</span> challenges managers. <em>Our Insights</em>
+(2009).</div>
+</div>
+</div>
+
+
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
+<div id="exercise-loading-status" class="d-flex gap-2">
+
+</div>
+<div class="spinner-grow spinner-grow-sm">
+
+</div>
+</div>
+<script type="vfs-file">
+W10=
+</script>
 </section>
 
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            name: "python3",
-            path: "./chapter1_intro/intro"
-        },
-        predefinedOutput: true
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W119
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../chapter1_intro/intro";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
     }
-    </script>
-    <script>kernelName = 'python3'</script>
-
-                </article>
-              
-
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="../../front.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introducción a la Ciencia de Datos para Ingeniería Civil</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../repaso_de_probabilidad/repaso_de_probabilidad.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Repaso de probabilidad</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../index.html" class="pagination-link" aria-label="Introducción a la Ciencia de Datos para Ingeniería Civil">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introducción a la Ciencia de Datos para Ingeniería Civil</span>
+      </a>          
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-ciencia-de-datos">1.1. ¿Qué es la ciencia de datos?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#muestra-poblacion-e-inferencia">1.1.1. Muestra, población e inferencia</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-queremos-aprender-de-los-datos">1.2. ¿Qué queremos aprender de los datos?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-preguntas">1.2.1. Tipos de preguntas</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-descriptivas">1.2.1.1. Preguntas descriptivas</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-predictivas">1.2.1.2. Preguntas predictivas</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-causales">1.2.1.3. Preguntas causales</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-extraemos-conocimiento">1.3. ¿Cómo extraemos conocimiento?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#patrones-variabilidad-e-incertidumbre">1.3.1. Patrones, variabilidad e incertidumbre</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilidad-inherente-en-la-poblacion">1.3.1.1. Variabilidad inherente en la población</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilidad-en-el-proceso-de-medicion">1.3.1.2. Variabilidad en el proceso de medición</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantificando-la-incertidumbre">1.3.2. Cuantificando la incertidumbre</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-proceso-de-la-ciencia-de-datos">1.3.3. El proceso de la ciencia de datos</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Mariano Balbi
-</p>
-
+  <div class="nav-page nav-page-next">
+      <a href="../../chapter1_intro/repaso_de_probabilidad/repaso_de_probabilidad.html" class="pagination-link" aria-label="Repaso de probabilidad">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Repaso de probabilidad</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
-  
-  <div class="footer-item">
-    
+</nav>
+</div> <!-- /content -->
 
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
 
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
 
-      </main>
-    </div>
-  </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-  <footer class="bd-footer">
-  </footer>
-  </body>
-</html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mbalbi/ciencia_de_datos/blob/master/quarto/chapter1_intro/intro/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/mbalbi/ciencia_de_datos/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li></ul></div></div></div></footer></body></html>
