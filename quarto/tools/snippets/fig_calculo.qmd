@@ -1,0 +1,83 @@
+::: {#fig-calculo-probabilidades}
+
+::: {.content-visible when-format="html"}
+
+```{ojs}
+//| echo: false
+dist = import(new URL("figuras/distribuciones.js", document.baseURI).href)
+phi = dist.phi
+Phi = dist.Phi
+curve = d3.range(-4, 4.0001, 0.02).map(x => ({x, pdf: phi(x), cdf: Phi(x)}))
+```
+
+```{ojs}
+//| echo: false
+viewof ja = Inputs.range([-3, 3], {value: -0.5, step: 0.05, label: "a"})
+viewof jb = Inputs.range([-3, 3], {value: 1.0, step: 0.05, label: "b"})
+```
+
+```{ojs}
+//| echo: false
+{
+  const lo = Math.min(ja, jb), hi = Math.max(ja, jb);
+  const p = Phi(hi) - Phi(lo);
+  const region = [{x: lo, pdf: phi(lo)}, ...curve.filter(d => d.x > lo && d.x < hi), {x: hi, pdf: phi(hi)}];
+  const blue = "#1f77b4";
+  const top = Plot.plot({
+    width: 640, height: 190, marginLeft: 50, marginTop: 8,
+    x: {domain: [-4, 4], label: null},
+    y: {domain: [0, 0.44], label: null, grid: true},
+    marks: [
+      Plot.areaY(region, {x: "x", y: "pdf", fill: blue, fillOpacity: 0.3}),
+      Plot.line(curve, {x: "x", y: "pdf", stroke: blue, strokeWidth: 2}),
+      Plot.ruleX([lo, hi], {stroke: "black", strokeDasharray: "4,3"}),
+      Plot.text([{x: lo, t: "a"}, {x: hi, t: "b"}], {x: "x", y: 0.43, text: "t", dx: 8, fontWeight: "bold"})
+    ]
+  });
+  const bottom = Plot.plot({
+    width: 640, height: 200, marginLeft: 50, marginTop: 8,
+    x: {domain: [-4, 4], label: "x"},
+    y: {domain: [0, 1], label: null, grid: true},
+    marks: [
+      Plot.line(curve, {x: "x", y: "cdf", stroke: blue, strokeWidth: 2}),
+      Plot.ruleX([lo, hi], {y1: 0, y2: d => Phi(d), stroke: "black", strokeDasharray: "4,3"}),
+      Plot.ruleY([lo, hi], {x1: -4, x2: d => d, y: d => Phi(d), stroke: "black", strokeDasharray: "4,3"}),
+      Plot.text([lo, hi], {x: -4, y: d => Phi(d), text: (d, i) => i === 0 ? "F(a)" : "F(b)", textAnchor: "start", dx: 4, dy: -7})
+    ]
+  });
+  return html`<div id="figB" style="max-width:640px">
+    <div style="font-weight:600; margin-left:50px">P(a ≤ X ≤ b) = ${p.toFixed(3)}</div>
+    <div style="margin-left:6px"><i>f</i><sub>X</sub>(<i>x</i>)</div>${top}
+    <div style="margin-left:6px"><i>F</i><sub>X</sub>(<i>x</i>)</div>${bottom}
+  </div>`;
+}
+```
+
+:::
+
+::: {.content-visible unless-format="html"}
+
+```{python}
+#| echo: false
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(6, 4), sharex=True)
+lo, hi = -0.5, 1.0
+xx = np.linspace(-4, 4, 600)
+ax1.plot(xx, stats.norm.pdf(xx), color="C0", lw=2)
+m = (xx >= lo) & (xx <= hi)
+ax1.fill_between(xx[m], stats.norm.pdf(xx[m]), alpha=0.3, color="C0")
+ax1.set(ylabel="$f_X(x)$", title=f"P(a ≤ X ≤ b) = {stats.norm.cdf(hi) - stats.norm.cdf(lo):.3f}")
+ax2.plot(xx, stats.norm.cdf(xx), color="C0", lw=2)
+for v in (lo, hi):
+    ax1.axvline(v, ls="--", color="k", lw=1)
+    ax2.vlines(v, 0, stats.norm.cdf(v), ls="--", color="k", lw=1)
+    ax2.hlines(stats.norm.cdf(v), -4, v, ls="--", color="k", lw=1)
+ax2.set(xlabel="x", ylabel="$F_X(x)$")
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+Cálculo de probabilidades con funciones de distribución y de densidad
+
+:::

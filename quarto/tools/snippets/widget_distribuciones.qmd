@@ -1,0 +1,90 @@
+::: {.content-visible when-format="html"}
+
+```{ojs}
+//| echo: false
+viewof cfg = {
+  const specs = dist.distributions;
+  const names = Object.keys(specs);
+  const state = ["Normal", "Exponential", "Beta"].map(n => ({dist: n, p: specs[n].params.map(q => q.value)}));
+  const root = html`<div style="display:flex; gap:1.5rem; flex-wrap:wrap; margin-bottom:0.5rem"></div>`;
+  const snapshot = () => state.map(s => ({dist: s.dist, p: [...s.p]}));
+  const emit = () => { root.value = snapshot(); root.dispatchEvent(new Event("input", {bubbles: true})); };
+  state.forEach((s, i) => {
+    const col = html`<div style="min-width:150px"><div style="font-weight:600">Distribución ${i + 1}</div></div>`;
+    const sel = html`<select style="width:100%">${names.map(n => html`<option>${n}</option>`)}</select>`;
+    sel.value = s.dist;
+    const rows = [0, 1].map(k => {
+      const lab = html`<label style="display:block; font-size:0.85em; margin-top:4px"><span></span></label>`;
+      const inp = html`<input type="number" step="any" style="width:100%">`;
+      inp.addEventListener("input", () => { const v = parseFloat(inp.value); if (Number.isFinite(v)) { s.p[k] = v; emit(); } });
+      lab.append(inp);
+      return {lab, inp};
+    });
+    const refresh = () => {
+      const ps = specs[s.dist].params;
+      rows.forEach((r, k) => {
+        r.lab.style.display = k < ps.length ? "block" : "none";
+        r.lab.firstChild.textContent = ps[k] ? ps[k].label + ": " : "";
+        r.inp.value = s.p[k] ?? "";
+      });
+    };
+    sel.addEventListener("input", () => { s.dist = sel.value; s.p = specs[s.dist].params.map(q => q.value); refresh(); emit(); });
+    col.append(sel, ...rows.map(r => r.lab));
+    root.append(col);
+    refresh();
+  });
+  root.value = snapshot();
+  return root;
+}
+```
+
+```{ojs}
+//| echo: false
+{
+  const specs = dist.distributions;
+  const colors = ["#1f77b4", "#ff7f0e", "#2ca02c"];
+  const N = 200;
+  const series = cfg.map((c, i) => {
+    const D = specs[c.dist];
+    if (!D.valid(...c.p)) return null;
+    const [lo, hi] = D.range(...c.p);
+    const label = `${c.dist}(${c.p.join(", ")})`;
+    return d3.range(N + 1).map(k => {
+      const x = lo + (hi - lo) * k / N, f = D.pdf(x, ...c.p);
+      return {x, pdf: Number.isFinite(f) ? f : NaN, cdf: D.cdf(x, ...c.p), label, color: colors[i]};
+    });
+  }).filter(Boolean);
+  const data = series.flat();
+  const color = {domain: series.map(s => s[0].label), range: series.map(s => s[0].color)};
+  const make = (y, legend) => Plot.plot({
+    width: 640, height: 250, marginLeft: 55,
+    x: {label: "x", grid: true}, y: {label: null, grid: true},
+    color: {...color, legend},
+    marks: [Plot.line(data, {x: "x", y, stroke: "label", strokeWidth: 2})]
+  });
+  return html`<div id="widgetDist" style="max-width:640px">
+    <div style="font-weight:600">Función de densidad</div>${make("pdf", true)}
+    <div style="font-weight:600; margin-top:0.5rem">Función de probabilidad acumulada</div>${make("cdf", false)}
+  </div>`;
+}
+```
+
+:::
+
+::: {.content-visible unless-format="html"}
+
+```{python}
+#| echo: false
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(6, 5.5))
+for d, lab, c in [(stats.norm(0, 1), "Normal(0, 1)", "C0"), (stats.expon(scale=1), "Exponential(1)", "C1"), (stats.beta(2, 5), "Beta(2, 5)", "C2")]:
+    xx = np.linspace(d.ppf(0.0005), d.ppf(0.9995), 400)
+    ax1.plot(xx, d.pdf(xx), color=c, label=lab)
+    ax2.plot(xx, d.cdf(xx), color=c)
+ax1.set(title="Función de densidad", xlabel="x"); ax1.legend()
+ax2.set(title="Función de probabilidad acumulada", xlabel="x")
+for ax in (ax1, ax2): ax.grid(alpha=0.3)
+plt.tight_layout()
+plt.show()
+```
+
+:::

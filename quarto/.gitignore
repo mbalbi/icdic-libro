@@ -1,0 +1,11 @@
+_site/
+.quarto/
+_freeze/
+*_files/
+*.quarto_ipynb
+*.log
+.venv/
+
+/.quarto/
+**/*.quarto_ipynb
+_pdf/

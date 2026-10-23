@@ -1,0 +1,39 @@
+project:
+  type: book
+  output-dir: _site
+  resources:
+    - chapter1_intro/repaso_de_probabilidad/figuras/distribuciones.js
+
+book:
+  title: "Introducción a la Ciencia de Datos para Ingeniería Civil"
+  author: "Mariano Balbi"
+  language: es
+  repo-url: https://github.com/mbalbi/ciencia_de_datos
+  repo-branch: master
+  repo-subdir: quarto
+  repo-actions: [source, issue]
+  sidebar:
+    logo: logo.png
+  chapters:
+    - index.qmd
+    - chapter1_intro/intro/intro.qmd
+    - chapter1_intro/repaso_de_probabilidad/repaso_de_probabilidad.qmd
+    - part: "Recolección y descripción de datos"
+      chapters:
+        - chapter2_aed/datos_y_variables.qmd
+        - chapter2_aed/analisis_exploratorio.qmd
+
+bibliography: references.bib
+csl: nature.csl
+
+format:
+  live-html:
+    theme: cosmo
+    toc: true
+    css: styles.css
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    number-sections: true
+
+lang: es
