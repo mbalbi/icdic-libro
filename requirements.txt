@@ -1,5 +1,6 @@
 jupyter-book==0.15.1
 sphinxcontrib-bibtex==2.4.2
+pybtex==0.24.0
 matplotlib
 numpy
 scipy
