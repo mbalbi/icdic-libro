@@ -508,7 +508,8 @@ La ciencia de datos no consiste solamente en aplicar un algoritmo a un conjunto 
 
 ---
 
-## Referencias {.unnumbered}
+```{rubric} Referencias
+```
 
 ```{bibliography}
 :style: unsrt
