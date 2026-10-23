@@ -14,7 +14,7 @@ kernelspec:
 
 # Introducción
 
-## 1. ¿Qué es la ciencia de datos?
+## ¿Qué es la ciencia de datos?
 
 Muy resumidamente puede definirse **Ciencia de Datos** como la "ciencia de aprender de los datos" según el Profesor David Donoho de la Universidad de Stanford{cite}`donoho2017`. Esta definición parece simple, pero refleja dos ideas centrales que aparecerán a lo largo de todo el curso: por un lado, trabajamos con **datos**; por otro, buscamos **aprender** algo a partir de ellos.
 
@@ -118,7 +118,7 @@ _Cómo predecimos el volumen de tráfico de una avenida no observada a partir de
 
 ``````
 
-### 1.1. Muestra, población e inferencia
+### Muestra, población e inferencia
 
 Los ejemplos anteriores introducen dos grupos de análisis distintos. Por un lado está el conjunto finito de observaciones de las que efectivamente disponemos, que llamamos **muestra**. Por otro, está el universo de objetos u observaciones sobre el que realmente queremos responder una pregunta, que llamamos **población**.
 
@@ -160,17 +160,18 @@ La población puede incluir configuraciones posibles de densidad poblacional y a
 En todos estos casos, la idea de población cumple la misma función conceptual: especificar el universo al que queremos extender nuestras conclusiones.
 
 `````
-## 2. ¿Qué queremos aprender de los datos?
+
+## ¿Qué queremos aprender de los datos?
 
 Los datos pueden utilizarse con objetivos muy distintos. A veces queremos simplemente **describir lo que observamos**: resumir valores, visualizar su distribución o detectar comportamientos llamativos. En otros casos queremos ir más allá de la muestra y **aprender algo sobre la población**: estimar alguna de sus características, anticipar observaciones no realizadas, estudiar relaciones entre variables o evaluar qué ocurriría si interviniéramos sobre el sistema.
 
 Esta distinción es importante porque el tipo de pregunta determina qué conclusiones podemos extraer de los datos y qué herramientas necesitamos para hacerlo.
 
-### 2.1. Tipos de preguntas
+### Tipos de preguntas
 
 En términos generales podemos distinguir tres grandes tipos de preguntas: **descriptivas**, **predictivas** y **causales**. La diferencia fundamental entre ellas es el grupo de análisis que queremos describir y cuantificar. Es decir, hasta dónde queremos extender nuestras conclusiones a partir de los datos observados.
 
-#### 2.1.1. Preguntas descriptivas
+#### Preguntas descriptivas
 
 Las preguntas descriptivas se refieren exclusivamente a la **muestra observada**. El objetivo es resumir, explorar o visualizar los datos disponibles sin pretender, todavía, generalizar las conclusiones a una población más amplia.
 
@@ -199,7 +200,7 @@ Las respuestas describen las probetas efectivamente ensayadas. Para afirmar que 
 
 ``````
 
-#### 2.1.2. Preguntas predictivas
+#### Preguntas predictivas
 
 Las preguntas predictivas buscan aprender sobre **aspectos no observados de la misma población o proceso que generó los datos**. En estos problemas utilizamos la muestra para inferir qué podemos esperar de otros elementos, situaciones o características de esa misma población.
 
@@ -271,9 +272,7 @@ En muchos textos, el término **predicción** se utiliza en un sentido más rest
 Más adelante distinguiremos estas situaciones con mayor precisión.
 ```
 
-#### 2.1.3. Preguntas causales
-
-Las preguntas causales buscan cuantificar la relación entre dos variables de la población, luega de modificar una de ellas...**extender y clarificar este párrafo**.
+#### Preguntas causales
 
 Las preguntas causales buscan responder qué ocurriría si **interviniéramos** sobre el sistema y modificáramos alguna de las condiciones que generan la población. Por lo tanto, la respuesta ya no se refiere exactamente a la población observada, sino a una **población alternativa** que existiría bajo esa intervención.
 
@@ -299,11 +298,9 @@ Responder esta pregunta exige razonar sobre lo que ocurriría después de modifi
 
 ``````{card} Intervención sobre un suelo
 
-```{grid-item}
 Podemos observar asociaciones entre propiedades de un suelo y su resistencia, pero una decisión de ingeniería puede requerir una pregunta diferente: qué ocurriría si modificáramos deliberadamente alguna condición del sistema.
 
 _Si realizáramos una compactación del suelo, ¿cuánto aumentaría su resistencia?_
-```
 
 ``````
 
@@ -317,8 +314,6 @@ no es equivalente a
 _¿Qué ocurriría con Y si interviniéramos sobre el sistema y modificáramos X?_
 
 Una asociación observada entre variables no implica, por sí sola, una relación causal.
-
-** Poner ejemplo de venta de helados y ahogamientos...**
 
 ```
 
@@ -334,11 +329,11 @@ Los límites entre estas categorías no siempre son completamente nítidos y un 
 
 En las preguntas predictivas y causales aparece una dificultad común: solamente observamos una muestra, pero queremos decir algo sobre cantidades, relaciones o situaciones que no observamos directamente. ¿Cómo podemos hacer esa generalización y qué tan seguras pueden ser nuestras conclusiones?
 
-## 3. ¿Cómo extraemos conocimiento?
+## ¿Cómo extraemos conocimiento?
 
 El proceso analítico para generalizar (extrapolar) lo medido en una muestra a una población subyacente se conoce como **inferencia**. Este proceso involucra una dificultad fundamental: las observaciones reales presentan, en mayor o menor medida, aleatoriedad y componen solo una parte pequeña de las todas los elementos de la población (entendida como concepto amplio según 1.1). Como consecuencia, nuestras conclusiones sobre la población nunca son completamente ciertas.
 
-### 3.1. Patrones, variabilidad e incertidumbre
+### Patrones, variabilidad e incertidumbre
 
 Que una variable tome valores diferentes entre distintas observaciones significa que existe **variabilidad**. Pero variabilidad no es necesariamente sinónimo de aleatoriedad.
 
@@ -422,7 +417,7 @@ La consecuencia fundamental es que el proceso inferencial no puede dar certezas 
 
 Esto nos lleva a la siguiente pregunta: ¿cómo cuantificamos esa incertidumbre?
 
-### 3.2. Cuantificando la incertidumbre
+### Cuantificando la incertidumbre
 
 La herramienta matemática que utilizamos para cuantificar la incertidumbre es la **probabilidad**.
 
@@ -447,7 +442,7 @@ Más adelante formalizaremos estas ideas mediante variables aleatorias, distribu
 
 > **variabilidad aleatoria + información incompleta → incertidumbre → probabilidad**
 
-### 3.3. El proceso de la ciencia de datos
+### El proceso de la ciencia de datos
 
 La probabilidad y la inferencia estadística son herramientas centrales para aprender de los datos, pero la ciencia de datos moderna abarca un proceso más amplio. Los datos deben obtenerse, almacenarse y procesarse; deben explorarse y visualizarse; las inferencias deben implementarse y evaluarse; y las conclusiones deben interpretarse dentro del problema de ingeniería que motivó el análisis.
 
@@ -513,7 +508,7 @@ La ciencia de datos no consiste solamente en aplicar un algoritmo a un conjunto 
 
 ---
 
-## Referencias
+## Referencias {.unnumbered}
 
 ```{bibliography}
 :style: unsrt

@@ -1,0 +1,32 @@
+/* ------------------------------------------------------------------
+   On-page "Contents" sidebar width
+   ------------------------------------------------------------------
+   The secondary sidebar (Previous/Next + Contents) is flex-sized from
+   its content. When the previous/next page title is long (for example
+   the book title on the first chapter), the sidebar grows to its
+   maximum and squeezes the article column, so the page looks narrow
+   and off-centre.
+
+   Pinning the sidebar to the theme's own width variable keeps the
+   article column at a stable, readable width on every page.
+   ------------------------------------------------------------------ */
+.bd-sidebar-secondary {
+  flex: 0 0 var(--pst-sidebar-secondary);
+  width: var(--pst-sidebar-secondary);
+  min-width: 0;
+  max-width: var(--pst-sidebar-secondary);
+}
+
+/* Long previous/next titles must wrap instead of stretching the panel */
+.bd-sidebar-secondary .prev-next-area,
+.bd-sidebar-secondary .prev-next-area p {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* Three-column sphinx-design grids get cramped on narrow screens */
+@media (max-width: 900px) {
+  .bd-article .sd-row {
+    flex-direction: column;
+  }
+}

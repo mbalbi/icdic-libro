@@ -23,6 +23,8 @@ bibtex_bibfiles:
 sphinx:
   config:
     bibtex_reference_style: super
+    html_static_path: ["_static"]
+    html_css_files: ["custom.css"]
   extra_extensions:
     - sphinx_inline_tabs
     - sphinx_proof
