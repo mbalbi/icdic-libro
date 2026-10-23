@@ -1,14 +1,13 @@
-/* ------------------------------------------------------------------
-   On-page "Contents" sidebar width
-   ------------------------------------------------------------------
-   The secondary sidebar (Previous/Next + Contents) is flex-sized from
-   its content. When the previous/next page title is long (for example
-   the book title on the first chapter), the sidebar grows to its
-   maximum and squeezes the article column, so the page looks narrow
-   and off-centre.
+/* ==================================================================
+   Book-wide layout fixes
+   ================================================================== */
 
-   Pinning the sidebar to the theme's own width variable keeps the
-   article column at a stable, readable width on every page.
+/* ------------------------------------------------------------------
+   1. On-page "Contents" sidebar width
+   ------------------------------------------------------------------
+   The secondary sidebar is flex-sized from its content, so a long
+   entry can stretch it and squeeze the article column. Pin it to the
+   theme's own width variable to keep the text column stable.
    ------------------------------------------------------------------ */
 .bd-sidebar-secondary {
   flex: 0 0 var(--pst-sidebar-secondary);
@@ -17,24 +16,24 @@
   max-width: var(--pst-sidebar-secondary);
 }
 
-/* Long previous/next titles must wrap instead of stretching the panel */
+/* Long titles must wrap instead of stretching the panel */
 .bd-sidebar-secondary .prev-next-area,
-.bd-sidebar-secondary .prev-next-area p {
+.bd-sidebar-secondary .prev-next-area p,
+.bd-sidebar-secondary .bd-toc-item {
   max-width: 100%;
   overflow-wrap: anywhere;
 }
 
 /* ------------------------------------------------------------------
-   Previous / Next navigation
+   2. Previous / Next footer next to the article
    ------------------------------------------------------------------
-   The theme drops the prev-next footer next to the article inside a
-   flex row. Its width is driven by the longest page title, so a long
-   title (for example the book title on the first chapter) steals space
-   from the text column and the page looks narrow and off-centre.
-   Put the footer back below the article, at full width, and let the
-   article column use all the remaining space.
+   On most pages the prev/next footer lives inside the article
+   container. Only when it is a direct child of .bd-content does it
+   sit *beside* the article and steal width from it, so the wrap is
+   scoped with :has() -- wrapping .bd-content unconditionally would
+   push the Contents sidebar below the article on every other page.
    ------------------------------------------------------------------ */
-.bd-content {
+.bd-content:has(> .prev-next-footer) {
   flex-wrap: wrap;
 }
 
@@ -54,7 +53,7 @@
 }
 
 /* ------------------------------------------------------------------
-   Page footer
+   3. Page footer
    ------------------------------------------------------------------
    The theme appends an author/copyright footer to every page.
    The book does not use it, so remove it.
@@ -64,7 +63,11 @@ footer.bd-footer-content,
   display: none !important;
 }
 
-/* Three-column sphinx-design grids get cramped on narrow screens */
+/* ------------------------------------------------------------------
+   4. Narrow screens
+   ------------------------------------------------------------------
+   Multi-column sphinx-design grids get cramped on small viewports.
+   ------------------------------------------------------------------ */
 @media (max-width: 900px) {
   .bd-article .sd-row {
     flex-direction: column;
