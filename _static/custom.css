@@ -1,0 +1,29 @@
+/* ==================================================================
+   Book-wide style overrides
+   ==================================================================
+   Keep this file minimal: every layout rule here risks interfering
+   with the theme's own flex/grid behaviour (for example moving the
+   on-page "Contents" sidebar). Prefer content or config fixes.
+   ================================================================== */
+
+/* ------------------------------------------------------------------
+   Page footer
+   ------------------------------------------------------------------
+   The theme appends an author/copyright footer to every page.
+   The book does not use it, so remove it.
+   ------------------------------------------------------------------ */
+footer.bd-footer-content,
+.bd-footer-content {
+  display: none !important;
+}
+
+/* ------------------------------------------------------------------
+   Narrow screens
+   ------------------------------------------------------------------
+   Multi-column sphinx-design grids get cramped on small viewports.
+   ------------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .bd-article .sd-row {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,1005 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Introducción &#8212; Introducción a la Ciencia de Datos para Ingeniería Civil</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter1_intro/intro/intro';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2. Repaso de probabilidad" href="../repaso_de_probabilidad/repaso_de_probabilidad.html" />
+    <link rel="prev" title="Introducción a la Ciencia de Datos para Ingeniería Civil" href="../../front.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../front.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Introducción a la Ciencia de Datos para Ingeniería Civil - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Introducción a la Ciencia de Datos para Ingeniería Civil - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../front.html">
+                    Introducción a la Ciencia de Datos para Ingeniería Civil
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../repaso_de_probabilidad/repaso_de_probabilidad.html">2. Repaso de probabilidad</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Recolección y descripción de datos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2_aed/datos_y_variables.html">3. Variables, poblaciones y datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2_aed/analisis_exploratorio.html">4. Análisis Exploratorio de Datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/mbalbi/ciencia_de_datos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mbalbi/ciencia_de_datos/issues/new?title=Issue%20on%20page%20%2Fchapter1_intro/intro/intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapter1_intro/intro/intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-ciencia-de-datos">1.1. ¿Qué es la ciencia de datos?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#muestra-poblacion-e-inferencia">1.1.1. Muestra, población e inferencia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-queremos-aprender-de-los-datos">1.2. ¿Qué queremos aprender de los datos?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-preguntas">1.2.1. Tipos de preguntas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-descriptivas">1.2.1.1. Preguntas descriptivas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-predictivas">1.2.1.2. Preguntas predictivas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-causales">1.2.1.3. Preguntas causales</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-extraemos-conocimiento">1.3. ¿Cómo extraemos conocimiento?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#patrones-variabilidad-e-incertidumbre">1.3.1. Patrones, variabilidad e incertidumbre</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilidad-inherente-en-la-poblacion">1.3.1.1. Variabilidad inherente en la población</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilidad-en-el-proceso-de-medicion">1.3.1.2. Variabilidad en el proceso de medición</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantificando-la-incertidumbre">1.3.2. Cuantificando la incertidumbre</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-proceso-de-la-ciencia-de-datos">1.3.3. El proceso de la ciencia de datos</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1><span class="section-number">1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
+<section id="que-es-la-ciencia-de-datos">
+<h2><span class="section-number">1.1. </span>¿Qué es la ciencia de datos?<a class="headerlink" href="#que-es-la-ciencia-de-datos" title="Permalink to this heading">#</a></h2>
+<p>Muy resumidamente puede definirse <strong>Ciencia de Datos</strong> como la “ciencia de aprender de los datos” según el Profesor David Donoho de la Universidad de Stanford<span id="id1"><sup><a class="reference internal" href="#id6" title="David Donoho. 50 years of data science. Journal of Computational and Graphical Statistics, 26(4):745-766, 2017. URL: https://doi.org/10.1080/10618600.2017.1384734, doi:10.1080/10618600.2017.1384734.">1</a></sup></span>. Esta definición parece simple, pero refleja dos ideas centrales que aparecerán a lo largo de todo el curso: por un lado, trabajamos con <strong>datos</strong>; por otro, buscamos <strong>aprender</strong> algo a partir de ellos.</p>
+<p>Existen incontables definiciones más extensas y específicas del término. Por ejemplo:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<blockquote>
+<div><p>Es el estudio de la <strong>extracción generalizable de conocimiento</strong> de los datos</p>
+<p>–<em>Vasant Dahr, New York University<span id="id2"><sup><a class="reference internal" href="#id7" title="Vasant Dhar. Data science and prediction. Commun. ACM, 56(12):64–73, dec 2013. URL: https://doi.org/10.1145/2500499, doi:10.1145/2500499.">2</a></sup></span></em></p>
+</div></blockquote>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<blockquote>
+<div><p>Es el campo inter-disciplinario que usa sistemas computacionales para <strong>extraer conocimiento</strong> de datos estructurados y no estructurados</p>
+<p>–<em>Filippo Chiarello, University of Pisa<span id="id3"><sup><a class="reference internal" href="#id8" title="Filippo Chiarello, Paola Belingheri, and Gualtiero Fantoni. Data science for engineering design: State of the art and future directions. Computers in Industry, 129:103447, August 2021. doi:10.1016/j.compind.2021.103447.">3</a></sup></span></em></p>
+</div></blockquote>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<blockquote>
+<div><p>…obtener datos, entenderlos, procesarlos, <strong>extraer valor</strong>, visualizarlos y comunicarlos…</p>
+<p>–<em>Hal Varian, Google &amp; UC Berkeley<span id="id4"><sup><a class="reference internal" href="#id10" title="McKinsey &amp; Co. Hal Varian on how the Web challenges managers. January 2009.">4</a></sup></span></em></p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<p>Las definiciones anteriores enfatizan aspectos diferentes de la disciplina, pero comparten dos conceptos: <strong>datos</strong> y <strong>extracción de conocimiento</strong>.</p>
+<p>Los <strong>datos</strong> son observaciones, o mediciones, de algún aspecto cuantificable de la realidad. A ese aspecto cuantificable lo llamamos <strong>variable</strong>. Por ejemplo, la resistencia de un bulón, la velocidad del viento o el volumen de tránsito son variables cuyos valores podemos medir en distintos objetos o situaciones. Los datos no son <em>LA REALIDAD</em> en sí misma, sino información obtenida a través de un proceso de medición. En este texto, salvo que se indique lo contrario, los términos <em>datos</em>, <em>observaciones</em> y <em>mediciones</em> se utilizarán de manera indistinta.</p>
+<p>Por otro lado, la expresión “extraer conocimiento” (o “aprender” o “extraer valor”) implica, de manera general, obtener conclusiones que puedan utilizarse más allá de las observaciones concretas que fueron medidas.</p>
+<div class="tip admonition">
+<p class="admonition-title">Idea central</p>
+<p>Extraer conocimiento no significa solamente describir los datos recolectados. En general, buscamos obtener conclusiones que puedan ser generalizadas más allá de las observaciones disponibles.</p>
+</div>
+<p>Una forma simple de ver esta diferencia es preguntarnos qué queremos saber realmente cuando recolectamos datos. En muchas aplicaciones de ingeniería, la cantidad que interesa no puede observarse: ensayamos algunas piezas pero nos interesa las que efectivamente vamos a utilizar; conocemos las intensidades del viento del pasado pero diseñamos para vientos futuros; medimos el tráfico de algunas autopistas en las condiciones actuales pero queremos saber cuál el tráfico sería si impusiéramos un peaje más caro.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Control de calidad en un proceso</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text">Una fábrica produce bulones de acero para la construcción con medidas, materiales y procesos de fabricación estandarizados. En cada turno, se fabrican alrededor de 5.000 bulones de un tipo específico y se quiere conocer la resistencia media a la tracción de los bulones producidos.</p>
+<p class="sd-card-text">No se pueden ensayar todos los bulones porque el ensayo es costoso y, además, los bulones ensayados no pueden venderse. Por eso se selecciona una cantidad reducida de bulones y se mide su resistencia.</p>
+<p class="sd-card-text">Podemos calcular el promedio de las resistencias ensayadas, pero el interés real está en la producción completa.</p>
+<p class="sd-card-text"><em>Cómo relacionamos el promedio de la muestra con el promedio de toda la población?</em></p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><img alt="bulones" src="../../_images/bulones.jpg" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Estimación de acciones sobre una estructura</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text">Para el diseño de un puente necesitamos conocer la velocidad máxima del viento que puede actuar sobre la estructura en los próximos años. Para el sitio de emplazamiento contamos con mediciones de los últimos 40 años.</p>
+<p class="sd-card-text">De esas mediciones podemos calcular máximos, mínimos, promedios y muchas otras características. Sin embargo, el interés de diseño no está limitado a esos 40 años: necesitamos razonar sobre vientos que todavía no fueron observados.</p>
+<p class="sd-card-text"><em>Cómo relacionamos los valores pasados con los posibles valores futuros?</em></p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><img alt="estación meteorológica" src="../../_images/estacion_meteorologica.jpg" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Relaciones entre variables</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text">Para el diseño de una nueva avenida, una agencia de tránsito está interesada en estimar el volumen de tráfico que usará la vía una vez inaugurada. Puede medir volumen de tráfico, densidad poblacional y ancho de calzada en muchas vías existentes.</p>
+<p class="sd-card-text">A partir de esas observaciones puede estudiar asociaciones entre las variables. Pero la combinación de densidad poblacional y ancho de calzada de la nueva avenida puede no coincidir con ninguna de las vías observadas.</p>
+<p class="sd-card-text"><em>Cómo predecimos el volumen de tráfico de una avenida no observada a partir de las calles existentes?</em></p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><img alt="tráfico urbano" src="../../_images/trafico_calles.jpg" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="muestra-poblacion-e-inferencia">
+<h3><span class="section-number">1.1.1. </span>Muestra, población e inferencia<a class="headerlink" href="#muestra-poblacion-e-inferencia" title="Permalink to this heading">#</a></h3>
+<p>Los ejemplos anteriores introducen dos grupos de análisis distintos. Por un lado está el conjunto finito de observaciones de las que efectivamente disponemos, que llamamos <strong>muestra</strong>. Por otro, está el universo de objetos u observaciones sobre el que realmente queremos responder una pregunta, que llamamos <strong>población</strong>.</p>
+<p>La noción de <strong>población</strong> debe entenderse en un sentido amplio: puede representar objetos físicos existentes, observaciones futuras o incluso configuraciones posibles de un sistema que todavía no fueron observadas.</p>
+<p>Llamamos <strong>inferencia</strong> al proceso de generalizar los patrones encontrados en los objetos observados hacia objetos no observados. En otras palabras, la inferencia es el puente que permite utilizar una muestra limitada para responder preguntas sobre una población más amplia.</p>
+<blockquote>
+<div><p><strong>Objetivo general de la ciencia de datos:</strong> responder preguntas sobre el mundo real a partir de un conjunto limitado de observaciones.</p>
+</div></blockquote>
+<figure class="align-default" id="fig-poblacion">
+<a class="reference internal image-reference" href="../../_images/population_and_sample.png"><img alt="Información sobre el objetivo de la ciencia de datos" src="../../_images/population_and_sample.png" style="width: 630.25px; height: 378.5px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">El círculo rojo representa la muestra observada dentro de un universo más amplio de observaciones posibles. Las conclusiones de mayor interés suelen referirse a esa población general.</span><a class="headerlink" href="#fig-poblacion" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="tip admonition">
+<p class="admonition-title">Tipos de población</p>
+<p>En problemas sencillos, la población puede ser un conjunto físico claramente delimitado. En otros problemas, especialmente en ingeniería, la idea de población es más abstracta.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Producción de bulones</div>
+<p class="sd-card-text">La población puede identificarse con todos los bulones fabricados en una tanda determinada.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Velocidades de viento</div>
+<p class="sd-card-text">La muestra puede ser una serie observada de 40 años, mientras que la población de interés incluye observaciones no medidas y futuras.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Tránsito urbano</div>
+<p class="sd-card-text">La población puede incluir configuraciones posibles de densidad poblacional y ancho de calzada que no existen entre las calles actualmente observadas.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>En todos estos casos, la idea de población cumple la misma función conceptual: especificar el universo al que queremos extender nuestras conclusiones.</p>
+</div>
+</section>
+</section>
+<section id="que-queremos-aprender-de-los-datos">
+<h2><span class="section-number">1.2. </span>¿Qué queremos aprender de los datos?<a class="headerlink" href="#que-queremos-aprender-de-los-datos" title="Permalink to this heading">#</a></h2>
+<p>Los datos pueden utilizarse con objetivos muy distintos. A veces queremos simplemente <strong>describir lo que observamos</strong>: resumir valores, visualizar su distribución o detectar comportamientos llamativos. En otros casos queremos ir más allá de la muestra y <strong>aprender algo sobre la población</strong>: estimar alguna de sus características, anticipar observaciones no realizadas, estudiar relaciones entre variables o evaluar qué ocurriría si interviniéramos sobre el sistema.</p>
+<p>Esta distinción es importante porque el tipo de pregunta determina qué conclusiones podemos extraer de los datos y qué herramientas necesitamos para hacerlo.</p>
+<section id="tipos-de-preguntas">
+<h3><span class="section-number">1.2.1. </span>Tipos de preguntas<a class="headerlink" href="#tipos-de-preguntas" title="Permalink to this heading">#</a></h3>
+<p>En términos generales podemos distinguir tres grandes tipos de preguntas: <strong>descriptivas</strong>, <strong>predictivas</strong> y <strong>causales</strong>. La diferencia fundamental entre ellas es el grupo de análisis que queremos describir y cuantificar. Es decir, hasta dónde queremos extender nuestras conclusiones a partir de los datos observados.</p>
+<section id="preguntas-descriptivas">
+<h4><span class="section-number">1.2.1.1. </span>Preguntas descriptivas<a class="headerlink" href="#preguntas-descriptivas" title="Permalink to this heading">#</a></h4>
+<p>Las preguntas descriptivas se refieren exclusivamente a la <strong>muestra observada</strong>. El objetivo es resumir, explorar o visualizar los datos disponibles sin pretender, todavía, generalizar las conclusiones a una población más amplia.</p>
+<p>El <strong>Análisis Exploratorio de Datos (EDA)</strong> se centra justamente en caracterizar los datos obtenidos mediante resúmenes y visualizaciones, con el objetivo de reconocer patrones, comportamientos inusuales y relaciones que puedan resultar relevantes para el análisis posterior.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Exploración de ensayos de hormigón</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text">Una empresa dispone de los resultados de resistencia de una serie de probetas ensayadas en laboratorio. Antes de plantear cualquier generalización sobre el hormigón producido puede preguntarse:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><em>¿Cuál fue la resistencia media de las probetas ensayadas?</em></p></li>
+<li><p class="sd-card-text"><em>¿Qué rango de resistencias se observó?</em></p></li>
+<li><p class="sd-card-text"><em>¿Hay valores inusuales?</em></p></li>
+<li><p class="sd-card-text"><em>¿Cómo se distribuyen las resistencias medidas?</em></p></li>
+</ul>
+<p class="sd-card-text">Las respuestas describen las probetas efectivamente ensayadas. Para afirmar que esas características representan también al hormigón no ensayado ya sería necesario realizar inferencia.</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><img alt="probetas de hormigón" src="../../_images/probetas_hormigon.jpg" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="preguntas-predictivas">
+<h4><span class="section-number">1.2.1.2. </span>Preguntas predictivas<a class="headerlink" href="#preguntas-predictivas" title="Permalink to this heading">#</a></h4>
+<p>Las preguntas predictivas buscan aprender sobre <strong>aspectos no observados de la misma población o proceso que generó los datos</strong>. En estos problemas utilizamos la muestra para inferir qué podemos esperar de otros elementos, situaciones o características de esa misma población.</p>
+<p>Esto incluye preguntas de naturaleza diferente. Por ejemplo, podemos querer estimar una característica global de la población, anticipar el valor de una nueva observación o estudiar cómo se relacionan dos variables dentro de la población.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Caracterización de una población</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text">La fábrica ensaya una pequeña cantidad de bulones y obtiene sus resistencias. El promedio de esas mediciones describe la muestra, pero la cantidad que realmente interesa es la resistencia media de todos los bulones producidos.</p>
+<p class="sd-card-text"><em>¿Cuál es la resistencia media de la población de bulones?</em></p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><img alt="bulones" src="../../_images/bulones.jpg" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Predicción del tránsito en una nueva avenida</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text">La agencia de tránsito dispone de mediciones de volumen de tráfico, densidad poblacional y ancho de calzada en vías existentes. Quiere utilizar esos datos para estimar el tránsito en una avenida cuya combinación de características todavía no fue observada.</p>
+<p class="sd-card-text"><em>¿Cuál será el volumen de tráfico esperado en la nueva avenida?</em></p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><img alt="tráfico urbano" src="../../_images/trafico_calles.jpg" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Asociación entre variables</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text">Una empresa de fabricación de hormigones busca entender la relación entre la resistencia y distintos factores que pueden afectarla, como la relación agua/cemento, la proporción de agregados o la presencia de superplastificante. Para ello dispone de numerosos ensayos de laboratorio con distintas combinaciones de esas variables.</p>
+<p class="sd-card-text"><em>¿Existe una asociación entre la relación agua/cemento y la resistencia del hormigón?</em></p>
+<p class="sd-card-text"><em>¿Cuánto varía, en promedio, la resistencia cuando cambia la relación agua/cemento?</em></p>
+<p class="sd-card-text">Aunque aquí el interés está puesto en una relación entre variables y no en una predicción puntual, seguimos intentando aprender sobre la población bajo las mismas condiciones que generaron los datos.</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><img alt="mezclas de hormigón" src="../../_images/hormigon_mezclas.jpg" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Sobre el término “predictivo”</p>
+<p>En muchos textos, el término <strong>predicción</strong> se utiliza en un sentido más restringido para referirse únicamente a la estimación de nuevas observaciones. En esta introducción utilizaremos <strong>preguntas predictivas</strong> en un sentido más amplio: incluye toda pregunta que busque aprender sobre la población bajo las mismas condiciones que generaron los datos, ya sea para anticipar nuevas observaciones, caracterizar propiedades de la población o estudiar asociaciones entre sus variables.</p>
+<p>Más adelante distinguiremos estas situaciones con mayor precisión.</p>
+</div>
+</section>
+<section id="preguntas-causales">
+<h4><span class="section-number">1.2.1.3. </span>Preguntas causales<a class="headerlink" href="#preguntas-causales" title="Permalink to this heading">#</a></h4>
+<p>Las preguntas causales buscan responder qué ocurriría si <strong>interviniéramos</strong> sobre el sistema y modificáramos alguna de las condiciones que generan la población. Por lo tanto, la respuesta ya no se refiere exactamente a la población observada, sino a una <strong>población alternativa</strong> que existiría bajo esa intervención.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Cambio tarifario en un peaje</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text">Una ciudad considera aumentar considerablemente el costo de los peajes sobre una autopista con el objetivo de desalentar el uso del automóvil privado. Los datos históricos permiten estudiar cómo se comporta el tránsito en las condiciones observadas, pero la pregunta de interés se refiere a una condición alternativa.</p>
+<p class="sd-card-text"><em>¿Qué efecto tendría un aumento del costo del peaje sobre el volumen de tráfico diario?</em></p>
+<p class="sd-card-text">Responder esta pregunta exige razonar sobre lo que ocurriría después de modificar deliberadamente una de las condiciones del sistema.</p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><img alt="autopista con peaje" src="../../_images/autopista_peaje.jpg" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Intervención sobre un suelo</div>
+<p class="sd-card-text">Podemos observar asociaciones entre propiedades de un suelo y su resistencia, pero una decisión de ingeniería puede requerir una pregunta diferente: qué ocurriría si modificáramos deliberadamente alguna condición del sistema.</p>
+<p class="sd-card-text"><em>Si realizáramos una compactación del suelo, ¿cuánto aumentaría su resistencia?</em></p>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Asociación y causalidad responden preguntas diferentes</p>
+<p><em>¿Cómo se relacionan X e Y en la población observada?</em></p>
+<p>no es equivalente a</p>
+<p><em>¿Qué ocurriría con Y si interviniéramos sobre el sistema y modificáramos X?</em></p>
+<p>Una asociación observada entre variables no implica, por sí sola, una relación causal.</p>
+</div>
+<p>De manera esquemática, los tres tipos de preguntas pueden pensarse así:</p>
+<blockquote>
+<div><p><strong>Descriptivas:</strong> MUESTRA → MUESTRA</p>
+<p><strong>Predictivas:</strong> MUESTRA → POBLACIÓN</p>
+<p><strong>Causales:</strong> MUESTRA → POBLACIÓN BAJO INTERVENCIÓN</p>
+</div></blockquote>
+<p>Los límites entre estas categorías no siempre son completamente nítidos y un mismo conjunto de datos puede utilizarse para responder preguntas diferentes. La diferencia fundamental está en <strong>qué queremos aprender</strong> y, por lo tanto, en qué interpretación pretendemos dar a los resultados.</p>
+<p>En las preguntas predictivas y causales aparece una dificultad común: solamente observamos una muestra, pero queremos decir algo sobre cantidades, relaciones o situaciones que no observamos directamente. ¿Cómo podemos hacer esa generalización y qué tan seguras pueden ser nuestras conclusiones?</p>
+</section>
+</section>
+</section>
+<section id="como-extraemos-conocimiento">
+<h2><span class="section-number">1.3. </span>¿Cómo extraemos conocimiento?<a class="headerlink" href="#como-extraemos-conocimiento" title="Permalink to this heading">#</a></h2>
+<p>El proceso analítico para generalizar (extrapolar) lo medido en una muestra a una población subyacente se conoce como <strong>inferencia</strong>. Este proceso involucra una dificultad fundamental: las observaciones reales presentan, en mayor o menor medida, aleatoriedad y componen solo una parte pequeña de las todas los elementos de la población (entendida como concepto amplio según 1.1). Como consecuencia, nuestras conclusiones sobre la población nunca son completamente ciertas.</p>
+<section id="patrones-variabilidad-e-incertidumbre">
+<h3><span class="section-number">1.3.1. </span>Patrones, variabilidad e incertidumbre<a class="headerlink" href="#patrones-variabilidad-e-incertidumbre" title="Permalink to this heading">#</a></h3>
+<p>Que una variable tome valores diferentes entre distintas observaciones significa que existe <strong>variabilidad</strong>. Pero variabilidad no es necesariamente sinónimo de aleatoriedad.</p>
+<p>Por ejemplo, la secuencia</p>
+<div class="math notranslate nohighlight">
+\[
+1,\;2,\;4,\;8,\;16,\ldots
+\]</div>
+<p>presenta una gran variación entre sus valores, pero sigue un patrón completamente determinístico. Una vez identificado ese patrón, el valor siguiente puede determinarse exactamente.</p>
+<p>En las observaciones de sistemas reales, en cambio, suele existir una combinación entre <strong>regularidades o patrones determinísticos</strong> y una componente que no podemos anticipar exactamente para cada observación individual. A esta última la llamaremos <strong>variabilidad aleatoria</strong>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Patrón y variabilidad aleatoria</p>
+<p>En muchos problemas podemos pensar, de manera conceptual, que las observaciones contienen:</p>
+<p><strong>un patrón sistemático + variabilidad aleatoria</strong>.</p>
+<p>El patrón representa aquello que se repite o cambia de manera regular en la población. La variabilidad aleatoria hace que las observaciones individuales no sigan ese patrón de manera exacta.</p>
+<p>Uno de los objetivos fundamentales de la inferencia es utilizar una muestra finita para arrojar luz sobre esos patrones subyacentes, sin ignorar la variabilidad aleatoria que los rodea.</p>
+</div>
+<p>La variabilidad aleatoria que observamos en los datos puede tener distintas fuentes. Dos de las más importantes son la <strong>variabilidad inherente de la población</strong> y la <strong>variabilidad introducida por el proceso de medición</strong>.</p>
+<section id="variabilidad-inherente-en-la-poblacion">
+<h4><span class="section-number">1.3.1.1. </span>Variabilidad inherente en la población<a class="headerlink" href="#variabilidad-inherente-en-la-poblacion" title="Permalink to this heading">#</a></h4>
+<p>Incluso bajo condiciones nominalmente iguales, distintos elementos o eventos de una población pueden tomar valores diferentes.</p>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo: resistencia de probetas</p>
+<p>Dos probetas fabricadas nominalmente con la misma mezcla de hormigón y curadas bajo condiciones similares no alcanzarán exactamente la misma resistencia. Pequeñas diferencias en los materiales, la preparación, el curado y muchas otras condiciones hacen que la resistencia presente una variabilidad propia de la población.</p>
+<p>Aunque pudiéramos medir cada probeta perfectamente, sus resistencias seguirían siendo diferentes.</p>
+</div>
+<p>Esta variabilidad pertenece al fenómeno que queremos estudiar: no surge simplemente porque medimos mal.</p>
+</section>
+<section id="variabilidad-en-el-proceso-de-medicion">
+<h4><span class="section-number">1.3.1.2. </span>Variabilidad en el proceso de medición<a class="headerlink" href="#variabilidad-en-el-proceso-de-medicion" title="Permalink to this heading">#</a></h4>
+<p>Las mediciones también presentan variabilidad propia. Si medimos repetidamente una misma magnitud, los valores registrados pueden no ser exactamente iguales debido a la resolución de los instrumentos, ruido electrónico, condiciones ambientales, variaciones del procedimiento u otras imperfecciones del proceso de medición.</p>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo: medición de desplazamientos</p>
+<p>Supongamos que medimos repetidamente el desplazamiento de un punto de una estructura sometida a una condición prácticamente constante. Aun si el desplazamiento real permaneciera estable, las lecturas obtenidas por un sensor podrían fluctuar ligeramente alrededor de ese valor.</p>
+<p>En este caso, parte de la variabilidad observada proviene del proceso mediante el cual medimos la variable y no de cambios reales en la estructura.</p>
+</div>
+<p>Por lo tanto, las observaciones que vemos son una versión imperfecta de los patrones de la población. Además, la <strong>muestra</strong> contiene solamente una parte de todas las observaciones posibles. Si repitiésemos el proceso de muestreo, probablemente obtendríamos una muestra diferente.</p>
+<p>Estas dos características, la existencia de variabilidad aleatoria y el hecho de observar solamente una parte de la población, generan <strong>incertidumbre</strong> sobre aquello que queremos conocer. No sabemos exactamente cuál es la resistencia media de todos los bulones a partir de unas pocas piezas ensayadas; tampoco podemos saber exactamente cuál será la máxima velocidad de viento del próximo año; ni determinar de manera perfecta una relación entre variables a partir de un conjunto limitado y ruidoso de observaciones.</p>
+<div class="note admonition">
+<p class="admonition-title">Variabilidad e incertidumbre no son lo mismo</p>
+<p>La <strong>variabilidad</strong> describe que las observaciones posibles pueden tomar valores diferentes.</p>
+<p>La <strong>variabilidad aleatoria</strong> se refiere a la parte de esas diferencias que no podemos anticipar de manera determinística para cada observación.</p>
+<p>La <strong>incertidumbre</strong> describe nuestro conocimiento incompleto sobre alguna cantidad de interés: un patrón de la población, una característica poblacional, una observación futura o el efecto de una intervención.</p>
+<p>La variabilidad aleatoria de los datos es una de las principales razones por las que nuestras inferencias son inciertas.</p>
+</div>
+<div class="important admonition">
+<p class="admonition-title">Más datos no convierten el problema en determinístico</p>
+<p>Obtener más observaciones puede permitirnos caracterizar con mayor precisión algunos patrones de la población y la propia variabilidad aleatoria, siempre que los datos sean informativos y el proceso de medición sea adecuado.</p>
+<p>Sin embargo, más datos <strong>no eliminan la variabilidad aleatoria inherente al fenómeno</strong> ni hacen que una realización futura pueda predecirse exactamente. Tampoco corrigen necesariamente errores sistemáticos del proceso de medición o hipótesis incorrectas sobre el problema.</p>
+<p>En los sistemas reales, donde existen variabilidad inherente y mediciones imperfectas, las conclusiones inferenciales deben expresar explícitamente la incertidumbre que permanece.</p>
+</div>
+<p>La consecuencia fundamental es que el proceso inferencial no puede dar certezas donde no las hay. Es decir, no se puede dar una respuesta determinística a un problema que es intrínsecamente aleatorio. Por esta razón, la inferencia lo que busca es cuantificar la incertidumbre sobre las características específicas que queremos conocer sobre la población.</p>
+<p>Esto nos lleva a la siguiente pregunta: ¿cómo cuantificamos esa incertidumbre?</p>
+</section>
+</section>
+<section id="cuantificando-la-incertidumbre">
+<h3><span class="section-number">1.3.2. </span>Cuantificando la incertidumbre<a class="headerlink" href="#cuantificando-la-incertidumbre" title="Permalink to this heading">#</a></h3>
+<p>La herramienta matemática que utilizamos para cuantificar la incertidumbre es la <strong>probabilidad</strong>.</p>
+<p>En el lenguaje cotidiano ya utilizamos la palabra probabilidad para expresar distintos grados de incertidumbre:</p>
+<ul class="simple">
+<li><p>una moneda tiene aproximadamente la misma probabilidad de caer de cada lado;</p></li>
+<li><p>podemos hablar de la probabilidad de que una persona mida menos de cierta altura;</p></li>
+<li><p>podemos preguntar por la probabilidad de que la resistencia de un suelo supere un determinado valor;</p></li>
+<li><p>podemos expresar qué tan probable consideramos que ocurra lluvia mañana.</p></li>
+</ul>
+<p>En ciencia de datos utilizaremos la probabilidad de manera formal para describir la variabilidad aleatoria y, fundamentalmente, para expresar la incertidumbre asociada a nuestras inferencias.</p>
+<div class="tip admonition">
+<p class="admonition-title">Idea central</p>
+<p><strong>Las respuestas inferenciales no son solamente valores: son valores o conclusiones acompañados por una cuantificación de su incertidumbre.</strong></p>
+<p>La probabilidad será el lenguaje matemático que utilizaremos para expresar esa incertidumbre.</p>
+</div>
+<p>Más adelante formalizaremos estas ideas mediante variables aleatorias, distribuciones de probabilidad y herramientas de inferencia estadística. Por ahora alcanza con retener la relación conceptual:</p>
+<blockquote>
+<div><p><strong>variabilidad aleatoria + información incompleta → incertidumbre → probabilidad</strong></p>
+</div></blockquote>
+</section>
+<section id="el-proceso-de-la-ciencia-de-datos">
+<h3><span class="section-number">1.3.3. </span>El proceso de la ciencia de datos<a class="headerlink" href="#el-proceso-de-la-ciencia-de-datos" title="Permalink to this heading">#</a></h3>
+<p>La probabilidad y la inferencia estadística son herramientas centrales para aprender de los datos, pero la ciencia de datos moderna abarca un proceso más amplio. Los datos deben obtenerse, almacenarse y procesarse; deben explorarse y visualizarse; las inferencias deben implementarse y evaluarse; y las conclusiones deben interpretarse dentro del problema de ingeniería que motivó el análisis.</p>
+<p>Por eso, la ciencia de datos se ubica en la intersección de distintas áreas:</p>
+<ul class="simple">
+<li><p><strong>probabilidad y estadística</strong>, para representar variabilidad, cuantificar incertidumbre y realizar inferencia;</p></li>
+<li><p><strong>algoritmos, programación y computación</strong>, para manipular datos y aplicar métodos de manera reproducible y eficiente;</p></li>
+<li><p><strong>conocimiento específico del dominio</strong>, para formular preguntas relevantes, reconocer hipótesis razonables e interpretar correctamente los resultados.</p></li>
+</ul>
+<figure class="align-default" id="ciencia-datos">
+<a class="reference internal image-reference" href="../../_images/burbujas_ciencia_de_datos.png"><img alt="La ciencia de datos como encuentro de distintas especialidades" src="../../_images/burbujas_ciencia_de_datos.png" style="width: 578.0px; height: 516.75px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">La ciencia de datos como encuentro entre herramientas estadísticas, computacionales y conocimiento específico del problema.</span><a class="headerlink" href="#ciencia-datos" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>El desarrollo de la computación amplió enormemente el tipo y volumen de datos que pueden analizarse, así como la complejidad de los métodos que pueden aplicarse. Algoritmos capaces de encontrar regularidades en grandes volúmenes de información hicieron posibles aplicaciones que exceden ampliamente los análisis estadísticos tradicionales.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Clasificación de imágenes</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text">En un contexto de planificación urbano-ambiental, un gobierno necesita caracterizar la cobertura y el uso del suelo de una cuenca. Las imágenes satelitales permiten observar grandes extensiones de manera periódica, pero cada imagen contiene una enorme cantidad de información que sería costoso clasificar manualmente.</p>
+<p class="sd-card-text">Un algoritmo puede aprender regularidades a partir de imágenes previamente clasificadas y utilizarlas para caracterizar nuevas imágenes.</p>
+<p class="sd-card-text"><em>¿Cómo usamos imágenes satelitales ya interpretadas para automatizar la clasificación de imágenes nuevas?</em></p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p class="sd-card-text"><img alt="clasificación de imágenes satelitales" src="../../_images/imagen_satelital_LU.jpg" /></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>El proceso completo no debe entenderse como una secuencia rígida sino como un ciclo en el que las etapas se retroalimentan. Una exploración puede llevar a reformular la pregunta; los resultados pueden revelar problemas en los datos; y una conclusión puede exigir obtener nuevas observaciones.</p>
+<figure class="align-default" id="fig-somerville">
+<a class="reference internal image-reference" href="../../_images/datascience_somerville.jpeg"><img alt="El proceso de la ciencia de datos" src="../../_images/datascience_somerville.jpeg" style="width: 255.25px; height: 83.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Caricatura del proceso de extraer conocimiento de un conjunto de observaciones realizada por David Somerville basado en el original de Hugh McLeod (<a class="reference external" href="https://random-blather.com/2014/04/28/information-isnt-power/">https://random-blather.com/2014/04/28/information-isnt-power/</a>).</span><a class="headerlink" href="#fig-somerville" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>De manera esquemática, podemos distinguir las siguientes etapas:</p>
+<ol class="arabic simple">
+<li><p><strong>Definición del problema.</strong> Plantear la pregunta que queremos responder y delimitar la población y las variables relevantes.</p></li>
+<li><p><strong>Obtención y preparación de los datos.</strong> Recolectar, almacenar, leer, limpiar y transformar las observaciones necesarias para el análisis.</p></li>
+<li><p><strong>Exploración de los datos.</strong> Caracterizar la muestra mediante resúmenes y visualizaciones, detectar patrones, valores inusuales y posibles problemas.</p></li>
+<li><p><strong>Inferencia.</strong> Utilizar las observaciones disponibles para responder preguntas sobre aspectos no observados, cuantificando la incertidumbre asociada a las conclusiones.</p></li>
+<li><p><strong>Aplicación e interpretación.</strong> Utilizar los resultados para responder la pregunta de interés, comunicar las conclusiones y, cuando corresponda, asistir una decisión de ingeniería.</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Una idea que atravesará todo el curso</p>
+<p>La ciencia de datos no consiste solamente en aplicar un algoritmo a un conjunto de datos. El objetivo es extraer conclusiones útiles sobre un problema real a partir de observaciones incompletas e imperfectas, haciendo explícitas las incertidumbres involucradas.</p>
+</div>
+<hr class="docutils" />
+<p class="rubric">Referencias</p>
+<div class="docutils container" id="id5">
+<dl class="citation">
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>David Donoho. 50 years of data science. <em>Journal of Computational and Graphical Statistics</em>, 26(4):745–766, 2017. URL: <a class="reference external" href="https://doi.org/10.1080/10618600.2017.1384734">https://doi.org/10.1080/10618600.2017.1384734</a>, <a class="reference external" href="https://doi.org/10.1080/10618600.2017.1384734">doi:10.1080/10618600.2017.1384734</a>.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Vasant Dhar. Data science and prediction. <em>Commun. ACM</em>, 56(12):64–73, dec 2013. URL: <a class="reference external" href="https://doi.org/10.1145/2500499">https://doi.org/10.1145/2500499</a>, <a class="reference external" href="https://doi.org/10.1145/2500499">doi:10.1145/2500499</a>.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Filippo Chiarello, Paola Belingheri, and Gualtiero Fantoni. Data science for engineering design: State of the art and future directions. <em>Computers in Industry</em>, 129:103447, August 2021. <a class="reference external" href="https://doi.org/10.1016/j.compind.2021.103447">doi:10.1016/j.compind.2021.103447</a>.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>McKinsey &amp; Co. Hal Varian on how the Web challenges managers. January 2009.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter1_intro/intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../front.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introducción a la Ciencia de Datos para Ingeniería Civil</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../repaso_de_probabilidad/repaso_de_probabilidad.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Repaso de probabilidad</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-ciencia-de-datos">1.1. ¿Qué es la ciencia de datos?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#muestra-poblacion-e-inferencia">1.1.1. Muestra, población e inferencia</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-queremos-aprender-de-los-datos">1.2. ¿Qué queremos aprender de los datos?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-preguntas">1.2.1. Tipos de preguntas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-descriptivas">1.2.1.1. Preguntas descriptivas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-predictivas">1.2.1.2. Preguntas predictivas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preguntas-causales">1.2.1.3. Preguntas causales</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-extraemos-conocimiento">1.3. ¿Cómo extraemos conocimiento?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#patrones-variabilidad-e-incertidumbre">1.3.1. Patrones, variabilidad e incertidumbre</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilidad-inherente-en-la-poblacion">1.3.1.1. Variabilidad inherente en la población</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variabilidad-en-el-proceso-de-medicion">1.3.1.2. Variabilidad en el proceso de medición</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuantificando-la-incertidumbre">1.3.2. Cuantificando la incertidumbre</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-proceso-de-la-ciencia-de-datos">1.3.3. El proceso de la ciencia de datos</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mariano Balbi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
